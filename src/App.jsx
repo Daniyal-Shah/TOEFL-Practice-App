@@ -3,11 +3,33 @@ import "./App.css";
 import questionData from "./data/questions.json";
 
 const QUESTIONS_PER_TEST = 10;
-const COMPLETED_TESTS_STORAGE_KEY = "building-sentence-completed-tests";
+const CURRENT_USER_KEY = "building-sentence-current-user";
 
-function loadCompletedTests() {
+function slugifyName(name) {
+  return (
+    name
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, "-")
+      .replace(/[^a-z0-9-]/g, "") || "user"
+  );
+}
+
+function getCompletedTestsKey(userSlug) {
+  return `building-sentence-completed-tests:${userSlug}`;
+}
+
+function loadCurrentUser() {
+  return localStorage.getItem(CURRENT_USER_KEY);
+}
+
+function saveCurrentUser(name) {
+  localStorage.setItem(CURRENT_USER_KEY, name.trim());
+}
+
+function loadCompletedTests(userSlug) {
   try {
-    const stored = localStorage.getItem(COMPLETED_TESTS_STORAGE_KEY);
+    const stored = localStorage.getItem(getCompletedTestsKey(userSlug));
     if (!stored) return new Set();
 
     const parsed = JSON.parse(stored);
@@ -17,9 +39,9 @@ function loadCompletedTests() {
   }
 }
 
-function saveCompletedTests(completed) {
+function saveCompletedTests(userSlug, completed) {
   localStorage.setItem(
-    COMPLETED_TESTS_STORAGE_KEY,
+    getCompletedTestsKey(userSlug),
     JSON.stringify([...completed]),
   );
 }
@@ -91,10 +113,77 @@ function ProgressBar({ total, current, completed }) {
   );
 }
 
-function TestSelectionScreen({ tests, completedTests, onSelect }) {
+function ProfileScreen({ onContinue }) {
+  const [name, setName] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const trimmed = name.trim();
+    if (!trimmed) return;
+    onContinue(trimmed);
+  };
+
+  return (
+    <div className="app">
+      <main className="card profile-screen">
+        <h1 className="card__title">Build a Sentence</h1>
+        <p className="profile-screen__subtitle">
+          Enter your name to save your own practice progress on this device.
+        </p>
+        <form className="profile-screen__form" onSubmit={handleSubmit}>
+          <label className="profile-screen__label" htmlFor="profile-name">
+            Your name
+          </label>
+          <input
+            id="profile-name"
+            className="profile-screen__input"
+            type="text"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            placeholder="e.g. Sarah"
+            autoComplete="name"
+            autoFocus
+            maxLength={40}
+          />
+          <button
+            type="submit"
+            className="btn btn--primary profile-screen__submit"
+            disabled={!name.trim()}
+          >
+            Start Practicing
+          </button>
+        </form>
+        <p className="profile-screen__note">
+          Progress stays on your browser only. Your friend will not see your
+          completed tests.
+        </p>
+      </main>
+    </div>
+  );
+}
+
+function TestSelectionScreen({
+  tests,
+  completedTests,
+  userName,
+  onSelect,
+  onSwitchUser,
+}) {
   return (
     <div className="app">
       <main className="card test-selection">
+        <div className="test-selection__user-bar">
+          <span className="test-selection__user-label">
+            Practicing as <strong>{userName}</strong>
+          </span>
+          <button
+            type="button"
+            className="test-selection__switch-user"
+            onClick={onSwitchUser}
+          >
+            Switch user
+          </button>
+        </div>
         <h1 className="card__title">Build a Sentence</h1>
         <p className="test-selection__subtitle">Choose a practice test</p>
         <ul className="test-selection__list">
@@ -640,19 +729,43 @@ export default function App() {
     () => chunkQuestions(allQuestions, QUESTIONS_PER_TEST),
     [allQuestions],
   );
+  const [userName, setUserName] = useState(() => loadCurrentUser());
+  const userSlug = userName ? slugifyName(userName) : null;
   const [selectedTestIndex, setSelectedTestIndex] = useState(null);
-  const [completedTests, setCompletedTests] = useState(() => loadCompletedTests());
+  const [completedTests, setCompletedTests] = useState(() =>
+    userSlug ? loadCompletedTests(userSlug) : new Set(),
+  );
 
-  const markTestComplete = useCallback((testIndex) => {
-    setCompletedTests((prev) => {
-      if (prev.has(testIndex)) return prev;
-
-      const next = new Set(prev);
-      next.add(testIndex);
-      saveCompletedTests(next);
-      return next;
-    });
+  const handleSetUser = useCallback((name) => {
+    const slug = slugifyName(name);
+    saveCurrentUser(name);
+    setUserName(name.trim());
+    setCompletedTests(loadCompletedTests(slug));
+    setSelectedTestIndex(null);
   }, []);
+
+  const handleSwitchUser = useCallback(() => {
+    localStorage.removeItem(CURRENT_USER_KEY);
+    setUserName(null);
+    setCompletedTests(new Set());
+    setSelectedTestIndex(null);
+  }, []);
+
+  const markTestComplete = useCallback(
+    (testIndex) => {
+      if (!userSlug) return;
+
+      setCompletedTests((prev) => {
+        if (prev.has(testIndex)) return prev;
+
+        const next = new Set(prev);
+        next.add(testIndex);
+        saveCompletedTests(userSlug, next);
+        return next;
+      });
+    },
+    [userSlug],
+  );
 
   const handleTestComplete = useCallback(() => {
     if (selectedTestIndex !== null) {
@@ -660,12 +773,18 @@ export default function App() {
     }
   }, [markTestComplete, selectedTestIndex]);
 
+  if (!userName) {
+    return <ProfileScreen onContinue={handleSetUser} />;
+  }
+
   if (selectedTestIndex === null) {
     return (
       <TestSelectionScreen
         tests={practiceTests}
         completedTests={completedTests}
+        userName={userName}
         onSelect={setSelectedTestIndex}
+        onSwitchUser={handleSwitchUser}
       />
     );
   }
