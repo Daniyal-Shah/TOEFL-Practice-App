@@ -1828,6 +1828,1152 @@
       "sentenceEnd": ".",
       "options": ["has", "submitted", "did", "it", "She", "already"],
       "correctAnswer": ["She", "has", "already", "submitted", "it"]
+    },
+    {
+      "id": 101,
+      "prompt": "Why did the department reject the proposal?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "or",
+        "neither",
+        "properly costed",
+        "It",
+        "nor",
+        "detailed enough",
+        "was"
+      ],
+      "correctAnswer": [
+        "It",
+        "was",
+        "neither",
+        "detailed enough",
+        "nor",
+        "properly costed"
+      ]
+    },
+    {
+      "id": 102,
+      "prompt": "Did the workshop cover research methods?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "but also",
+        "not only",
+        "focusing",
+        "on data collection",
+        "on ethics",
+        "It",
+        "focused"
+      ],
+      "correctAnswer": [
+        "It",
+        "focused",
+        "not only",
+        "on data collection",
+        "but also",
+        "on ethics"
+      ]
+    },
+    {
+      "id": 103,
+      "prompt": "Who is presenting on Thursday?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "speaking",
+        "presents",
+        "the visiting fellow",
+        "and",
+        "are",
+        "Both",
+        "is",
+        "my supervisor"
+      ],
+      "correctAnswer": [
+        "Both",
+        "the visiting fellow",
+        "and",
+        "my supervisor",
+        "are",
+        "speaking"
+      ]
+    },
+    {
+      "id": 104,
+      "prompt": "Can I submit the form by email?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "You",
+        "must",
+        "either",
+        "or",
+        "neither",
+        "deliver it in person",
+        "post it",
+        "posting"
+      ],
+      "correctAnswer": [
+        "You",
+        "must",
+        "either",
+        "post it",
+        "or",
+        "deliver it in person"
+      ]
+    },
+    {
+      "id": 105,
+      "prompt": "Was the fieldwork the problem?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "The delay",
+        "the funding",
+        "not from",
+        "resulting",
+        "but from",
+        "the fieldwork",
+        "resulted"
+      ],
+      "correctAnswer": [
+        "The delay",
+        "resulted",
+        "not from",
+        "the fieldwork",
+        "but from",
+        "the funding"
+      ]
+    },
+    {
+      "id": 106,
+      "prompt": "Did the two departments agree?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "the faculty",
+        "consulted",
+        "was",
+        "the students",
+        "consulting",
+        "Neither",
+        "were",
+        "nor"
+      ],
+      "correctAnswer": [
+        "Neither",
+        "the faculty",
+        "nor",
+        "the students",
+        "were",
+        "consulted"
+      ]
+    },
+    {
+      "id": 107,
+      "prompt": "Is the library open during the break?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "stays open later",
+        "it is",
+        "it",
+        "is",
+        "Not only",
+        "it also",
+        "open",
+        "but"
+      ],
+      "correctAnswer": [
+        "Not only",
+        "is",
+        "it",
+        "open",
+        "but",
+        "it also",
+        "stays open later"
+      ]
+    },
+    {
+      "id": 108,
+      "prompt": "How should we split the presentation?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "Either",
+        "you",
+        "neither",
+        "or",
+        "introducing",
+        "the topic",
+        "introduce",
+        "I will"
+      ],
+      "correctAnswer": [
+        "Either",
+        "you",
+        "introduce",
+        "the topic",
+        "or",
+        "I will"
+      ]
+    },
+    {
+      "id": 109,
+      "prompt": "Can we still add names to the list?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "remains",
+        "provided that",
+        "are available",
+        "places",
+        "open",
+        "remain",
+        "Registration"
+      ],
+      "correctAnswer": [
+        "Registration",
+        "remains",
+        "open",
+        "provided that",
+        "places",
+        "are available"
+      ]
+    },
+    {
+      "id": 110,
+      "prompt": "Why didn't you apply for the grant?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "applied",
+        "I",
+        "was",
+        "would",
+        "had been",
+        "later",
+        "if",
+        "would have",
+        "the deadline"
+      ],
+      "correctAnswer": [
+        "I",
+        "would have",
+        "applied",
+        "if",
+        "the deadline",
+        "had been",
+        "later"
+      ]
+    },
+    {
+      "id": 111,
+      "prompt": "Did the strike affect your classes?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "We",
+        "despite",
+        "the syllabus",
+        "finished",
+        "two weeks",
+        "losing",
+        "although"
+      ],
+      "correctAnswer": [
+        "We",
+        "finished",
+        "the syllabus",
+        "despite",
+        "losing",
+        "two weeks"
+      ]
+    },
+    {
+      "id": 112,
+      "prompt": "Why is the lab booked out?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "it",
+        "They",
+        "could practise",
+        "reserved",
+        "reserving",
+        "so that",
+        "the first-years"
+      ],
+      "correctAnswer": [
+        "They",
+        "reserved",
+        "it",
+        "so that",
+        "the first-years",
+        "could practise"
+      ]
+    },
+    {
+      "id": 113,
+      "prompt": "Was the lecture hall suitable?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "was",
+        "cold",
+        "nobody",
+        "that",
+        "so",
+        "could concentrate",
+        "The room",
+        "such"
+      ],
+      "correctAnswer": [
+        "The room",
+        "was",
+        "so",
+        "cold",
+        "that",
+        "nobody",
+        "could concentrate"
+      ]
+    },
+    {
+      "id": 114,
+      "prompt": "Why did they move the conference?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "demand",
+        "so",
+        "was",
+        "they",
+        "a larger hall",
+        "such",
+        "booked",
+        "that",
+        "There"
+      ],
+      "correctAnswer": [
+        "There",
+        "was",
+        "such",
+        "demand",
+        "that",
+        "they",
+        "booked",
+        "a larger hall"
+      ]
+    },
+    {
+      "id": 115,
+      "prompt": "Should I email the professor now?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "has",
+        "Wait",
+        "she",
+        "the assignments",
+        "marked",
+        "until",
+        "will have"
+      ],
+      "correctAnswer": [
+        "Wait",
+        "until",
+        "she",
+        "has",
+        "marked",
+        "the assignments"
+      ]
+    },
+    {
+      "id": 116,
+      "prompt": "Are you attending the conference?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "increases",
+        "unless",
+        "the fees",
+        "increase",
+        "again",
+        "will go",
+        "I"
+      ],
+      "correctAnswer": [
+        "I",
+        "will go",
+        "unless",
+        "the fees",
+        "increase",
+        "again"
+      ]
+    },
+    {
+      "id": 117,
+      "prompt": "Which lecturer should I ask about the exam?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "on leave",
+        "last week",
+        "I",
+        "is",
+        "The professor",
+        "spoke",
+        "to whom",
+        "to who"
+      ],
+      "correctAnswer": [
+        "The professor",
+        "to whom",
+        "I",
+        "spoke",
+        "last week",
+        "is",
+        "on leave"
+      ]
+    },
+    {
+      "id": 118,
+      "prompt": "Where are the archives kept?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "stood",
+        "in the building",
+        "the old library",
+        "which",
+        "in which",
+        "They",
+        "are"
+      ],
+      "correctAnswer": [
+        "They",
+        "are",
+        "in the building",
+        "in which",
+        "the old library",
+        "stood"
+      ]
+    },
+    {
+      "id": 119,
+      "prompt": "How many applicants were there?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "were",
+        "We",
+        "forty applications,",
+        "most of which",
+        "received",
+        "incomplete",
+        "most of them"
+      ],
+      "correctAnswer": [
+        "We",
+        "received",
+        "forty applications,",
+        "most of which",
+        "were",
+        "incomplete"
+      ]
+    },
+    {
+      "id": 120,
+      "prompt": "Did the panel include external members?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "two of whom",
+        "came",
+        "There",
+        "were",
+        "six examiners,",
+        "from abroad",
+        "two of them"
+      ],
+      "correctAnswer": [
+        "There",
+        "were",
+        "six examiners,",
+        "two of whom",
+        "came",
+        "from abroad"
+      ]
+    },
+    {
+      "id": 121,
+      "prompt": "Which draft should I read?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "revised",
+        "the version",
+        "Read",
+        "after the supervisor's comments",
+        "revising"
+      ],
+      "correctAnswer": [
+        "Read",
+        "the version",
+        "revised",
+        "after the supervisor's comments"
+      ]
+    },
+    {
+      "id": 122,
+      "prompt": "Why was the study criticised?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "too small",
+        "The sample",
+        "used",
+        "using",
+        "was",
+        "were",
+        "in the survey"
+      ],
+      "correctAnswer": [
+        "The sample",
+        "used",
+        "in the survey",
+        "was",
+        "too small"
+      ]
+    },
+    {
+      "id": 123,
+      "prompt": "Which of the projects got funding?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "The proposal",
+        "submitted",
+        "the grant",
+        "by the physics group",
+        "received",
+        "submitting"
+      ],
+      "correctAnswer": [
+        "The proposal",
+        "submitted",
+        "by the physics group",
+        "received",
+        "the grant"
+      ]
+    },
+    {
+      "id": 124,
+      "prompt": "Is there a summary anywhere?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "the figures",
+        "to the email",
+        "contains",
+        "The report",
+        "attaching",
+        "containing",
+        "attached"
+      ],
+      "correctAnswer": [
+        "The report",
+        "attached",
+        "to the email",
+        "contains",
+        "the figures"
+      ]
+    },
+    {
+      "id": 125,
+      "prompt": "Who runs the writing centre?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "next to the seminar room",
+        "the tutor",
+        "is",
+        "It's",
+        "who's",
+        "office",
+        "whose"
+      ],
+      "correctAnswer": [
+        "It's",
+        "the tutor",
+        "whose",
+        "office",
+        "is",
+        "next to the seminar room"
+      ]
+    },
+    {
+      "id": 126,
+      "prompt": "Which module has the heaviest workload?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "taking",
+        "requiring",
+        "a research portfolio",
+        "takes",
+        "requires",
+        "The course",
+        "the most time"
+      ],
+      "correctAnswer": [
+        "The course",
+        "requiring",
+        "a research portfolio",
+        "takes",
+        "the most time"
+      ]
+    },
+    {
+      "id": 127,
+      "prompt": "So the funding wasn't the problem?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "delayed",
+        "the project",
+        "the ethics approval",
+        "were",
+        "What",
+        "was"
+      ],
+      "correctAnswer": [
+        "What",
+        "delayed",
+        "the project",
+        "was",
+        "the ethics approval"
+      ]
+    },
+    {
+      "id": 128,
+      "prompt": "What do you need from the library?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "access",
+        "I",
+        "need",
+        "What",
+        "is",
+        "are",
+        "to the digital archive"
+      ],
+      "correctAnswer": [
+        "What",
+        "I",
+        "need",
+        "is",
+        "access",
+        "to the digital archive"
+      ]
+    },
+    {
+      "id": 129,
+      "prompt": "Did the tutor explain the marking?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "the criteria",
+        "was",
+        "It",
+        "understood",
+        "that",
+        "nobody",
+        "understand"
+      ],
+      "correctAnswer": [
+        "It",
+        "was",
+        "the criteria",
+        "that",
+        "nobody",
+        "understood"
+      ]
+    },
+    {
+      "id": 130,
+      "prompt": "Why is everyone confused?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "of the question",
+        "the wording",
+        "is",
+        "cause",
+        "the trouble",
+        "that",
+        "It",
+        "causes"
+      ],
+      "correctAnswer": [
+        "It",
+        "is",
+        "the wording",
+        "of the question",
+        "that",
+        "causes",
+        "the trouble"
+      ]
+    },
+    {
+      "id": 131,
+      "prompt": "Should we submit early?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "is",
+        "before the holiday",
+        "the draft",
+        "sending",
+        "It",
+        "to send",
+        "advisable"
+      ],
+      "correctAnswer": [
+        "It",
+        "is",
+        "advisable",
+        "to send",
+        "the draft",
+        "before the holiday"
+      ]
+    },
+    {
+      "id": 132,
+      "prompt": "Is the deadline negotiable?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "that",
+        "an extension",
+        "unlikely",
+        "It",
+        "seeming",
+        "will grant",
+        "seems",
+        "they"
+      ],
+      "correctAnswer": [
+        "It",
+        "seems",
+        "unlikely",
+        "that",
+        "they",
+        "will grant",
+        "an extension"
+      ]
+    },
+    {
+      "id": 133,
+      "prompt": "Why did you change supervisors?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "What",
+        "most",
+        "were",
+        "someone in my field",
+        "finding",
+        "mattered",
+        "was"
+      ],
+      "correctAnswer": [
+        "What",
+        "mattered",
+        "most",
+        "was",
+        "finding",
+        "someone in my field"
+      ]
+    },
+    {
+      "id": 134,
+      "prompt": "Did anyone notice the error?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "the mistake",
+        "not until",
+        "the second reading",
+        "It",
+        "that",
+        "spotted",
+        "spotting",
+        "anyone",
+        "was"
+      ],
+      "correctAnswer": [
+        "It",
+        "was",
+        "not until",
+        "the second reading",
+        "that",
+        "anyone",
+        "spotted",
+        "the mistake"
+      ]
+    },
+    {
+      "id": 135,
+      "prompt": "Did you fix the formatting yourself?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "by the office",
+        "the document",
+        "had",
+        "I",
+        "reformatting",
+        "reformatted"
+      ],
+      "correctAnswer": [
+        "I",
+        "had",
+        "the document",
+        "reformatted",
+        "by the office"
+      ]
+    },
+    {
+      "id": 136,
+      "prompt": "How did you get the transcript?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "sending",
+        "I",
+        "to send",
+        "a certified copy",
+        "got",
+        "send",
+        "the registry"
+      ],
+      "correctAnswer": [
+        "I",
+        "got",
+        "the registry",
+        "to send",
+        "a certified copy"
+      ]
+    },
+    {
+      "id": 137,
+      "prompt": "What did the committee decide?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "They",
+        "be",
+        "recommended",
+        "the deadline",
+        "extended",
+        "that",
+        "is"
+      ],
+      "correctAnswer": [
+        "They",
+        "recommended",
+        "that",
+        "the deadline",
+        "be",
+        "extended"
+      ]
+    },
+    {
+      "id": 138,
+      "prompt": "Did your supervisor approve the new topic?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "against",
+        "to change",
+        "it so late",
+        "advised",
+        "changing",
+        "me",
+        "She"
+      ],
+      "correctAnswer": [
+        "She",
+        "advised",
+        "me",
+        "against",
+        "changing",
+        "it so late"
+      ]
+    },
+    {
+      "id": 139,
+      "prompt": "Why weren't you ready for the tutorial?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "expected",
+        "the chapter",
+        "to have read",
+        "The tutor",
+        "reading",
+        "us"
+      ],
+      "correctAnswer": [
+        "The tutor",
+        "expected",
+        "us",
+        "to have read",
+        "the chapter"
+      ]
+    },
+    {
+      "id": 140,
+      "prompt": "Did they let you resubmit?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "to rewrite",
+        "rewrite",
+        "the whole section",
+        "The department",
+        "made",
+        "me"
+      ],
+      "correctAnswer": [
+        "The department",
+        "made",
+        "me",
+        "rewrite",
+        "the whole section"
+      ]
+    },
+    {
+      "id": 141,
+      "prompt": "Are you presenting at the symposium?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "to go",
+        "to get it over with",
+        "insisted",
+        "I",
+        "on",
+        "first",
+        "going"
+      ],
+      "correctAnswer": [
+        "I",
+        "insisted",
+        "on",
+        "going",
+        "first",
+        "to get it over with"
+      ]
+    },
+    {
+      "id": 142,
+      "prompt": "Why is the report so late?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "should",
+        "It",
+        "submitted",
+        "has been",
+        "have been",
+        "submitting",
+        "three weeks ago"
+      ],
+      "correctAnswer": [
+        "It",
+        "should",
+        "have been",
+        "submitted",
+        "three weeks ago"
+      ]
+    },
+    {
+      "id": 143,
+      "prompt": "Did the results surprise you?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "stopped",
+        "than",
+        "then",
+        "the funding",
+        "had",
+        "No sooner",
+        "finished",
+        "we"
+      ],
+      "correctAnswer": [
+        "No sooner",
+        "had",
+        "we",
+        "finished",
+        "than",
+        "the funding",
+        "stopped"
+      ]
+    },
+    {
+      "id": 144,
+      "prompt": "When did they announce the change?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "did",
+        "inform",
+        "us",
+        "informed",
+        "the term began",
+        "Only after",
+        "the office"
+      ],
+      "correctAnswer": [
+        "Only after",
+        "the term began",
+        "did",
+        "the office",
+        "inform",
+        "us"
+      ]
+    },
+    {
+      "id": 145,
+      "prompt": "Was the seminar useful?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "a session",
+        "I have",
+        "attended",
+        "have",
+        "Seldom",
+        "so poorly prepared",
+        "I"
+      ],
+      "correctAnswer": [
+        "Seldom",
+        "have",
+        "I",
+        "attended",
+        "a session",
+        "so poorly prepared"
+      ]
+    },
+    {
+      "id": 146,
+      "prompt": "Is the new system better?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "the slower",
+        "more",
+        "The more",
+        "becomes",
+        "become",
+        "we use it,",
+        "it"
+      ],
+      "correctAnswer": ["The more", "we use it,", "the slower", "it", "becomes"]
+    },
+    {
+      "id": 147,
+      "prompt": "How does this year's cohort compare?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "larger as",
+        "last year's",
+        "not nearly",
+        "is",
+        "as large as",
+        "This group"
+      ],
+      "correctAnswer": [
+        "This group",
+        "is",
+        "not nearly",
+        "as large as",
+        "last year's"
+      ]
+    },
+    {
+      "id": 148,
+      "prompt": "Should they publish the timetable now?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "the better",
+        "The sooner",
+        "the timetable,",
+        "publish",
+        "they",
+        "soon"
+      ],
+      "correctAnswer": [
+        "The sooner",
+        "they",
+        "publish",
+        "the timetable,",
+        "the better"
+      ]
+    },
+    {
+      "id": 149,
+      "prompt": "Was anyone available to help?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "answer",
+        "the phone",
+        "answered",
+        "did",
+        "the office",
+        "At no point"
+      ],
+      "correctAnswer": [
+        "At no point",
+        "did",
+        "the office",
+        "answer",
+        "the phone"
+      ]
+    },
+    {
+      "id": 150,
+      "prompt": "Is the reading manageable?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "There",
+        "I had expected",
+        "far more",
+        "than",
+        "as",
+        "are",
+        "material",
+        "is"
+      ],
+      "correctAnswer": [
+        "There",
+        "is",
+        "far more",
+        "material",
+        "than",
+        "I had expected"
+      ]
     }
   ]
 }
