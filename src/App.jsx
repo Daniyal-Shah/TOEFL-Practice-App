@@ -3,6 +3,7 @@ import "./App.css";
 import questionData from "./data/questions.json";
 
 const QUESTIONS_PER_TEST = 10;
+const PRACTICE_TIME_SECONDS = 6 * 60;
 const CURRENT_USER_KEY = "building-sentence-current-user";
 
 function slugifyName(name) {
@@ -724,7 +725,7 @@ function PracticeTest({
 }
 
 export default function App() {
-  const { taskLabel, timeLimitSeconds, questions: allQuestions } = questionData;
+  const { taskLabel, questions: allQuestions } = questionData;
   const practiceTests = useMemo(
     () => chunkQuestions(allQuestions, QUESTIONS_PER_TEST),
     [allQuestions],
@@ -790,16 +791,13 @@ export default function App() {
   }
 
   const testQuestions = practiceTests[selectedTestIndex];
-  const testTimeLimit = Math.round(
-    timeLimitSeconds * (testQuestions.length / allQuestions.length),
-  );
 
   return (
     <PracticeTest
       key={selectedTestIndex}
       questions={testQuestions}
       taskLabel={`${taskLabel} — Practice Test ${selectedTestIndex + 1}`}
-      timeLimitSeconds={testTimeLimit}
+      timeLimitSeconds={PRACTICE_TIME_SECONDS}
       onExit={() => setSelectedTestIndex(null)}
       onComplete={handleTestComplete}
     />
