@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
 import questionData from "./data/questions.json";
 
@@ -16,8 +16,8 @@ function slugifyName(name) {
   );
 }
 
-function getCompletedTestsKey(userSlug) {
-  return `building-sentence-completed-tests:${userSlug}`;
+function getTestResultsKey(userSlug) {
+  return `building-sentence-test-results:${userSlug}`;
 }
 
 function loadCurrentUser() {
@@ -28,23 +28,27 @@ function saveCurrentUser(name) {
   localStorage.setItem(CURRENT_USER_KEY, name.trim());
 }
 
-function loadCompletedTests(userSlug) {
+function loadTestResults(userSlug) {
   try {
-    const stored = localStorage.getItem(getCompletedTestsKey(userSlug));
-    if (!stored) return new Set();
+    const stored = localStorage.getItem(getTestResultsKey(userSlug));
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      return parsed && typeof parsed === "object" ? parsed : {};
+    }
 
-    const parsed = JSON.parse(stored);
-    return new Set(Array.isArray(parsed) ? parsed : []);
+    const legacyKey = `building-sentence-completed-tests:${userSlug}`;
+    if (localStorage.getItem(legacyKey)) {
+      localStorage.removeItem(legacyKey);
+    }
+
+    return {};
   } catch {
-    return new Set();
+    return {};
   }
 }
 
-function saveCompletedTests(userSlug, completed) {
-  localStorage.setItem(
-    getCompletedTestsKey(userSlug),
-    JSON.stringify([...completed]),
-  );
+function saveTestResults(userSlug, results) {
+  localStorage.setItem(getTestResultsKey(userSlug), JSON.stringify(results));
 }
 
 function chunkQuestions(items, size) {
@@ -72,6 +76,14 @@ function formatTime(seconds) {
 function isAnswerCorrect(selected, correct) {
   if (selected.length !== correct.length) return false;
   return selected.every((word, i) => word === correct[i]);
+}
+
+function computeScoreResults(questions, answers) {
+  return questions.map((q, i) => {
+    const selected = answers[i].map((s) => s.word);
+    if (selected.every((w) => w === null)) return null;
+    return isAnswerCorrect(selected, q.correctAnswer);
+  });
 }
 
 function UserIcon() {
@@ -354,11 +366,15 @@ function ResultsScreen({
   answers,
   results,
   onRestart,
+  onReset,
   onBackToTests,
+  isPreviousAttempt = false,
 }) {
   return (
     <div className="results">
-      <h2 className="card__title">Practice Complete</h2>
+      <h2 className="card__title">
+        {isPreviousAttempt ? "Previous Results" : "Practice Complete"}
+      </h2>
       <div className="results__score">
         {score}/{total}
       </div>
@@ -405,10 +421,39 @@ function ResultsScreen({
         >
           All Practice Tests
         </button>
-        <button type="button" className="btn btn--primary" onClick={onRestart}>
-          Practice Again
-        </button>
+        {isPreviousAttempt ? (
+          <button type="button" className="btn btn--primary" onClick={onReset}>
+            Reset & Try Again
+          </button>
+        ) : (
+          <button type="button" className="btn btn--primary" onClick={onRestart}>
+            Practice Again
+          </button>
+        )}
       </div>
+    </div>
+  );
+}
+
+function SavedResultsView({ questions, answers, onBackToTests, onReset }) {
+  const scoreResults = useMemo(
+    () => computeScoreResults(questions, answers),
+    [questions, answers],
+  );
+  const score = scoreResults.filter((r) => r === true).length;
+
+  return (
+    <div className="app">
+      <ResultsScreen
+        score={score}
+        total={questions.length}
+        questions={questions}
+        answers={answers}
+        results={scoreResults}
+        onBackToTests={onBackToTests}
+        onReset={onReset}
+        isPreviousAttempt
+      />
     </div>
   );
 }
@@ -427,6 +472,7 @@ function PracticeTest({
   const [timeLeft, setTimeLeft] = useState(timeLimitSeconds);
   const [showResults, setShowResults] = useState(false);
   const [checkedQuestions, setCheckedQuestions] = useState({});
+  const hasSavedResultsRef = useRef(false);
 
   const currentQuestion = questions[currentIndex];
   const currentAnswer = answers[currentIndex];
@@ -440,13 +486,10 @@ function PracticeTest({
     [currentAnswer],
   );
 
-  const scoreResults = useMemo(() => {
-    return questions.map((q, i) => {
-      const selected = answers[i].map((s) => s.word);
-      if (selected.every((w) => w === null)) return null;
-      return isAnswerCorrect(selected, q.correctAnswer);
-    });
-  }, [answers, questions]);
+  const scoreResults = useMemo(
+    () => computeScoreResults(questions, answers),
+    [answers, questions],
+  );
 
   const score = scoreResults.filter((r) => r === true).length;
 
@@ -468,10 +511,11 @@ function PracticeTest({
   }, [showResults, timeLeft]);
 
   useEffect(() => {
-    if (showResults) {
-      onComplete();
+    if (showResults && !hasSavedResultsRef.current) {
+      hasSavedResultsRef.current = true;
+      onComplete(answers);
     }
-  }, [showResults, onComplete]);
+  }, [showResults, onComplete, answers]);
 
   const handleWordClick = useCallback(
     (word, optionIndex) => {
@@ -523,6 +567,7 @@ function PracticeTest({
   };
 
   const handleRestart = () => {
+    hasSavedResultsRef.current = false;
     setCurrentIndex(0);
     setAnswers(createEmptyAnswers(questions));
     setTimeLeft(timeLimitSeconds);
@@ -733,46 +778,89 @@ export default function App() {
   const [userName, setUserName] = useState(() => loadCurrentUser());
   const userSlug = userName ? slugifyName(userName) : null;
   const [selectedTestIndex, setSelectedTestIndex] = useState(null);
-  const [completedTests, setCompletedTests] = useState(() =>
-    userSlug ? loadCompletedTests(userSlug) : new Set(),
+  const [testMode, setTestMode] = useState("practice");
+  const [practiceSessionKey, setPracticeSessionKey] = useState(0);
+  const [testResults, setTestResults] = useState(() =>
+    userSlug ? loadTestResults(userSlug) : {},
+  );
+
+  const completedTests = useMemo(
+    () => new Set(Object.keys(testResults).map(Number)),
+    [testResults],
   );
 
   const handleSetUser = useCallback((name) => {
     const slug = slugifyName(name);
     saveCurrentUser(name);
     setUserName(name.trim());
-    setCompletedTests(loadCompletedTests(slug));
+    setTestResults(loadTestResults(slug));
     setSelectedTestIndex(null);
+    setTestMode("practice");
   }, []);
 
   const handleSwitchUser = useCallback(() => {
     localStorage.removeItem(CURRENT_USER_KEY);
     setUserName(null);
-    setCompletedTests(new Set());
+    setTestResults({});
     setSelectedTestIndex(null);
+    setTestMode("practice");
   }, []);
 
-  const markTestComplete = useCallback(
-    (testIndex) => {
+  const saveTestResult = useCallback(
+    (testIndex, answers) => {
       if (!userSlug) return;
 
-      setCompletedTests((prev) => {
-        if (prev.has(testIndex)) return prev;
-
-        const next = new Set(prev);
-        next.add(testIndex);
-        saveCompletedTests(userSlug, next);
+      setTestResults((prev) => {
+        const next = {
+          ...prev,
+          [testIndex]: { answers },
+        };
+        saveTestResults(userSlug, next);
         return next;
       });
     },
     [userSlug],
   );
 
-  const handleTestComplete = useCallback(() => {
+  const clearTestResult = useCallback(
+    (testIndex) => {
+      if (!userSlug) return;
+
+      setTestResults((prev) => {
+        const next = { ...prev };
+        delete next[testIndex];
+        saveTestResults(userSlug, next);
+        return next;
+      });
+      setTestMode("practice");
+      setPracticeSessionKey((key) => key + 1);
+    },
+    [userSlug],
+  );
+
+  const handleSelectTest = useCallback(
+    (index) => {
+      setSelectedTestIndex(index);
+      setTestMode(testResults[index]?.answers ? "review" : "practice");
+      setPracticeSessionKey((key) => key + 1);
+    },
+    [testResults],
+  );
+
+  const handleTestComplete = useCallback(
+    (answers) => {
+      if (selectedTestIndex !== null) {
+        saveTestResult(selectedTestIndex, answers);
+      }
+    },
+    [saveTestResult, selectedTestIndex],
+  );
+
+  const handleResetTest = useCallback(() => {
     if (selectedTestIndex !== null) {
-      markTestComplete(selectedTestIndex);
+      clearTestResult(selectedTestIndex);
     }
-  }, [markTestComplete, selectedTestIndex]);
+  }, [clearTestResult, selectedTestIndex]);
 
   if (!userName) {
     return <ProfileScreen onContinue={handleSetUser} />;
@@ -784,17 +872,29 @@ export default function App() {
         tests={practiceTests}
         completedTests={completedTests}
         userName={userName}
-        onSelect={setSelectedTestIndex}
+        onSelect={handleSelectTest}
         onSwitchUser={handleSwitchUser}
       />
     );
   }
 
   const testQuestions = practiceTests[selectedTestIndex];
+  const savedAnswers = testResults[selectedTestIndex]?.answers;
+
+  if (testMode === "review" && savedAnswers) {
+    return (
+      <SavedResultsView
+        questions={testQuestions}
+        answers={savedAnswers}
+        onBackToTests={() => setSelectedTestIndex(null)}
+        onReset={handleResetTest}
+      />
+    );
+  }
 
   return (
     <PracticeTest
-      key={selectedTestIndex}
+      key={`${selectedTestIndex}-${practiceSessionKey}`}
       questions={testQuestions}
       taskLabel={`${taskLabel} — Practice Test ${selectedTestIndex + 1}`}
       timeLimitSeconds={PRACTICE_TIME_SECONDS}
