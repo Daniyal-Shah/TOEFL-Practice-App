@@ -1,0 +1,1833 @@
+{
+  "title": "Build a Sentence Practice",
+  "taskLabel": "Build a Sentence",
+  "timeLimitSeconds": 2050,
+  "questions": [
+    {
+      "id": 1,
+      "prompt": "I won't be able to join the study group tonight because I have another commitment at the same time.",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "me",
+        "conflict",
+        "prevents",
+        "from",
+        "scheduling",
+        "attending",
+        "prevent",
+        "My"
+      ],
+      "correctAnswer": [
+        "My",
+        "scheduling",
+        "conflict",
+        "prevents",
+        "me",
+        "from",
+        "attending"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I am planning to reserve a group study room in the main library for our project meeting.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": [
+        "into",
+        "allowing",
+        "Are we",
+        "to bring",
+        "snacks",
+        "the room",
+        "allowed"
+      ],
+      "correctAnswer": [
+        "Are we",
+        "allowed",
+        "to bring",
+        "snacks",
+        "into",
+        "the room"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I forgot to print my history essay before coming to campus.",
+      "sentenceStart": "",
+      "sentenceEnd": " on the second floor.",
+      "options": [
+        "are",
+        "despite",
+        "located",
+        "allowed",
+        "to use",
+        "the printers",
+        "You"
+      ],
+      "correctAnswer": [
+        "You",
+        "are",
+        "allowed",
+        "to use",
+        "the printers",
+        "located"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "I am struggling to understand the latest chapter in our chemistry textbook.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": [
+        "you",
+        "asking",
+        "the professor",
+        "Why",
+        "don't",
+        "for help",
+        "ask"
+      ],
+      "correctAnswer": [
+        "Why",
+        "don't",
+        "you",
+        "ask",
+        "the professor",
+        "for help"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Let's grab a quick dinner at the student center after our evening seminar.",
+      "sentenceStart": "But",
+      "sentenceEnd": " seven?",
+      "options": [
+        "the student center",
+        "doesn't",
+        "stop",
+        "serving",
+        "stops",
+        "at",
+        "food"
+      ],
+      "correctAnswer": [
+        "doesn't",
+        "the student center",
+        "stop",
+        "serving",
+        "food",
+        "at"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "It was freezing in my dorm room last night because the heater didn't turn on.",
+      "sentenceStart": "You",
+      "sentenceEnd": ".",
+      "options": [
+        "department",
+        "contacting",
+        "should",
+        "today",
+        "contact",
+        "the",
+        "maintenance"
+      ],
+      "correctAnswer": [
+        "should",
+        "contact",
+        "the",
+        "maintenance",
+        "department",
+        "today"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "The printer in the library is out of paper again.",
+      "sentenceStart": "You should",
+      "sentenceEnd": ".",
+      "options": [
+        "in the",
+        "use",
+        "instead",
+        "the one",
+        "computer lab",
+        "probably",
+        "using"
+      ],
+      "correctAnswer": [
+        "probably",
+        "use",
+        "the one",
+        "in the",
+        "computer lab",
+        "instead"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "I am thinking about joining the university debate club this year.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": [
+        "commitment",
+        "new members",
+        "from",
+        "is",
+        "expected",
+        "What kind of",
+        "expecting"
+      ],
+      "correctAnswer": [
+        "What kind of",
+        "commitment",
+        "is",
+        "expected",
+        "from",
+        "new members"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "My laptop stopped working right before the presentation.",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "borrow",
+        "the afternoon",
+        "mine",
+        "You",
+        "borrowed",
+        "for",
+        "can"
+      ],
+      "correctAnswer": ["You", "can", "borrow", "mine", "for", "the afternoon"]
+    },
+    {
+      "id": 10,
+      "prompt": "I am planning to walk all the way over to the north dining hall for lunch.",
+      "sentenceStart": "Actually, it",
+      "sentenceEnd": ".",
+      "options": [
+        "from here",
+        "much faster",
+        "more",
+        "the",
+        "would be",
+        "to catch",
+        "commuter shuttle"
+      ],
+      "correctAnswer": [
+        "would be",
+        "much faster",
+        "to catch",
+        "the",
+        "commuter shuttle",
+        "from here"
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "What did the housing staff say about the washing machines?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "we should",
+        "reporting",
+        "broken equipment",
+        "explained",
+        "She",
+        "how",
+        "report"
+      ],
+      "correctAnswer": [
+        "She",
+        "explained",
+        "how",
+        "we should",
+        "report",
+        "broken equipment"
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "Are you going to the library right now?",
+      "sentenceStart": "I",
+      "sentenceEnd": " class starts.",
+      "options": [
+        "to",
+        "need",
+        "before",
+        "so",
+        "my",
+        "book",
+        "returning",
+        "return",
+        "a"
+      ],
+      "correctAnswer": ["need", "to", "return", "a", "book", "before", "my"]
+    },
+    {
+      "id": 13,
+      "prompt": "The registration portal keeps crashing every time I log in.",
+      "sentenceStart": "You",
+      "sentenceEnd": ".",
+      "options": [
+        "the",
+        "team",
+        "might",
+        "contacting",
+        "support",
+        "contact",
+        "need to"
+      ],
+      "correctAnswer": ["might", "need to", "contact", "the", "support", "team"]
+    },
+    {
+      "id": 14,
+      "prompt": "Why are there feedback forms on all the cafeteria tables?",
+      "sentenceStart": "",
+      "sentenceEnd": " think.",
+      "options": [
+        "director",
+        "The",
+        "hear",
+        "wants",
+        "to",
+        "which",
+        "what",
+        "students"
+      ],
+      "correctAnswer": [
+        "The",
+        "director",
+        "wants",
+        "to",
+        "hear",
+        "what",
+        "students"
+      ]
+    },
+    {
+      "id": 15,
+      "prompt": "I am applying for a part-time job at the library.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": [
+        "have to",
+        "does",
+        "submitting",
+        "submit",
+        "you",
+        "When",
+        "your application",
+        "do"
+      ],
+      "correctAnswer": [
+        "When",
+        "do",
+        "you",
+        "have to",
+        "submit",
+        "your application"
+      ]
+    },
+    {
+      "id": 16,
+      "prompt": "I was hoping to join the campus photography club this semester.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": [
+        "has passed",
+        "registration deadline",
+        "club's",
+        "if the",
+        "passing",
+        "Do you know",
+        "yet"
+      ],
+      "correctAnswer": [
+        "Do you know",
+        "if the",
+        "club's",
+        "registration deadline",
+        "has passed",
+        "yet"
+      ]
+    },
+    {
+      "id": 17,
+      "prompt": "I finally decided to apply for the university's study abroad program in Spain.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": [
+        "language classes",
+        "are required",
+        "Do you",
+        "any",
+        "is required",
+        "know",
+        "if"
+      ],
+      "correctAnswer": [
+        "Do you",
+        "know",
+        "if",
+        "any",
+        "language classes",
+        "are required"
+      ]
+    },
+    {
+      "id": 18,
+      "prompt": "I've looked everywhere, but I can't find the biology textbook in the bookstore.",
+      "sentenceStart": "Have",
+      "sentenceEnd": "?",
+      "options": [
+        "desk",
+        "checking",
+        "the",
+        "checked",
+        "library",
+        "you",
+        "reserve"
+      ],
+      "correctAnswer": ["you", "checked", "the", "library", "reserve", "desk"]
+    },
+    {
+      "id": 19,
+      "prompt": "I have not completed my history essay, so I cannot submit it on time.",
+      "sentenceStart": "I need",
+      "sentenceEnd": ".",
+      "options": [
+        "an",
+        "paper",
+        "the",
+        "submitted",
+        "extension",
+        "extending",
+        "finish",
+        "to"
+      ],
+      "correctAnswer": ["an", "extension", "to", "finish", "the", "paper"]
+    },
+    {
+      "id": 20,
+      "prompt": "I am planning to apply for the summer internship at the science museum.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": [
+        "qualifications",
+        "to",
+        "What",
+        "does",
+        "applicants",
+        "need",
+        "do",
+        "have"
+      ],
+      "correctAnswer": [
+        "What",
+        "qualifications",
+        "do",
+        "applicants",
+        "need",
+        "to",
+        "have"
+      ]
+    },
+    {
+      "id": 21,
+      "prompt": "I am not sure what topics will be covered in the history seminar.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": [
+        "the",
+        "you",
+        "checked",
+        "updated",
+        "syllabus",
+        "yet",
+        "Have",
+        "checking"
+      ],
+      "correctAnswer": [
+        "Have",
+        "you",
+        "checked",
+        "the",
+        "updated",
+        "syllabus",
+        "yet"
+      ]
+    },
+    {
+      "id": 22,
+      "prompt": "I just finished printing my history research paper.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": [
+        "When",
+        "are you",
+        "planning",
+        "on",
+        "to hand",
+        "in",
+        "it",
+        "plan"
+      ],
+      "correctAnswer": ["When", "are you", "planning", "to hand", "it", "in"]
+    },
+    {
+      "id": 23,
+      "prompt": "The required textbook for the modern literature course is sold out at the campus bookstore.",
+      "sentenceStart": "You could",
+      "sentenceEnd": " on course reserve.",
+      "options": [
+        "who",
+        "our",
+        "instructor",
+        "copy",
+        "use",
+        "that",
+        "placed",
+        "a"
+      ],
+      "correctAnswer": [
+        "use",
+        "a",
+        "copy",
+        "that",
+        "our",
+        "instructor",
+        "placed"
+      ]
+    },
+    {
+      "id": 24,
+      "prompt": "There is a sudden restriction on my university account, and I cannot register for next semester.",
+      "sentenceStart": "This",
+      "sentenceEnd": ".",
+      "options": [
+        "the housing deposit",
+        "unless",
+        "forgets",
+        "usually happens",
+        "a student",
+        "to pay",
+        "when"
+      ],
+      "correctAnswer": [
+        "usually happens",
+        "when",
+        "a student",
+        "forgets",
+        "to pay",
+        "the housing deposit"
+      ]
+    },
+    {
+      "id": 25,
+      "prompt": "Is it required to print our essays for the seminar tomorrow?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "copies",
+        "You",
+        "submit",
+        "online",
+        "paper",
+        "may",
+        "your",
+        "digital"
+      ],
+      "correctAnswer": [
+        "You",
+        "may",
+        "submit",
+        "your",
+        "digital",
+        "copies",
+        "online"
+      ]
+    },
+    {
+      "id": 26,
+      "prompt": "I am planning to apply for the part-time assistant position at the university library.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": [
+        "How many",
+        "are students",
+        "hours",
+        "expecting",
+        "expected",
+        "the",
+        "to work",
+        "a week"
+      ],
+      "correctAnswer": [
+        "How many",
+        "hours",
+        "a week",
+        "are students",
+        "expected",
+        "to work"
+      ]
+    },
+    {
+      "id": 27,
+      "prompt": "Have you decided which elective to take next semester?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "planning to",
+        "that meets",
+        "on Fridays",
+        "enrolling",
+        "I am",
+        "the photography course",
+        "enroll in"
+      ],
+      "correctAnswer": [
+        "I am",
+        "planning to",
+        "enroll in",
+        "the photography course",
+        "that meets",
+        "on Fridays"
+      ]
+    },
+    {
+      "id": 28,
+      "prompt": "Are you taking the campus shuttle to the football game?",
+      "sentenceStart": "I",
+      "sentenceEnd": ".",
+      "options": [
+        "if",
+        "offers",
+        "unless",
+        "will",
+        "my roommate",
+        "a ride",
+        "me"
+      ],
+      "correctAnswer": [
+        "will",
+        "unless",
+        "my roommate",
+        "offers",
+        "me",
+        "a ride"
+      ]
+    },
+    {
+      "id": 29,
+      "prompt": "I missed the first meeting of the debate club yesterday.",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "for",
+        "the president",
+        "email",
+        "you should",
+        "the schedule",
+        "to ask",
+        "asking"
+      ],
+      "correctAnswer": [
+        "you should",
+        "email",
+        "the president",
+        "to ask",
+        "for",
+        "the schedule"
+      ]
+    },
+    {
+      "id": 30,
+      "prompt": "The main library is closed for renovations until next Monday.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": [
+        "going to",
+        "study for",
+        "studying",
+        "are we",
+        "the upcoming",
+        "Where",
+        "exam"
+      ],
+      "correctAnswer": [
+        "Where",
+        "are we",
+        "going to",
+        "study for",
+        "the upcoming",
+        "exam"
+      ]
+    },
+    {
+      "id": 31,
+      "prompt": "What did the academic advisor recommend for next semester?",
+      "sentenceStart": "She",
+      "sentenceEnd": ".",
+      "options": [
+        "classes",
+        "advising",
+        "signs",
+        "fewer",
+        "for",
+        "to sign",
+        "advised",
+        "up",
+        "me"
+      ],
+      "correctAnswer": [
+        "advised",
+        "me",
+        "to sign",
+        "up",
+        "for",
+        "fewer",
+        "classes"
+      ]
+    },
+    {
+      "id": 32,
+      "prompt": "I'm planning to leave my car in the lot next to the chemistry building.",
+      "sentenceStart": "You",
+      "sentenceEnd": ".",
+      "options": [
+        "on weekdays",
+        "need",
+        "permit",
+        "parking",
+        "to park",
+        "a special",
+        "there"
+      ],
+      "correctAnswer": [
+        "need",
+        "a special",
+        "permit",
+        "to park",
+        "there",
+        "on weekdays"
+      ]
+    },
+    {
+      "id": 33,
+      "prompt": "The washing machines in the basement of the dormitory are leaking water everywhere.",
+      "sentenceStart": "Someone",
+      "sentenceEnd": ".",
+      "options": [
+        "call",
+        "to",
+        "has",
+        "repair",
+        "the",
+        "calling",
+        "service",
+        "emergency"
+      ],
+      "correctAnswer": [
+        "has",
+        "to",
+        "call",
+        "the",
+        "emergency",
+        "repair",
+        "service"
+      ]
+    },
+    {
+      "id": 34,
+      "prompt": "The campus bookstore is completely sold out of the required economics textbook.",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "able",
+        "to find",
+        "online",
+        "You",
+        "finding",
+        "might be",
+        "a used copy"
+      ],
+      "correctAnswer": [
+        "You",
+        "might be",
+        "able",
+        "to find",
+        "a used copy",
+        "online"
+      ]
+    },
+    {
+      "id": 35,
+      "prompt": "I completely forgot to return the reserved textbooks to the library yesterday.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": ["fee", "charging", "Will", "late", "charged", "I", "a", "be"],
+      "correctAnswer": ["Will", "I", "be", "charged", "a", "late", "fee"]
+    },
+    {
+      "id": 36,
+      "prompt": "I missed the deadline to submit my housing application.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": [
+        "a",
+        "late fee",
+        "you",
+        "Are they",
+        "going to",
+        "will",
+        "charge"
+      ],
+      "correctAnswer": [
+        "Are they",
+        "going to",
+        "charge",
+        "you",
+        "a",
+        "late fee"
+      ]
+    },
+    {
+      "id": 37,
+      "prompt": "Are you planning to attend the biology workshop this afternoon?",
+      "sentenceStart": "I",
+      "sentenceEnd": ".",
+      "options": [
+        "will",
+        "the professor",
+        "if",
+        "there",
+        "unless",
+        "the session",
+        "cancels",
+        "be"
+      ],
+      "correctAnswer": [
+        "will",
+        "be",
+        "there",
+        "unless",
+        "the professor",
+        "cancels",
+        "the session"
+      ]
+    },
+    {
+      "id": 38,
+      "prompt": "Have you bought the tickets for the campus theater play?",
+      "sentenceStart": "",
+      "sentenceEnd": " my friends want to go.",
+      "options": ["am", "if", "to", "see", "waiting", "I", "for"],
+      "correctAnswer": ["I", "am", "waiting", "to", "see", "if"]
+    },
+    {
+      "id": 39,
+      "prompt": "I'm heading to the student center computer lab to print my final paper.",
+      "sentenceStart": "I heard",
+      "sentenceEnd": " are out of ink.",
+      "options": ["all", "the", "that", "in", "printers", "printer", "lab"],
+      "correctAnswer": ["all", "the", "printers", "in", "that", "lab"]
+    },
+    {
+      "id": 40,
+      "prompt": "Why is the main auditorium door locked?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "has",
+        "started",
+        "already",
+        "yet",
+        "The",
+        "rehearsal",
+        "inside"
+      ],
+      "correctAnswer": [
+        "The",
+        "rehearsal",
+        "has",
+        "already",
+        "started",
+        "inside"
+      ]
+    },
+    {
+      "id": 41,
+      "prompt": "Has the deadline for the final project been extended?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "decided",
+        "to give",
+        "deciding",
+        "us",
+        "week",
+        "The professor",
+        "one more"
+      ],
+      "correctAnswer": [
+        "The professor",
+        "decided",
+        "to give",
+        "us",
+        "one more",
+        "week"
+      ]
+    },
+    {
+      "id": 42,
+      "prompt": "I have my first mock interview at the career advising office tomorrow morning.",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "You",
+        "of",
+        "a printed copy",
+        "your resume",
+        "bring",
+        "brings",
+        "should"
+      ],
+      "correctAnswer": [
+        "You",
+        "should",
+        "bring",
+        "a printed copy",
+        "of",
+        "your resume"
+      ]
+    },
+    {
+      "id": 43,
+      "prompt": "The library is hosting a workshop on advanced research methods next Tuesday.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": [
+        "should we",
+        "to get",
+        "arriving",
+        "a good seat",
+        "How",
+        "early",
+        "arrive"
+      ],
+      "correctAnswer": [
+        "How",
+        "early",
+        "should we",
+        "arrive",
+        "to get",
+        "a good seat"
+      ]
+    },
+    {
+      "id": 44,
+      "prompt": "I am going to leave my car in the lot next to the science building.",
+      "sentenceStart": "Don't you",
+      "sentenceEnd": "?",
+      "options": [
+        "permit",
+        "a",
+        "to",
+        "special",
+        "parking",
+        "there",
+        "park",
+        "need"
+      ],
+      "correctAnswer": ["need", "a", "special", "permit", "to", "park", "there"]
+    },
+    {
+      "id": 45,
+      "prompt": "I want to improve my storytelling skills before I graduate.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": [
+        "Have you",
+        "join",
+        "seminar",
+        "creative writing",
+        "the",
+        "considered",
+        "joining"
+      ],
+      "correctAnswer": [
+        "Have you",
+        "considered",
+        "joining",
+        "the",
+        "creative writing",
+        "seminar"
+      ]
+    },
+    {
+      "id": 46,
+      "prompt": "Why didn't you register for the data science seminar this semester?",
+      "sentenceStart": "Unfortunately,",
+      "sentenceEnd": ".",
+      "options": [
+        "the professor",
+        "low",
+        "canceled",
+        "due to",
+        "canceling",
+        "enrollment",
+        "the course"
+      ],
+      "correctAnswer": [
+        "the professor",
+        "canceled",
+        "the course",
+        "due to",
+        "low",
+        "enrollment"
+      ]
+    },
+    {
+      "id": 47,
+      "prompt": "Are you going to the campus career fair tomorrow?",
+      "sentenceStart": "I",
+      "sentenceEnd": ".",
+      "options": [
+        "stop by",
+        "plan to",
+        "classes",
+        "my",
+        "morning",
+        "planning",
+        "after"
+      ],
+      "correctAnswer": [
+        "plan to",
+        "stop by",
+        "after",
+        "my",
+        "morning",
+        "classes"
+      ]
+    },
+    {
+      "id": 48,
+      "prompt": "I am going to Professor Lee's office hours at three o'clock.",
+      "sentenceStart": "Didn't",
+      "sentenceEnd": "?",
+      "options": [
+        "her appointments",
+        "cancel",
+        "all",
+        "she",
+        "for",
+        "cancelled",
+        "this afternoon"
+      ],
+      "correctAnswer": [
+        "she",
+        "cancel",
+        "all",
+        "her appointments",
+        "for",
+        "this afternoon"
+      ]
+    },
+    {
+      "id": 49,
+      "prompt": "How did you find out about the summer internship fair?",
+      "sentenceStart": "Professor Smith",
+      "sentenceEnd": ".",
+      "options": [
+        "it",
+        "mentioned",
+        "about",
+        "during",
+        "lecture",
+        "chemistry",
+        "the"
+      ],
+      "correctAnswer": [
+        "mentioned",
+        "it",
+        "during",
+        "the",
+        "chemistry",
+        "lecture"
+      ]
+    },
+    {
+      "id": 50,
+      "prompt": "How should we hand in our research papers?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "them",
+        "us",
+        "want",
+        "to upload",
+        "The professor",
+        "wants",
+        "to the website"
+      ],
+      "correctAnswer": [
+        "The professor",
+        "wants",
+        "us",
+        "to upload",
+        "them",
+        "to the website"
+      ]
+    },
+    {
+      "id": 51,
+      "prompt": "Did you hand in the lab report?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": ["it", "I", "uploaded", "upload", "to the portal"],
+      "correctAnswer": ["I", "uploaded", "it", "to the portal"]
+    },
+    {
+      "id": 52,
+      "prompt": "Why weren't you at the meeting?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": ["about the change", "tell", "Nobody", "told", "me"],
+      "correctAnswer": ["Nobody", "told", "me", "about the change"]
+    },
+    {
+      "id": 53,
+      "prompt": "Have you paid the tuition fee?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": ["I", "the invoice", "received", "did", "not", "have"],
+      "correctAnswer": ["I", "have", "not", "received", "the invoice"]
+    },
+    {
+      "id": 54,
+      "prompt": "Did you enjoy the seminar?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": ["I", "found", "repetitive", "the second half", "finding"],
+      "correctAnswer": ["I", "found", "the second half", "repetitive"]
+    },
+    {
+      "id": 55,
+      "prompt": "Did the results come out?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": ["have", "published", "them", "The department", "not", "has"],
+      "correctAnswer": ["The department", "has", "not", "published", "them"]
+    },
+    {
+      "id": 56,
+      "prompt": "Is the assignment still due on Friday?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": ["moved", "The deadline", "to the following Monday", "moving"],
+      "correctAnswer": ["The deadline", "moved", "to the following Monday"]
+    },
+    {
+      "id": 57,
+      "prompt": "The deadline is tomorrow.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": ["Should", "start", "we", "tonight", "starting"],
+      "correctAnswer": ["Should", "we", "start", "tonight"]
+    },
+    {
+      "id": 58,
+      "prompt": "I lost my student card.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": ["Where", "that", "you", "does", "do", "report"],
+      "correctAnswer": ["Where", "do", "you", "report", "that"]
+    },
+    {
+      "id": 59,
+      "prompt": "The office was closed all week.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": [
+        "when",
+        "you",
+        "reopens",
+        "Do",
+        "know",
+        "it",
+        "does it reopen"
+      ],
+      "correctAnswer": ["Do", "you", "know", "when", "it", "reopens"]
+    },
+    {
+      "id": 60,
+      "prompt": "The shuttle never arrived.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": ["you", "did", "get", "to campus", "do", "How"],
+      "correctAnswer": ["How", "did", "you", "get", "to campus"]
+    },
+    {
+      "id": 61,
+      "prompt": "The payment was rejected again.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": ["Has", "reporting", "this problem", "anyone", "reported"],
+      "correctAnswer": ["Has", "anyone", "reported", "this problem"]
+    },
+    {
+      "id": 62,
+      "prompt": "Professor Malik moved her office hours.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": ["that", "she", "Didn't", "announce", "announced", "in class"],
+      "correctAnswer": ["Didn't", "she", "announce", "that", "in class"]
+    },
+    {
+      "id": 63,
+      "prompt": "I can't open the shared folder.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": [
+        "you",
+        "Could",
+        "manages",
+        "access",
+        "tell",
+        "me",
+        "manage",
+        "who"
+      ],
+      "correctAnswer": [
+        "Could",
+        "you",
+        "tell",
+        "me",
+        "who",
+        "manages",
+        "access"
+      ]
+    },
+    {
+      "id": 64,
+      "prompt": "I need to change my tutorial group.",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "were",
+        "whether",
+        "was",
+        "I",
+        "is possible",
+        "wondering",
+        "that"
+      ],
+      "correctAnswer": [
+        "I",
+        "was",
+        "wondering",
+        "whether",
+        "that",
+        "is possible"
+      ]
+    },
+    {
+      "id": 65,
+      "prompt": "The library closes at nine now.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": [
+        "changed",
+        "the hours",
+        "know",
+        "did they change",
+        "they",
+        "why",
+        "you",
+        "Do"
+      ],
+      "correctAnswer": [
+        "Do",
+        "you",
+        "know",
+        "why",
+        "they",
+        "changed",
+        "the hours"
+      ]
+    },
+    {
+      "id": 66,
+      "prompt": "The seminar room was double-booked.",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": ["do", "meeting", "we", "are", "instead", "Where"],
+      "correctAnswer": ["Where", "are", "we", "meeting", "instead"]
+    },
+    {
+      "id": 67,
+      "prompt": "Which room is the seminar in?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "It's",
+        "opposite",
+        "the room",
+        "directly",
+        "direct",
+        "the library"
+      ],
+      "correctAnswer": [
+        "It's",
+        "the room",
+        "directly",
+        "opposite",
+        "the library"
+      ]
+    },
+    {
+      "id": 68,
+      "prompt": "Which bag is yours?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": ["sitting", "is", "Mine", "the one", "on the chair", "sits"],
+      "correctAnswer": ["Mine", "is", "the one", "sitting", "on the chair"]
+    },
+    {
+      "id": 69,
+      "prompt": "Where can we work as a group?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "suitable",
+        "for group work",
+        "a space",
+        "suit",
+        "is",
+        "There"
+      ],
+      "correctAnswer": ["There", "is", "a space", "suitable", "for group work"]
+    },
+    {
+      "id": 70,
+      "prompt": "I can't find the announcement.",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "Check",
+        "sent",
+        "the office",
+        "send",
+        "the email",
+        "that",
+        "this morning"
+      ],
+      "correctAnswer": [
+        "Check",
+        "the email",
+        "that",
+        "the office",
+        "sent",
+        "this morning"
+      ]
+    },
+    {
+      "id": 71,
+      "prompt": "Which lecturer teaches statistics?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "the workshop",
+        "last term",
+        "the one",
+        "It's",
+        "who",
+        "run",
+        "ran"
+      ],
+      "correctAnswer": [
+        "It's",
+        "the one",
+        "who",
+        "ran",
+        "the workshop",
+        "last term"
+      ]
+    },
+    {
+      "id": 72,
+      "prompt": "Where should I leave the forms?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "Leave",
+        "in the box",
+        "outside the office",
+        "them",
+        "sitting",
+        "sits"
+      ],
+      "correctAnswer": [
+        "Leave",
+        "them",
+        "in the box",
+        "sitting",
+        "outside the office"
+      ]
+    },
+    {
+      "id": 73,
+      "prompt": "The registration form is confusing.",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "Complete",
+        "relevant",
+        "to your programme",
+        "the part",
+        "relevance"
+      ],
+      "correctAnswer": ["Complete", "the part", "relevant", "to your programme"]
+    },
+    {
+      "id": 74,
+      "prompt": "Which textbook edition do I need?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "You",
+        "publishes",
+        "published",
+        "the one",
+        "this year",
+        "need"
+      ],
+      "correctAnswer": ["You", "need", "the one", "published", "this year"]
+    },
+    {
+      "id": 75,
+      "prompt": "Is there parking on campus?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "The students",
+        "behind the gym",
+        "can park",
+        "permit",
+        "with permits"
+      ],
+      "correctAnswer": [
+        "The students",
+        "with permits",
+        "can park",
+        "behind the gym"
+      ]
+    },
+    {
+      "id": 76,
+      "prompt": "Who should I contact about housing?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "responsibility",
+        "for student accommodation",
+        "Speak",
+        "responsible",
+        "to the officer"
+      ],
+      "correctAnswer": [
+        "Speak",
+        "to the officer",
+        "responsible",
+        "for student accommodation"
+      ]
+    },
+    {
+      "id": 77,
+      "prompt": "I still don't understand the task.",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "us",
+        "The handout",
+        "the tutor",
+        "everything",
+        "give",
+        "explains",
+        "that",
+        "gave"
+      ],
+      "correctAnswer": [
+        "The handout",
+        "that",
+        "the tutor",
+        "gave",
+        "us",
+        "explains",
+        "everything"
+      ]
+    },
+    {
+      "id": 78,
+      "prompt": "Which shuttle goes to the north campus?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": ["the one", "stopping", "at the library", "Take", "stops"],
+      "correctAnswer": ["Take", "the one", "stopping", "at the library"]
+    },
+    {
+      "id": 79,
+      "prompt": "The reading list is very long.",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "listing",
+        "in the syllabus",
+        "Read",
+        "the chapters",
+        "listed"
+      ],
+      "correctAnswer": ["Read", "the chapters", "listed", "in the syllabus"]
+    },
+    {
+      "id": 80,
+      "prompt": "Why is the lab so crowded?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "It's",
+        "full of",
+        "missing",
+        "missed",
+        "who",
+        "the deadline",
+        "the students"
+      ],
+      "correctAnswer": [
+        "It's",
+        "full of",
+        "the students",
+        "who",
+        "missed",
+        "the deadline"
+      ]
+    },
+    {
+      "id": 81,
+      "prompt": "The printer keeps stopping.",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "I",
+        "that",
+        "is",
+        "loose",
+        "it's",
+        "the cable",
+        "think",
+        "are"
+      ],
+      "correctAnswer": [
+        "I",
+        "think",
+        "it's",
+        "the cable",
+        "that",
+        "is",
+        "loose"
+      ]
+    },
+    {
+      "id": 82,
+      "prompt": "The room is always cold.",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": ["the window", "open", "stay", "stays", "It's", "that"],
+      "correctAnswer": ["It's", "the window", "that", "stays", "open"]
+    },
+    {
+      "id": 83,
+      "prompt": "Should we change the meeting time?",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": [
+        "anyone",
+        "to Friday",
+        "moving",
+        "help",
+        "moves",
+        "it",
+        "Would"
+      ],
+      "correctAnswer": ["Would", "moving", "it", "to Friday", "help", "anyone"]
+    },
+    {
+      "id": 84,
+      "prompt": "Nobody replied to the survey.",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "received",
+        "receive",
+        "nobody",
+        "seems",
+        "that",
+        "It",
+        "the email"
+      ],
+      "correctAnswer": [
+        "It",
+        "seems",
+        "that",
+        "nobody",
+        "received",
+        "the email"
+      ]
+    },
+    {
+      "id": 85,
+      "prompt": "The seminar was cancelled.",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "the lecturer",
+        "It",
+        "was",
+        "that",
+        "turns out",
+        "turned out",
+        "ill"
+      ],
+      "correctAnswer": [
+        "It",
+        "turned out",
+        "that",
+        "the lecturer",
+        "was",
+        "ill"
+      ]
+    },
+    {
+      "id": 86,
+      "prompt": "Why is the fee higher this year?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "affects",
+        "that",
+        "affected",
+        "in rent",
+        "the increase",
+        "everyone",
+        "It's"
+      ],
+      "correctAnswer": [
+        "It's",
+        "the increase",
+        "in rent",
+        "that",
+        "affected",
+        "everyone"
+      ]
+    },
+    {
+      "id": 87,
+      "prompt": "Should I take the extra module?",
+      "sentenceStart": "",
+      "sentenceEnd": "?",
+      "options": [
+        "it",
+        "increase",
+        "increases",
+        "taking",
+        "your workload",
+        "Would"
+      ],
+      "correctAnswer": ["Would", "taking", "it", "increase", "your workload"]
+    },
+    {
+      "id": 88,
+      "prompt": "Everyone failed question three.",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "confused",
+        "that",
+        "the wording",
+        "was",
+        "people",
+        "It",
+        "confusing"
+      ],
+      "correctAnswer": [
+        "It",
+        "was",
+        "the wording",
+        "that",
+        "confused",
+        "people"
+      ]
+    },
+    {
+      "id": 89,
+      "prompt": "Was the trip well organised?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "Rarely",
+        "seen",
+        "have",
+        "I",
+        "such a smooth schedule",
+        "had"
+      ],
+      "correctAnswer": ["Rarely", "had", "I", "seen", "such a smooth schedule"]
+    },
+    {
+      "id": 90,
+      "prompt": "Did the changes take effect immediately?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "Not until",
+        "applied",
+        "apply",
+        "the new rules",
+        "did",
+        "September"
+      ],
+      "correctAnswer": [
+        "Not until",
+        "September",
+        "did",
+        "the new rules",
+        "apply"
+      ]
+    },
+    {
+      "id": 91,
+      "prompt": "How did they choose the winner?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "naming",
+        "a single winner",
+        "avoided",
+        "to name",
+        "The committee"
+      ],
+      "correctAnswer": ["The committee", "avoided", "naming", "a single winner"]
+    },
+    {
+      "id": 92,
+      "prompt": "Do you prefer lectures or seminars?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "attending seminars",
+        "to sit",
+        "prefer",
+        "I",
+        "to sitting in lectures"
+      ],
+      "correctAnswer": [
+        "I",
+        "prefer",
+        "attending seminars",
+        "to sitting in lectures"
+      ]
+    },
+    {
+      "id": 93,
+      "prompt": "You looked lost in the archive.",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "found",
+        "I",
+        "Checking the index,",
+        "a mislabelled box",
+        "Checked the index,"
+      ],
+      "correctAnswer": [
+        "Checking the index,",
+        "I",
+        "found",
+        "a mislabelled box"
+      ]
+    },
+    {
+      "id": 94,
+      "prompt": "Do you take the shuttle?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": ["usually", "usual", "the bus", "take", "I"],
+      "correctAnswer": ["I", "usually", "take", "the bus"]
+    },
+    {
+      "id": 95,
+      "prompt": "Is Dr. Feroz ever late?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": ["He", "on time", "is", "has", "always"],
+      "correctAnswer": ["He", "is", "always", "on time"]
+    },
+    {
+      "id": 96,
+      "prompt": "Do you enjoy the seminars?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": ["much very", "them", "very much", "enjoy", "I"],
+      "correctAnswer": ["I", "enjoy", "them", "very much"]
+    },
+    {
+      "id": 97,
+      "prompt": "Was the exam difficult?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": ["have", "enough", "I", "time enough", "didn't", "time"],
+      "correctAnswer": ["I", "didn't", "have", "enough", "time"]
+    },
+    {
+      "id": 98,
+      "prompt": "Can you finish by Friday?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": ["can't", "enough fast", "enough", "work", "I", "fast"],
+      "correctAnswer": ["I", "can't", "work", "fast", "enough"]
+    },
+    {
+      "id": 99,
+      "prompt": "Did everyone attend the workshop?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": [
+        "the session",
+        "attended",
+        "ever",
+        "Only",
+        "the first-year students"
+      ],
+      "correctAnswer": [
+        "Only",
+        "the first-year students",
+        "attended",
+        "the session"
+      ]
+    },
+    {
+      "id": 100,
+      "prompt": "Has she finished the draft?",
+      "sentenceStart": "",
+      "sentenceEnd": ".",
+      "options": ["has", "submitted", "did", "it", "She", "already"],
+      "correctAnswer": ["She", "has", "already", "submitted", "it"]
+    }
+  ]
+}
