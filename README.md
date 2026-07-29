@@ -12,39 +12,46 @@ cp .env.example .env.local
 Add your MongoDB Atlas connection string to `.env.local`:
 
 ```env
-MONGODB_URI=mongodb+srv://USERNAME:PASSWORD@CLUSTER.mongodb.net/?retryWrites=true&w=majority
+MONGODB_URI=mongodb+srv://USERNAME:PASSWORD@cluster0.xxxxx.mongodb.net/?retryWrites=true&w=majority
 MONGODB_DB_NAME=building_sentence_app
 ```
 
-Run the app locally (frontend + API):
+Start the app (frontend + API together):
 
 ```bash
 npm run dev
 ```
 
-Open the URL shown in your terminal (usually `http://localhost:3000`).
+Open **http://localhost:5173**
+
+> **Important:** Do not use `vite` alone — the `/api` routes will 404. Always use `npm run dev`.
 
 ## Deploy to Vercel
 
 1. Push this repo to GitHub
 2. Import the project in [Vercel](https://vercel.com)
 3. Add environment variables in **Project Settings → Environment Variables**:
-   - `MONGODB_URI` — your Atlas connection string
-   - `MONGODB_DB_NAME` — e.g. `building_sentence_app`
-4. Deploy
+   - `MONGODB_URI`
+   - `MONGODB_DB_NAME` = `building_sentence_app`
+4. Redeploy after saving env vars
 
-### MongoDB Atlas setup
+### MongoDB Atlas checklist
 
-1. Create a free cluster on [MongoDB Atlas](https://www.mongodb.com/atlas)
-2. Create a database user with read/write access
-3. In **Network Access**, allow access from anywhere (`0.0.0.0/0`) so Vercel can connect
-4. Copy the connection string into `MONGODB_URI`
+- Database user with read/write access
+- **Network Access** → allow `0.0.0.0/0`
+- Password URL-encoded in connection string if it contains special characters
 
-User profiles and completed test results are stored in the `users` collection.
+### Test production API
 
-## Adding Your Own Questions
+```
+https://YOUR-APP.vercel.app/api/health
+```
 
-Edit `src/data/questions.json`. Each question follows this format:
+Should return: `{"ok":true,"database":"connected"}`
+
+## Adding Questions
+
+Edit `src/data/questions.json`. Each question:
 
 ```json
 {
@@ -52,25 +59,14 @@ Edit `src/data/questions.json`. Each question follows this format:
   "prompt": "How do you stay in touch with friends?",
   "sentenceStart": "I",
   "sentenceEnd": ".",
-  "options": ["video", "use", "mostly", "messaging apps", "calls", "write letters", "and"],
+  "options": ["video", "use", "mostly", "messaging apps"],
   "correctAnswer": ["mostly", "use", "messaging apps", "and", "video", "calls"]
 }
 ```
 
-| Field | Description |
-|---|---|
-| `prompt` | The question shown by the pink avatar |
-| `sentenceStart` | Text before the blanks (e.g. `"I"` or `"She wanted to know"`) |
-| `sentenceEnd` | Punctuation or text after the blanks (usually `"."`) |
-| `options` | All word chunks shown in the word bank (can include distractors) |
-| `correctAnswer` | Words in the correct order — number of blanks = length of this array |
-
 ## How to Practice
 
-1. Enter your name — progress syncs to the cloud per user
-2. Choose a practice test (10 questions each, 6-minute timer)
-3. Click words from the word bank to fill the blanks in order
-4. Click a filled blank to remove that word
-5. Click **Check Answer** to see if you're correct
-6. View your score and answer review when done
-7. Reopen completed tests to see previous results, or reset and try again
+1. Enter your name — progress saves to MongoDB Atlas
+2. Choose a practice test (10 questions, 6-minute timer)
+3. Build sentences from the word bank
+4. Review results and reopen completed tests anytime

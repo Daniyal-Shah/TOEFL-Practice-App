@@ -1,10 +1,5 @@
-import { getUsersCollection } from "../lib/mongodb.js";
-
-function sendJson(res, status, body) {
-  res.statusCode = status;
-  res.setHeader("Content-Type", "application/json");
-  res.end(JSON.stringify(body));
-}
+import { getErrorMessage, sendJson } from "../lib/http.js";
+import { getUserBySlug } from "../lib/users-service.js";
 
 export default async function handler(req, res) {
   if (req.method !== "GET") {
@@ -18,20 +13,15 @@ export default async function handler(req, res) {
       return sendJson(res, 400, { error: "User slug is required" });
     }
 
-    const users = await getUsersCollection();
-    const user = await users.findOne({ slug });
+    const user = await getUserBySlug(slug);
 
     if (!user) {
       return sendJson(res, 404, { error: "User not found" });
     }
 
-    return sendJson(res, 200, {
-      slug: user.slug,
-      name: user.name,
-      testResults: user.testResults || {},
-    });
+    return sendJson(res, 200, user);
   } catch (error) {
     console.error("GET /api/users/[slug] failed:", error);
-    return sendJson(res, 500, { error: "Failed to load user profile" });
+    return sendJson(res, 500, { error: getErrorMessage(error) });
   }
 }
