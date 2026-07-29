@@ -1,5 +1,11 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
+import {
+  clearTestResult as clearTestResultApi,
+  fetchUser,
+  loginUser,
+  saveTestResult as saveTestResultApi,
+} from "./api.js";
 import questionData from "./data/questions.json";
 
 const QUESTIONS_PER_TEST = 10;
@@ -16,39 +22,41 @@ function slugifyName(name) {
   );
 }
 
-function getTestResultsKey(userSlug) {
-  return `building-sentence-test-results:${userSlug}`;
+function saveCurrentUser(name) {
+  localStorage.setItem(CURRENT_USER_KEY, name.trim());
+}
+
+function clearCurrentUser() {
+  localStorage.removeItem(CURRENT_USER_KEY);
 }
 
 function loadCurrentUser() {
   return localStorage.getItem(CURRENT_USER_KEY);
 }
 
-function saveCurrentUser(name) {
-  localStorage.setItem(CURRENT_USER_KEY, name.trim());
+function LoadingScreen({ message = "Loading your progress..." }) {
+  return (
+    <div className="app">
+      <main className="card loading-screen">
+        <div className="loading-screen__spinner" aria-hidden="true" />
+        <p className="loading-screen__message">{message}</p>
+      </main>
+    </div>
+  );
 }
 
-function loadTestResults(userSlug) {
-  try {
-    const stored = localStorage.getItem(getTestResultsKey(userSlug));
-    if (stored) {
-      const parsed = JSON.parse(stored);
-      return parsed && typeof parsed === "object" ? parsed : {};
-    }
-
-    const legacyKey = `building-sentence-completed-tests:${userSlug}`;
-    if (localStorage.getItem(legacyKey)) {
-      localStorage.removeItem(legacyKey);
-    }
-
-    return {};
-  } catch {
-    return {};
-  }
-}
-
-function saveTestResults(userSlug, results) {
-  localStorage.setItem(getTestResultsKey(userSlug), JSON.stringify(results));
+function ErrorScreen({ message, onRetry }) {
+  return (
+    <div className="app">
+      <main className="card error-screen">
+        <h2 className="card__title">Something went wrong</h2>
+        <p className="error-screen__message">{message}</p>
+        <button type="button" className="btn btn--primary" onClick={onRetry}>
+          Try Again
+        </button>
+      </main>
+    </div>
+  );
 }
 
 function chunkQuestions(items, size) {
@@ -126,13 +134,13 @@ function ProgressBar({ total, current, completed }) {
   );
 }
 
-function ProfileScreen({ onContinue }) {
+function ProfileScreen({ onContinue, isSubmitting, error }) {
   const [name, setName] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const trimmed = name.trim();
-    if (!trimmed) return;
+    if (!trimmed || isSubmitting) return;
     onContinue(trimmed);
   };
 
@@ -141,7 +149,7 @@ function ProfileScreen({ onContinue }) {
       <main className="card profile-screen">
         <h1 className="card__title">Build a Sentence</h1>
         <p className="profile-screen__subtitle">
-          Enter your name to save your own practice progress on this device.
+          Enter your name to save your practice progress in the cloud.
         </p>
         <form className="profile-screen__form" onSubmit={handleSubmit}>
           <label className="profile-screen__label" htmlFor="profile-name">
@@ -157,18 +165,20 @@ function ProfileScreen({ onContinue }) {
             autoComplete="name"
             autoFocus
             maxLength={40}
+            disabled={isSubmitting}
           />
+          {error && <p className="profile-screen__error">{error}</p>}
           <button
             type="submit"
             className="btn btn--primary profile-screen__submit"
-            disabled={!name.trim()}
+            disabled={!name.trim() || isSubmitting}
           >
-            Start Practicing
+            {isSubmitting ? "Loading..." : "Start Practicing"}
           </button>
         </form>
         <p className="profile-screen__note">
-          Progress stays on your browser only. Your friend will not see your
-          completed tests.
+          Your completed tests and results sync to MongoDB Atlas, so you can
+          continue on any device using the same name.
         </p>
       </main>
     </div>
@@ -780,62 +790,118 @@ export default function App() {
   const [selectedTestIndex, setSelectedTestIndex] = useState(null);
   const [testMode, setTestMode] = useState("practice");
   const [practiceSessionKey, setPracticeSessionKey] = useState(0);
-  const [testResults, setTestResults] = useState(() =>
-    userSlug ? loadTestResults(userSlug) : {},
-  );
+  const [testResults, setTestResults] = useState({});
+  const [isLoadingUser, setIsLoadingUser] = useState(Boolean(userSlug));
+  const [isSubmittingProfile, setIsSubmittingProfile] = useState(false);
+  const [loadError, setLoadError] = useState(null);
+  const [profileError, setProfileError] = useState(null);
+  const skipSessionFetchRef = useRef(false);
 
   const completedTests = useMemo(
     () => new Set(Object.keys(testResults).map(Number)),
     [testResults],
   );
 
-  const handleSetUser = useCallback((name) => {
-    const slug = slugifyName(name);
-    saveCurrentUser(name);
-    setUserName(name.trim());
-    setTestResults(loadTestResults(slug));
-    setSelectedTestIndex(null);
-    setTestMode("practice");
+  const loadUserProgress = useCallback(async (slug) => {
+    setIsLoadingUser(true);
+    setLoadError(null);
+
+    try {
+      const data = await fetchUser(slug);
+      setUserName(data.name);
+      setTestResults(data.testResults || {});
+      saveCurrentUser(data.name);
+    } catch (error) {
+      setLoadError(error.message);
+    } finally {
+      setIsLoadingUser(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!userSlug) {
+      setIsLoadingUser(false);
+      return;
+    }
+
+    if (skipSessionFetchRef.current) {
+      skipSessionFetchRef.current = false;
+      return;
+    }
+
+    loadUserProgress(userSlug);
+  }, [userSlug, loadUserProgress]);
+
+  const handleSetUser = useCallback(async (name) => {
+    setIsSubmittingProfile(true);
+    setProfileError(null);
+
+    try {
+      const data = await loginUser(name);
+      skipSessionFetchRef.current = true;
+      saveCurrentUser(data.name);
+      setUserName(data.name);
+      setTestResults(data.testResults || {});
+      setSelectedTestIndex(null);
+      setTestMode("practice");
+      setLoadError(null);
+    } catch (error) {
+      setProfileError(error.message);
+    } finally {
+      setIsSubmittingProfile(false);
+    }
   }, []);
 
   const handleSwitchUser = useCallback(() => {
-    localStorage.removeItem(CURRENT_USER_KEY);
+    clearCurrentUser();
     setUserName(null);
     setTestResults({});
     setSelectedTestIndex(null);
     setTestMode("practice");
+    setLoadError(null);
+    setProfileError(null);
   }, []);
 
   const saveTestResult = useCallback(
-    (testIndex, answers) => {
+    async (testIndex, answers) => {
       if (!userSlug) return;
 
-      setTestResults((prev) => {
-        const next = {
-          ...prev,
-          [testIndex]: { answers },
-        };
-        saveTestResults(userSlug, next);
-        return next;
-      });
+      setTestResults((prev) => ({
+        ...prev,
+        [testIndex]: { answers },
+      }));
+
+      try {
+        const data = await saveTestResultApi(userSlug, testIndex, answers);
+        setTestResults(data.testResults || {});
+      } catch (error) {
+        console.error("Failed to save test result:", error);
+      }
     },
     [userSlug],
   );
 
   const clearTestResult = useCallback(
-    (testIndex) => {
+    async (testIndex) => {
       if (!userSlug) return;
 
       setTestResults((prev) => {
         const next = { ...prev };
         delete next[testIndex];
-        saveTestResults(userSlug, next);
         return next;
       });
       setTestMode("practice");
       setPracticeSessionKey((key) => key + 1);
+
+      try {
+        const data = await clearTestResultApi(userSlug, testIndex);
+        setTestResults(data.testResults || {});
+      } catch (error) {
+        console.error("Failed to clear test result:", error);
+        await loadUserProgress(userSlug);
+      }
     },
-    [userSlug],
+    [loadUserProgress, userSlug],
   );
 
   const handleSelectTest = useCallback(
@@ -863,7 +929,26 @@ export default function App() {
   }, [clearTestResult, selectedTestIndex]);
 
   if (!userName) {
-    return <ProfileScreen onContinue={handleSetUser} />;
+    return (
+      <ProfileScreen
+        onContinue={handleSetUser}
+        isSubmitting={isSubmittingProfile}
+        error={profileError}
+      />
+    );
+  }
+
+  if (isLoadingUser) {
+    return <LoadingScreen />;
+  }
+
+  if (loadError) {
+    return (
+      <ErrorScreen
+        message={loadError}
+        onRetry={() => userSlug && loadUserProgress(userSlug)}
+      />
+    );
   }
 
   if (selectedTestIndex === null) {

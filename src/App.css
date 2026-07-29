@@ -608,6 +608,44 @@
   border: 1px solid #e5e7eb;
 }
 
+.profile-screen__error {
+  font-size: 14px;
+  color: #dc2626;
+}
+
+.loading-screen,
+.error-screen {
+  max-width: 420px;
+  text-align: center;
+}
+
+.loading-screen__spinner {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 16px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #7c3aed;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.loading-screen__message,
+.error-screen__message {
+  font-size: 15px;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.error-screen__message {
+  margin: 12px 0 24px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .test-selection__user-bar {
   display: flex;
   align-items: center;
