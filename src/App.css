@@ -739,6 +739,16 @@
   color: #6b7280;
 }
 
+.test-selection__score {
+  font-size: 13px;
+  font-weight: 700;
+  color: #15803d;
+  background: #ecfdf5;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #bbf7d0;
+}
+
 .test-selection__badge {
   font-size: 12px;
   font-weight: 700;

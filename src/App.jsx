@@ -94,6 +94,18 @@ function computeScoreResults(questions, answers) {
   });
 }
 
+function getTestScore(testQuestions, testResult) {
+  if (!testResult?.answers) return null;
+
+  const results = computeScoreResults(testQuestions, testResult.answers);
+  const score = results.filter((r) => r === true).length;
+
+  return {
+    score,
+    total: testQuestions.length,
+  };
+}
+
 function UserIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -187,7 +199,7 @@ function ProfileScreen({ onContinue, isSubmitting, error }) {
 
 function TestSelectionScreen({
   tests,
-  completedTests,
+  testResults,
   userName,
   onSelect,
   onSwitchUser,
@@ -211,7 +223,9 @@ function TestSelectionScreen({
         <p className="test-selection__subtitle">Choose a practice test</p>
         <ul className="test-selection__list">
           {tests.map((testQuestions, i) => {
-            const isDone = completedTests.has(i);
+            const savedResult = testResults[i] ?? testResults[String(i)];
+            const testScore = getTestScore(testQuestions, savedResult);
+            const isDone = Boolean(testScore);
 
             return (
               <li key={i}>
@@ -234,7 +248,12 @@ function TestSelectionScreen({
                       {testQuestions.length === 1 ? "" : "s"}
                     </span>
                     {isDone && (
-                      <span className="test-selection__badge">Done</span>
+                      <>
+                        <span className="test-selection__score">
+                          {testScore.score}/{testScore.total}
+                        </span>
+                        <span className="test-selection__badge">Done</span>
+                      </>
                     )}
                   </span>
                 </button>
@@ -797,11 +816,6 @@ export default function App() {
   const [profileError, setProfileError] = useState(null);
   const skipSessionFetchRef = useRef(false);
 
-  const completedTests = useMemo(
-    () => new Set(Object.keys(testResults).map(Number)),
-    [testResults],
-  );
-
   const loadUserProgress = useCallback(async (slug) => {
     setIsLoadingUser(true);
     setLoadError(null);
@@ -955,7 +969,7 @@ export default function App() {
     return (
       <TestSelectionScreen
         tests={practiceTests}
-        completedTests={completedTests}
+        testResults={testResults}
         userName={userName}
         onSelect={handleSelectTest}
         onSwitchUser={handleSwitchUser}
