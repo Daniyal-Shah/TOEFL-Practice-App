@@ -7,6 +7,7 @@ import {
   saveUserTestResult,
   upsertUser,
 } from "../api/lib/users-service.js";
+import { getStatistics } from "../api/lib/stats-service.js";
 
 const app = express();
 const port = Number(process.env.API_PORT || 3001);
@@ -95,6 +96,16 @@ app.delete("/api/users/:slug/results/:testIndex", async (req, res) => {
     return res.json(result);
   } catch (error) {
     console.error("DELETE /api/users/:slug/results/:testIndex failed:", error);
+    return res.status(500).json({ error: getErrorMessage(error) });
+  }
+});
+
+app.get("/api/statistics", async (_req, res) => {
+  try {
+    const statistics = await getStatistics();
+    return res.json(statistics);
+  } catch (error) {
+    console.error("GET /api/statistics failed:", error);
     return res.status(500).json({ error: getErrorMessage(error) });
   }
 });

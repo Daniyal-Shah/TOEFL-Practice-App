@@ -41,3 +41,7 @@ export function clearTestResult(slug, testIndex) {
     method: "DELETE",
   });
 }
+
+export function fetchStatistics() {
+  return request("/statistics");
+}

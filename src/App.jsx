@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
 import {
   clearTestResult as clearTestResultApi,
+  fetchStatistics,
   fetchUser,
   loginUser,
   saveTestResult as saveTestResultApi,
@@ -197,13 +198,164 @@ function ProfileScreen({ onContinue, isSubmitting, error }) {
   );
 }
 
-function TestSelectionScreen({
+function getScoreLevel(averagePercent, testsCompleted) {
+  if (testsCompleted === 0) return "New";
+  if (averagePercent >= 90) return "Expert";
+  if (averagePercent >= 75) return "Advanced";
+  if (averagePercent >= 50) return "Intermediate";
+  return "Beginner";
+}
+
+function levelClass(level) {
+  return `stats-level stats-level--${level.toLowerCase()}`;
+}
+
+function StatisticsPanel({ statistics, currentUserSlug, isLoading, error, onRetry }) {
+  if (isLoading) {
+    return (
+      <div className="stats-panel stats-panel--loading">
+        <div className="loading-screen__spinner" aria-hidden="true" />
+        <p className="loading-screen__message">Loading statistics...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="stats-panel stats-panel--error">
+        <p className="error-screen__message">{error}</p>
+        <button type="button" className="btn btn--secondary" onClick={onRetry}>
+          Retry
+        </button>
+      </div>
+    );
+  }
+
+  if (!statistics?.users?.length) {
+    return (
+      <p className="stats-panel__empty">
+        No practice data yet. Complete a test to appear on the leaderboard.
+      </p>
+    );
+  }
+
+  const currentUser = statistics.users.find(
+    (user) => user.slug === currentUserSlug,
+  );
+
+  return (
+    <div className="stats-panel">
+      {currentUser && (
+        <section className="stats-summary">
+          <h3 className="stats-summary__title">Your stats</h3>
+          <div className="stats-summary__grid">
+            <div className="stats-summary__card">
+              <span className="stats-summary__label">Level</span>
+              <span className={levelClass(currentUser.level)}>
+                {currentUser.level}
+              </span>
+            </div>
+            <div className="stats-summary__card">
+              <span className="stats-summary__label">Average score</span>
+              <strong>{currentUser.averagePercent}%</strong>
+            </div>
+            <div className="stats-summary__card">
+              <span className="stats-summary__label">Tests completed</span>
+              <strong>
+                {currentUser.testsCompleted}/{statistics.totalTests}
+              </strong>
+            </div>
+            <div className="stats-summary__card">
+              <span className="stats-summary__label">Total correct</span>
+              <strong>
+                {currentUser.totalCorrect}/{currentUser.totalQuestions}
+              </strong>
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className="stats-leaderboard">
+        <h3 className="stats-leaderboard__title">Leaderboard</h3>
+        <div className="stats-table">
+          <div className="stats-table__head">
+            <span>Rank</span>
+            <span>User</span>
+            <span>Level</span>
+            <span>Tests</span>
+            <span>Avg</span>
+            <span>Score</span>
+          </div>
+          {statistics.users.map((user, index) => {
+            const isCurrentUser = user.slug === currentUserSlug;
+
+            return (
+              <div
+                key={user.slug}
+                className={[
+                  "stats-table__row",
+                  isCurrentUser ? "stats-table__row--current" : "",
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
+              >
+                <span className="stats-table__rank">#{index + 1}</span>
+                <span className="stats-table__name">
+                  {user.name}
+                  {isCurrentUser && (
+                    <span className="stats-table__you">You</span>
+                  )}
+                </span>
+                <span className={levelClass(user.level)}>{user.level}</span>
+                <span>
+                  {user.testsCompleted}/{statistics.totalTests}
+                </span>
+                <span>{user.averagePercent}%</span>
+                <span>
+                  {user.totalCorrect}/{user.totalQuestions}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function HomeScreen({
   tests,
   testResults,
   userName,
+  userSlug,
   onSelect,
   onSwitchUser,
 }) {
+  const [activeTab, setActiveTab] = useState("practice");
+  const [statistics, setStatistics] = useState(null);
+  const [statsLoading, setStatsLoading] = useState(false);
+  const [statsError, setStatsError] = useState(null);
+
+  const loadStatistics = useCallback(async () => {
+    setStatsLoading(true);
+    setStatsError(null);
+
+    try {
+      const data = await fetchStatistics();
+      setStatistics(data);
+    } catch (error) {
+      setStatsError(error.message);
+    } finally {
+      setStatsLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (activeTab === "statistics") {
+      loadStatistics();
+    }
+  }, [activeTab, loadStatistics]);
+
   return (
     <div className="app">
       <main className="card test-selection">
@@ -219,48 +371,85 @@ function TestSelectionScreen({
             Switch user
           </button>
         </div>
-        <h1 className="card__title">Build a Sentence</h1>
-        <p className="test-selection__subtitle">Choose a practice test</p>
-        <ul className="test-selection__list">
-          {tests.map((testQuestions, i) => {
-            const savedResult = testResults[i] ?? testResults[String(i)];
-            const testScore = getTestScore(testQuestions, savedResult);
-            const isDone = Boolean(testScore);
 
-            return (
-              <li key={i}>
-                <button
-                  type="button"
-                  className={[
-                    "test-selection__item",
-                    isDone ? "test-selection__item--done" : "",
-                  ]
-                    .filter(Boolean)
-                    .join(" ")}
-                  onClick={() => onSelect(i)}
-                >
-                  <span className="test-selection__name">
-                    Practice Test {i + 1}
-                  </span>
-                  <span className="test-selection__info">
-                    <span className="test-selection__meta">
-                      {testQuestions.length} question
-                      {testQuestions.length === 1 ? "" : "s"}
-                    </span>
-                    {isDone && (
-                      <>
-                        <span className="test-selection__score">
-                          {testScore.score}/{testScore.total}
+        <h1 className="card__title">Build a Sentence</h1>
+
+        <div className="home-tabs">
+          <button
+            type="button"
+            className={[
+              "home-tabs__tab",
+              activeTab === "practice" ? "home-tabs__tab--active" : "",
+            ].join(" ")}
+            onClick={() => setActiveTab("practice")}
+          >
+            Practice Tests
+          </button>
+          <button
+            type="button"
+            className={[
+              "home-tabs__tab",
+              activeTab === "statistics" ? "home-tabs__tab--active" : "",
+            ].join(" ")}
+            onClick={() => setActiveTab("statistics")}
+          >
+            Statistics
+          </button>
+        </div>
+
+        {activeTab === "practice" ? (
+          <>
+            <p className="test-selection__subtitle">Choose a practice test</p>
+            <ul className="test-selection__list">
+              {tests.map((testQuestions, i) => {
+                const savedResult = testResults[i] ?? testResults[String(i)];
+                const testScore = getTestScore(testQuestions, savedResult);
+                const isDone = Boolean(testScore);
+
+                return (
+                  <li key={i}>
+                    <button
+                      type="button"
+                      className={[
+                        "test-selection__item",
+                        isDone ? "test-selection__item--done" : "",
+                      ]
+                        .filter(Boolean)
+                        .join(" ")}
+                      onClick={() => onSelect(i)}
+                    >
+                      <span className="test-selection__name">
+                        Practice Test {i + 1}
+                      </span>
+                      <span className="test-selection__info">
+                        <span className="test-selection__meta">
+                          {testQuestions.length} question
+                          {testQuestions.length === 1 ? "" : "s"}
                         </span>
-                        <span className="test-selection__badge">Done</span>
-                      </>
-                    )}
-                  </span>
-                </button>
-              </li>
-            );
-          })}
-        </ul>
+                        {isDone && (
+                          <>
+                            <span className="test-selection__score">
+                              {testScore.score}/{testScore.total}
+                            </span>
+                            <span className="test-selection__badge">Done</span>
+                          </>
+                        )}
+                      </span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </>
+        ) : (
+          <StatisticsPanel
+            statistics={statistics}
+            currentUserSlug={userSlug}
+            isLoading={statsLoading}
+            error={statsError}
+            onRetry={loadStatistics}
+          />
+        )}
       </main>
     </div>
   );
@@ -971,10 +1160,11 @@ export default function App() {
 
   if (selectedTestIndex === null) {
     return (
-      <TestSelectionScreen
+      <HomeScreen
         tests={practiceTests}
         testResults={testResults}
         userName={userName}
+        userSlug={userSlug}
         onSelect={handleSelectTest}
         onSwitchUser={handleSwitchUser}
       />
