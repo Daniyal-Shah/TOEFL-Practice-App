@@ -455,7 +455,11 @@ function ResultsScreen({
             Reset & Try Again
           </button>
         ) : (
-          <button type="button" className="btn btn--primary" onClick={onRestart}>
+          <button
+            type="button"
+            className="btn btn--primary"
+            onClick={onRestart}
+          >
             Practice Again
           </button>
         )}
@@ -740,7 +744,7 @@ function PracticeTest({
                       }
                     }}
                   >
-                    {word}
+                    {word.toLowerCase()}
                   </span>
                 </span>
               );
