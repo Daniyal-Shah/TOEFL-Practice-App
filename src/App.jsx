@@ -709,7 +709,7 @@ function PracticeTest({
                     slot.word ? `Remove "${slot.word}"` : `Blank ${i + 1}`
                   }
                 >
-                  {slot.word || ""}
+                  {slot.word?.toLowerCase() || ""}
                 </button>
               ))}
               <span className="sentence-end">
