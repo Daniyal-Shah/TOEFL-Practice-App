@@ -54,5 +54,3 @@ export function getDb() {
 export function getUsersCollection() {
   return getDb().then((db) => db.collection("users"));
 }
-
-export default getMongoClientPromise;
