@@ -2,20 +2,19 @@ import {
   getErrorMessage,
   readJsonBody,
   sendJson,
-} from "../../lib/http.js";
+} from "../../../../lib/http.js";
 import {
   deleteUserTestResult,
   saveUserTestResult,
-} from "../../lib/users-service.js";
-import { LEGACY_TASK_ID } from "../../lib/test-results.js";
+} from "../../../../lib/users-service.js";
 
 export default async function handler(req, res) {
   try {
-    const { slug, testIndex } = req.query;
+    const { slug, taskId, testIndex } = req.query;
 
-    if (!slug || testIndex === undefined) {
+    if (!slug || !taskId || testIndex === undefined) {
       return sendJson(res, 400, {
-        error: "User slug and test index are required",
+        error: "User slug, task ID, and test index are required",
       });
     }
 
@@ -23,7 +22,7 @@ export default async function handler(req, res) {
       const body = await readJsonBody(req);
       const result = await saveUserTestResult(
         slug,
-        LEGACY_TASK_ID,
+        taskId,
         testIndex,
         body.answers,
       );
@@ -36,11 +35,7 @@ export default async function handler(req, res) {
     }
 
     if (req.method === "DELETE") {
-      const result = await deleteUserTestResult(
-        slug,
-        LEGACY_TASK_ID,
-        testIndex,
-      );
+      const result = await deleteUserTestResult(slug, taskId, testIndex);
 
       if (!result) {
         return sendJson(res, 404, { error: "User not found" });
@@ -52,7 +47,7 @@ export default async function handler(req, res) {
     return sendJson(res, 405, { error: "Method not allowed" });
   } catch (error) {
     console.error(
-      "PUT/DELETE /api/users/[slug]/results/[testIndex] failed:",
+      "PUT/DELETE /api/users/[slug]/tasks/[taskId]/results/[testIndex] failed:",
       error,
     );
 

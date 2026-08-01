@@ -1,5 +1,14 @@
 import { getUsersCollection } from "./mongodb.js";
 import { slugifyName } from "./slug.js";
+import { migrateTestResults } from "./test-results.js";
+
+function formatUser(user) {
+  return {
+    slug: user.slug,
+    name: user.name,
+    testResults: migrateTestResults(user.testResults || {}),
+  };
+}
 
 export async function upsertUser(name) {
   const trimmed = name?.trim();
@@ -22,11 +31,7 @@ export async function upsertUser(name) {
 
   const user = await users.findOne({ slug });
 
-  return {
-    slug: user.slug,
-    name: user.name,
-    testResults: user.testResults || {},
-  };
+  return formatUser(user);
 }
 
 export async function getUserBySlug(slug) {
@@ -37,15 +42,15 @@ export async function getUserBySlug(slug) {
     return null;
   }
 
-  return {
-    slug: user.slug,
-    name: user.name,
-    testResults: user.testResults || {},
-  };
+  return formatUser(user);
 }
 
-export async function saveUserTestResult(slug, testIndex, answers) {
-  if (!Array.isArray(answers)) {
+export async function saveUserTestResult(slug, taskId, testIndex, answers) {
+  if (!taskId) {
+    throw new Error("Task ID is required");
+  }
+
+  if (answers === undefined || answers === null) {
     throw new Error("Answers are required");
   }
 
@@ -58,7 +63,7 @@ export async function saveUserTestResult(slug, testIndex, answers) {
 
   const testKey = String(testIndex);
   const now = new Date();
-  const updatePath = `testResults.${testKey}`;
+  const updatePath = `testResults.${taskId}.${testKey}`;
 
   await users.updateOne(
     { slug },
@@ -76,11 +81,15 @@ export async function saveUserTestResult(slug, testIndex, answers) {
   const updatedUser = await users.findOne({ slug });
 
   return {
-    testResults: updatedUser.testResults || {},
+    testResults: migrateTestResults(updatedUser.testResults || {}),
   };
 }
 
-export async function deleteUserTestResult(slug, testIndex) {
+export async function deleteUserTestResult(slug, taskId, testIndex) {
+  if (!taskId) {
+    throw new Error("Task ID is required");
+  }
+
   const users = await getUsersCollection();
   const user = await users.findOne({ slug });
 
@@ -90,7 +99,7 @@ export async function deleteUserTestResult(slug, testIndex) {
 
   const testKey = String(testIndex);
   const now = new Date();
-  const updatePath = `testResults.${testKey}`;
+  const updatePath = `testResults.${taskId}.${testKey}`;
 
   await users.updateOne(
     { slug },
@@ -103,7 +112,7 @@ export async function deleteUserTestResult(slug, testIndex) {
   const updatedUser = await users.findOne({ slug });
 
   return {
-    testResults: updatedUser.testResults || {},
+    testResults: migrateTestResults(updatedUser.testResults || {}),
   };
 }
 

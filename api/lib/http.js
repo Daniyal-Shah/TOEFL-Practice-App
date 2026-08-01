@@ -19,12 +19,16 @@ async function readJsonBody(req) {
 }
 
 function getErrorMessage(error) {
+  if (error.message?.includes("MongoDB connection timed out")) {
+    return error.message;
+  }
+
   if (error.message?.includes("MONGODB_URI")) {
     return "MONGODB_URI is not configured on the server";
   }
 
   if (error.code === "ETIMEOUT" || error.syscall === "queryTxt") {
-    return "Cannot reach MongoDB Atlas. Check your internet connection and MONGODB_URI.";
+    return "Cannot resolve MongoDB Atlas (DNS timeout). Try switching MONGODB_URI from mongodb+srv:// to the standard mongodb:// connection string in Atlas, or change your DNS to 8.8.8.8 / 1.1.1.1.";
   }
 
   if (error.name === "MongoServerSelectionError") {

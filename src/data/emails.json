@@ -1,0 +1,611 @@
+{
+  "title": "Write an Email Practice",
+  "taskId": "write-email",
+  "taskLabel": "Write an Email",
+  "timeLimitSeconds": 420,
+  "questionsPerTest": 5,
+  "prompts": [
+    {
+      "id": 1,
+      "scenario": "You recently visited the newly opened campus bicycle repair co-op to fix a flat tire. You found the student volunteers very helpful and noticed that all the repair tools are free for students to use. Your friend Sam commutes to classes by bike and recently complained about having squeaky brakes.",
+      "recipient": "Sam",
+      "subject": "Great place to fix your bike brakes",
+      "instructions": [
+        "Describe your experience at the campus bicycle repair co-op.",
+        "Explain why Sam should take their bike to the co-op.",
+        "Suggest a specific day to go there together."
+      ],
+      "sampleAnswer": "Hi Sam,\n\nI am writing to tell you about the new bicycle repair co-op that just opened near the student union. I went there yesterday to fix a flat tire, and it was a really great experience. The student volunteers were super friendly and actually showed me exactly how to patch the tube myself. The best part is that all the tools, grease, and air pumps are completely free for students to use.\n\nI remember you complaining about your squeaky brakes last week, so I think you should definitely take your bike there. Instead of paying a lot of money at a regular city repair shop, the volunteers can help you adjust the brake pads for free, and it will make your commute much safer.\n\nWould you like to go together this Thursday afternoon? I want to double check my tire pressure, so I can show you where the shop is located. Let me know if you are free!\n\nBest,\n\nAlex"
+    },
+    {
+      "id": 2,
+      "scenario": "You are a student in Professor Henderson's Introduction to Environmental Science course. During yesterday's lecture, the professor announced that she is looking for undergraduate research assistants to help with a summer project on local water quality. You are very interested in this opportunity because it relates directly to your major in Chemistry and your future career goals.",
+      "recipient": "Professor Henderson",
+      "subject": "Inquiry regarding Summer Research Assistant position",
+      "instructions": [
+        "State clearly why you are writing and refer to the specific announcement made in class.",
+        "Explain why you believe you are a good candidate for the position (mention your major or relevant skills).",
+        "Ask if it is possible to schedule a brief meeting to discuss the opportunity further."
+      ],
+      "sampleAnswer": "Dear Professor Henderson,\n\nI am a student in your Introduction to Environmental Science class, and I am writing to express my strong interest in the undergraduate research assistant position you announced during yesterday's lecture. I was very excited to hear about your upcoming summer project on local water quality.\n\nAs a Chemistry major, I have already completed several lab courses where I learned water testing techniques and data analysis protocols that I believe would be very useful for your research. This project aligns perfectly with my academic interests and my goal of working in environmental protection.\n\nWould it be possible to schedule a brief meeting next week during your office hours to discuss my qualifications and the project details? I have attached my resume for your review.\n\nThank you for your time and consideration,\n\nJordan Lee"
+    },
+    {
+      "id": 3,
+      "scenario": "You are a student preparing to apply for a summer internship at a local software company. The application requires a letter of recommendation from a faculty member. You want to ask Professor Thorne, whose 'Introduction to Data Science' course you completed last semester with a high grade, if he would be willing to write this letter for you. The application deadline is three weeks away.",
+      "recipient": "Professor Thorne",
+      "subject": "Request for Letter of Recommendation",
+      "instructions": [
+        "Remind the professor who you are and which specific class you took with him.",
+        "Explain the internship opportunity and state the deadline for the recommendation letter.",
+        "Offer to send supporting documents, such as your resume or personal statement, to assist him."
+      ],
+      "sampleAnswer": "Dear Professor Thorne,\n\nI hope you are having a productive semester. My name is Sarah Jenkins, and I was a student in your Introduction to Data Science course last fall. I really enjoyed the course, specifically the final project on predictive modeling, and I was proud to receive an A in the class.\n\nI am writing to ask if you would be willing to write a letter of recommendation for me. I am applying for a summer internship at Orbit Software, which perfectly aligns with the skills I learned in your course. The deadline for the recommendation letter to be submitted is May 5th.\n\nIf you are willing to write the letter, I would be happy to send you my resume and a brief personal statement to provide more context about my goals. Please let me know if you are able to help.\n\nSincerely,\n\nSarah Jenkins"
+    },
+    {
+      "id": 4,
+      "scenario": "You recently discovered a new coffee shop called \"The Daily Grind\" located just a few blocks from campus. You found the atmosphere to be very quiet and comfortable, making it an excellent place to concentrate. Your friend Alex has been complaining recently that the university library is too crowded and noisy for studying effectively.",
+      "recipient": "Alex",
+      "subject": "Great new place to study",
+      "instructions": [
+        "Describe the new coffee shop and its atmosphere.",
+        "Explain why you think Alex would prefer studying there over the library.",
+        "Propose a specific day and time to meet there to study together."
+      ],
+      "sampleAnswer": "Hi Alex,\n\nI hope your studying is going well. I wanted to tell you about a new coffee shop I found called \"The Daily Grind.\" It is located just a few blocks past the science building. It has big comfortable chairs and very soft music playing in the background. The best part is that it is incredibly quiet compared to everywhere else on campus.\n\nSince you mentioned that the library has been too loud and crowded lately, I think this place would be perfect for you. There are plenty of large tables, and the wifi is really fast, so you can get a lot of work done without distractions. Also, their pastries are delicious!\n\nIf you want to try it out, maybe we could meet there this Thursday afternoon around 2 PM? We can study for our history exam together. Let me know if that works for you.\n\nBest,\n\nJamie"
+    },
+    {
+      "id": 5,
+      "scenario": "You are a student in Professor Chen's Data Analysis course. Your final project requires you to use specialized statistical software that is only available on the computers in the main campus lab. Unfortunately, the lab was closed for unexpected network maintenance over the last three days, preventing you from completing your data analysis. The project is due tomorrow.",
+      "recipient": "Professor Chen",
+      "subject": "Final project submission timeline",
+      "instructions": [
+        "Explain the situation with the campus computer lab and how it delayed your progress.",
+        "Politely ask for a short extension on the final project deadline.",
+        "State exactly when you will submit the completed assignment if the extension is granted."
+      ],
+      "sampleAnswer": "Dear Professor Chen,\n\nI hope this email finds you well. I am writing to ask if it might be possible to get a brief extension for our final project, which is due tomorrow. Over the past three days, I had planned to finish the data analysis portion of my project using the specialized software in the main campus computing lab. However, the lab was unexpectedly closed for network maintenance, so I could not access the program. Because of this delay, I have not been able to generate my charts and write the final conclusion. Would you be willing to grant me a two-day extension so I can finish the work now that the lab has reopened? If this is acceptable, I will submit the completed project by Friday evening.\n\nThank you for your time and understanding.\n\nBest regards,\n\nAlex Jordan\n\nWant to practice Email questions with instant AI feedback? Try Arno's free TOEFL 2026 practice platform.\n\n*HYPERLINK \"https://toefl.goarno.io/?utm_source=blog&utm_medium=cta&utm_campaign=email-practice-questions-with-answers-toefl-new-format\"Attachment.png\n\n�"
+    },
+    {
+      "id": 6,
+      "scenario": "You recently returned from a semester abroad in Spain. Registration for next semester's classes opens in two days. You need to enroll in a required senior seminar to graduate, but the online system is blocking you. It claims you are missing a prerequisite, which you actually completed while studying abroad. Your international transcript has not been processed yet.",
+      "recipient": "Mr. Henderson, Academic Advisor",
+      "subject": "Urgent: Registration blocked due to delayed study abroad transcript",
+      "instructions": [
+        "Explain why you are currently unable to register for the senior seminar.",
+        "Clarify that you completed the prerequisite during your study abroad program.",
+        "Request a temporary system override or alternative solution to secure your spot in the class.",
+        "Write as much as you can and in complete sentences. Use appropriate formatting and language for an email to a university staff member."
+      ],
+      "sampleAnswer": "Dear Mr. Henderson,\n\nI hope this email finds you well. I am contacting you urgently because my course registration window opens in two days, and the online portal is blocking me from enrolling in the required Senior Capstone Seminar. The system states that I am missing the prerequisite course.\n\nHowever, I actually completed this required prerequisite last semester during my study abroad program in Spain. It seems that my international transcript has not yet been processed by the university registrar, which is causing the system error. Because the Capstone Seminar fills up extremely fast, I am very concerned that I will lose my spot while waiting for the official paperwork to clear.\n\nCould you please grant me a temporary prerequisite override so that I can register on time? I would be happy to forward you an unofficial copy of my grades from the host university as temporary proof of completion.\n\nThank you for your assistance,\n\nJordan Smith"
+    },
+    {
+      "id": 7,
+      "scenario": "You recently rented a small planting plot at the university's community garden for the spring semester. When you visited your assigned space (Plot 42) yesterday to begin planting, you discovered that the shared water pipe is leaking heavily and has completely flooded your soil. You need to email the Campus Garden Coordinator to report the issue.",
+      "recipient": "Mr. Henderson, Campus Garden Coordinator",
+      "subject": "Flooding issue and leaking pipe at Plot 42",
+      "instructions": [
+        "Report the leaking pipe and describe how the flooding is affecting your assigned garden plot.",
+        "Request that the maintenance team repair the water pipe as soon as possible.",
+        "Ask if it is possible to temporarily transfer to a different vacant plot so you can start planting your seeds."
+      ],
+      "sampleAnswer": "Dear Mr. Henderson,\n\nI am writing to inform you about a problem at the university community garden. I recently rented Plot 42 for this semester, but when I went there yesterday to prepare my soil, I saw that the shared water pipe next to my space is leaking very badly. The water has flooded my whole plot, and the ground is way too wet and muddy to plant anything right now.\n\nCould you please send the maintenance team to fix this broken pipe as soon as possible? The leak is wasting a lot of water and making the path slippery too.\n\nSince the spring planting season is already starting, I was wondering if I could temporarily use another vacant plot until my original one is totally dry and fixed. I have tomato and pepper seeds that need to go in the ground this week, and I do not want them to die.\n\nThank you for your help regarding this matter.\n\nBest regards,\n\nAlex"
+    },
+    {
+      "id": 8,
+      "scenario": "You are a student in Professor Lee's History 302 seminar. The syllabus requires all students to choose a final research paper topic from a provided list by this Friday. However, you recently discovered a collection of unpublished letters in the university library archives. You want to write your paper about the specific local historical event these letters describe, but this topic is not on the professor's pre-approved list.",
+      "recipient": "Professor Lee",
+      "subject": "Proposal for an alternative research paper topic",
+      "instructions": [
+        "Explain what you found in the library archives and why you want to write about it.",
+        "Ask for permission to use this topic instead of one from the pre-approved list.",
+        "Request a brief meeting during office hours to discuss your proposal further."
+      ],
+      "sampleAnswer": "Dear Professor Lee,\n\nI am writing to ask a question about the upcoming research paper assignment for History 302. While studying in the university library yesterday, I discovered a fascinating collection of unpublished letters in the special archives. These letters describe the local textile strike of 1920 in great detail from the perspective of the workers. I am very interested in writing my research paper on this local event because it offers a chance to analyze original primary sources.\n\nSince this specific event is not on the list of pre-approved topics in the syllabus, I am writing to ask if it would be possible for me to use it as my topic anyway. I believe these documents would provide a strong foundation for an original historical analysis. Could we schedule a brief meeting during your office hours next week to discuss this idea further?\n\nThank you for your time and consideration.\n\nBest regards,\n\nAlex Mercer"
+    },
+    {
+      "id": 9,
+      "scenario": "You recently visited the newly renovated study lounge in the basement of the university's main library. You were impressed by the modern facilities, comfortable seating, and quiet atmosphere. Your study partner, Alex, recently complained about how crowded and noisy the student center has been and was looking for a better place to prepare for upcoming midterms.",
+      "recipient": "Alex",
+      "subject": "Found a great new study spot!",
+      "instructions": [
+        "Describe the newly renovated study lounge and its facilities.",
+        "Explain why this location is ideal for your upcoming study sessions together.",
+        "Suggest a specific day and time to meet there next week to study."
+      ],
+      "sampleAnswer": "Hi Alex,\n\nI know you were looking for a quiet place for us to prepare for our midterms. Yesterday, I checked out the newly renovated study lounge in the basement of the main library and it is really amazing! They added soundproof study pods, very comfortable chairs, and there is even a small coffee stand right outside the door. I think this spot is perfect for us because we need to practice our group presentation without bothering other peoples, and the soundproof rooms will let us talk freely. Also, the library is much less crowded than the student center, so we can focus better. Do you want to meet there next Tuesday around 3 PM after our biology lecture to try it out? Let me know if that time works for you.\n\nBest,\n\nJordan"
+    },
+    {
+      "id": 10,
+      "scenario": "You recently discovered a newly opened student lounge on the second floor of the Student Union building. It features comfortable seating, large desks, plenty of power outlets, and a very quiet atmosphere. Your classmate Alex recently complained to you about the main library being too crowded and noisy to study effectively.",
+      "recipient": "Alex",
+      "subject": "Found a great new study spot!",
+      "instructions": [
+        "Describe the new student lounge and its facilities.",
+        "Explain why this location would be a better study spot for Alex than the main library.",
+        "Suggest a specific day and time to meet there to study together for your upcoming exam."
+      ],
+      "sampleAnswer": "Hi Alex,\n\nI know you were complaining about how loud and busy the main library has been lately, so I wanted to tell you about a new place I found. It is a newly opened student lounge on the second floor of the Student Union building. It has really comfortable chairs, large tables, and plenty of power outlets for our laptops. The best part is that it is very quiet and not crowded at all.\n\nI think this would be a much better spot for you because you need a peaceful environment to focus, and you will not have to fight for a seat or deal with people talking loudly like in the library.\n\nSince we have our history exam coming up next week, maybe we can meet there on Thursday afternoon around 3 PM to study together? Let me know if that time works for you.\n\nBest,\n\nJamie"
+    },
+    {
+      "id": 11,
+      "scenario": "You recently discovered a newly renovated study space in the campus science building. It features private group rooms, interactive whiteboards, and a very quiet atmosphere. Your classmate Alex recently complained about not having a good place to practice for an upcoming group presentation.",
+      "recipient": "Alex",
+      "subject": "Great new study spot for your presentation",
+      "instructions": [
+        "Describe the new study space and the equipment available there.",
+        "Explain how this space can specifically help Alex prepare for the presentation.",
+        "Propose a day and time to check out the space together."
+      ],
+      "sampleAnswer": "Hi Alex,\n\nI remember you mentioning that you needed a good place to practice your group presentation, so I wanted to tell you about a new study space I found. It is located on the second floor of the science building. They just renovated it and now it has private rooms that you can reserve. There are also really cool interactive whiteboards and large screens to plug your laptop into.\n\nI think this would be the perfect spot for you because it is completely quiet, so you won't be distracted. Also, using the big screens will let your group practice clicking through your slides just like you will do in the real classroom.\n\nI need to study for my biology exam anyway, so would you want to go check it out together this Wednesday around 4 PM? Let me know if that works for your schedule!\n\nBest,\n\nSam"
+    },
+    {
+      "id": 12,
+      "scenario": "You attended a helpful career services workshop on campus yesterday about building a strong resume and preparing for internships. Your classmate, Jordan, wanted to attend but had to miss it due to a scheduling conflict. You decide to send an email to share what you learned and offer to help.",
+      "recipient": "Jordan",
+      "subject": "Notes from yesterday's resume workshop",
+      "instructions": [
+        "Summarize the main topics covered during the resume workshop.",
+        "Share one specific piece of advice from the workshop that you found most useful.",
+        "Offer to meet with Jordan to share the handouts and discuss your notes."
+      ],
+      "sampleAnswer": "Hi Jordan,\n\nI am sorry you couldn't make it to the resume workshop yesterday. It was actually very helpful! The presenter talked about how to format our resumes, which action words to use to describe our experiences, and how to prepare for summer internship interviews.\n\nThe most useful advice I learned was that we should always change our resume a little bit for every job we apply to, instead of sending the exact same one everywhere. The speaker said this makes a big difference to employers.\n\nSince you missed it, I took an extra copy of the handouts with all the informations for you. Do you want to meet at the library cafe on Thursday afternoon? I can give you the papers and we can look at our resumes together.\n\nLet me know!\n\nBest,\n\nAlex"
+    },
+    {
+      "id": 13,
+      "scenario": "You recently discovered a newly renovated study lounge on the second floor of the Student Union building. The space is very comfortable, has plenty of charging stations, and includes private quiet rooms. Your classmate Alex has been complaining about how crowded and noisy the main library has been lately, especially with midterms approaching.",
+      "recipient": "Alex",
+      "subject": "Great new study spot on campus",
+      "instructions": [
+        "Describe the new study lounge and the amenities it offers.",
+        "Explain why you think this space would be a good fit for Alex.",
+        "Suggest a specific day and time to meet there to study together for your upcoming shared class."
+      ],
+      "sampleAnswer": "Hi Alex,\n\nI know you have been frustrated with the main library lately because of the crowds, so I wanted to tell you about a new study lounge I found. It is on the second floor of the Student Union building. The space was just renovated, so it has really comfortable chairs, large desks, and a huge amount of outlets to charge our laptops. It is also surprisingly quiet and even has small private rooms you can use. I think this place is perfect for you because you hate when people talk loudly while you are trying to read, and it is much less crowded than the library right now. Since we have our biology midterm next week, maybe we can study there together? Let me know if you are free this Thursday afternoon around 3 PM to check it out.\n\nSee you in class,\n\nSam"
+    },
+    {
+      "id": 14,
+      "scenario": "You are organizing a new student club dedicated to campus gardening and sustainable agriculture. According to university rules, all new student organizations must have a faculty sponsor to be officially recognized. You have decided to ask your biology professor, Dr. Miller, to take on this role.",
+      "recipient": "Dr. Miller",
+      "subject": "Request for Faculty Sponsor - Campus Gardening Society",
+      "instructions": [
+        "Explain the main goals of the proposed Campus Gardening Society.",
+        "Ask Dr. Miller to be the faculty sponsor and state why her background makes her an ideal choice.",
+        "Propose a short meeting to discuss what the sponsorship would require from her."
+      ],
+      "sampleAnswer": "Dear Dr. Miller,\n\nI am writing to ask if you would consider being the faculty sponsor for a new student organization I am starting, the Campus Gardening Society. The main goal of our club is to teach students how to grow their own vegetables and to promote sustainable agriculture on campus. We are hoping to build small raised plant beds near the student union by next spring.\n\nBecause you teach the Plant Biology course and have mentioned your own research on soil health in class, I think you would be the perfect fit to guide us. Your academic expertise would really help our members make the right choices for our garden.\n\nCould we schedule a short meeting sometime next week to talk about this? I would love to explain the sponsor responsibilities, which are very light. I am available to chat right after your Tuesday lecture if that works for your schedule.\n\nThank you for your time,\n\nAlex"
+    },
+    {
+      "id": 15,
+      "scenario": "You recently discovered a newly renovated quiet study room on the top floor of the university library. It features comfortable seating, plenty of power outlets, and a strict silence policy. Your friend Alex has been complaining that the main study hall is too noisy and crowded for effective studying.",
+      "recipient": "Alex",
+      "subject": "Great new study spot in the library",
+      "instructions": [
+        "Describe the new study room and the amenities it offers.",
+        "Explain why this location would be better for Alex than the main study hall.",
+        "Propose a specific time to meet there for a study session."
+      ],
+      "sampleAnswer": "Hi Alex,\n\nI wanted to tell you about a new study room I found on the top floor of the library. It was just renovated, so everything is clean and modern. There are really soft armchairs and every desk has its own power outlet for laptops.\n\nI remember you said the main hall was too loud for you to concentrate on your reading. This new room has a strict silence rule, so it is extremely quiet compared to downstairs. I think you will be able to focus much better there without the distraction of people talking.\n\nDo you want to check it out with me? I am planning to go review my biology notes there tomorrow at 4:00 PM. Let me know if you can come.\n\nBest,\n\nJamie"
+    },
+    {
+      "id": 16,
+      "scenario": "You have recently been accepted into the university's summer study abroad program in Kyoto. The Study Abroad Office sent an email stating that all participants must attend a mandatory pre-departure orientation next Friday afternoon. However, you have an unavoidable, graded biology field trip scheduled for the exact same time, and missing it would severely impact your grade.",
+      "recipient": "Mr. Davis, Study Abroad Coordinator",
+      "subject": "Scheduling conflict with pre-departure orientation",
+      "instructions": [
+        "Explain the specific scheduling conflict that prevents you from attending the mandatory orientation.",
+        "Propose a practical alternative to receive the necessary information or make up for the missed session.",
+        "Reiterate your continued excitement and commitment to participating in the study abroad program."
+      ],
+      "sampleAnswer": "Dear Mr. Davis,\n\nI am thrilled to have been accepted into the summer study abroad program in Kyoto. However, I am writing to inform you of a scheduling conflict regarding the mandatory pre-departure orientation next Friday afternoon.\n\nUnfortunately, I have a required biology field trip scheduled at that exact time, which constitutes a significant portion of my final grade for the course. Since I cannot miss this field trip, I am hoping we can find an alternative way for me to receive the orientation information. Would it be possible for me to meet with you during your office hours next week to review the materials, or perhaps watch a video recording of the session if one will be available?\n\nI apologize for any inconvenience this may cause. I am still completely committed to the program and want to ensure I am fully prepared for the trip.\n\nThank you for your understanding,\n\nAlex Johnson"
+    },
+    {
+      "id": 17,
+      "scenario": "You work part-time as a student assistant at the university library. During your shift on the third floor, which is a designated quiet study area, you noticed that the automatic door to the main reading room is malfunctioning. It frequently gets stuck in the open position, allowing noise from the busy hallway to enter the room. You need to email the facilities manager, Mrs. Gable, to report the situation.",
+      "recipient": "Mrs. Gable",
+      "subject": "Maintenance Issue: Third Floor Quiet Room Door",
+      "instructions": [
+        "Describe the malfunction of the door and the resulting noise problem.",
+        "Explain how this issue is affecting the students trying to study in the room.",
+        "Suggest a temporary measure you could take to minimize the disturbance until repairs are made."
+      ],
+      "sampleAnswer": "Dear Mrs. Gable,\n\nI am writing to inform you of a maintenance issue I noticed during my shift at the library today. The automatic sliding door to the third-floor quiet reading room is malfunctioning. It seems to be getting stuck halfway open rather than closing completely after students walk through.\n\nBecause the door remains open, the noise from the elevators and the hallway is drifting into the quiet study area. Several students have approached the desk to complain that the outside noise is distracting them from their work.\n\nI have already submitted a maintenance request, but I wanted to ask if I should place a temporary sign in the hallway asking students to keep their voices down near the entrance. This might help reduce the disturbance until the door mechanism is repaired. Please let me know if you would like me to do this.\n\nSincerely,\n\nJordan Smith"
+    },
+    {
+      "id": 18,
+      "scenario": "You are an officer for the university's Board Game Society. Lately, the student union cafe where you hold your weekly meetings has become too crowded and loud, making it difficult for members to hear each other and play games. You decide to email the club president, Alex, to suggest moving the meetings to an empty classroom in the humanities building.",
+      "recipient": "Alex",
+      "subject": "Suggestion for changing our weekly meeting location",
+      "instructions": [
+        "Explain the problem with the current meeting location at the student union cafe.",
+        "Propose the humanities building as a new location and give reasons why it would be better.",
+        "Ask Alex for their opinion and suggest a time to discuss this change."
+      ],
+      "sampleAnswer": "Hi Alex,\n\nI wanted to reach out to you about our weekly Board Game Society meetings. For the past few weeks, the student union cafe has been getting way too crowded on Thursday nights. It is so loud that members are having trouble hearing each other explain the rules, and there is barely enough table space for our bigger game boards.\n\nI think we should try moving our meetings to one of the empty classrooms on the first floor of the humanities building. These rooms are usually unlocked and empty in the evenings, so it would be much quieter for us. Plus, they have large tables that we can push together, which is perfect for our group size.\n\nWhat do you think about this idea? Let me know if you are free to chat about it after our morning classes on Wednesday.\n\nBest,\n\nJordan"
+    },
+    {
+      "id": 19,
+      "scenario": "You recently used the newly renovated multimedia studio in the university library to finish a class project. You found the equipment excellent and the staff very helpful. Your classmate Taylor mentioned needing a quiet, well-equipped place to record a video presentation for an upcoming assignment.",
+      "recipient": "Taylor",
+      "subject": "Great place to record your video presentation",
+      "instructions": [
+        "Describe the multimedia studio and the equipment available there.",
+        "Explain why you think this studio would be perfect for Taylor's assignment.",
+        "Suggest a specific method or time for Taylor to book the room."
+      ],
+      "sampleAnswer": "Hi Taylor,\n\nI wanted to reach out because I remember you saying you needed a good spot to film your video presentation. I just used the new multimedia studio in the main library for my own project, and it is amazing. They have professional cameras, green screens, and really high-quality microphones that students can use for free.\n\nI think this would be the perfect place for your assignment because it is completely soundproof, so you will not have any background noise interrupting your recording. Also, the library staff are right outside the room and they are very happy to help set up the equipment if you get confused.\n\nI highly recommend you book it soon since it gets busy during midterms. You should go to the main library website and reserve a two-hour slot for next Tuesday morning, since mornings are usually less crowded. Let me know if you need help finding the link!\n\nBest,\n\nAlex"
+    },
+    {
+      "id": 20,
+      "scenario": "You recently returned from a semester abroad in Spain. You want a course you took there, \"Contemporary European Society,\" to count toward your major's degree requirements. The university registrar's office informed you that you must provide a detailed syllabus for the course before they can approve the credit transfer. You only have a brief course description, and the professor from the Spanish university has not replied to your emails. You decide to email your university's Study Abroad Advisor for help.",
+      "recipient": "Mr. Henderson, Study Abroad Advisor",
+      "subject": "Assistance needed with syllabus for credit transfer",
+      "instructions": [
+        "Explain why you need the official syllabus for the course you took abroad.",
+        "Describe the information you currently have and why it is not enough for the registrar.",
+        "Ask the advisor for assistance in contacting the partner university to obtain the required document."
+      ],
+      "sampleAnswer": "Dear Mr. Henderson, I hope this email finds you well. I am writing to you regarding the \"Contemporary European Society\" course I took during my semester abroad in Spain last spring. I am hoping to use this class to fulfill one of my upper-level degree requirements. However, the registrar's office informed me that I need to provide a detailed syllabus so the department can properly evaluate the coursework. Currently, I only have a brief, one-paragraph course description that I downloaded from the registration portal. The registrar stated that this does not have enough detail about the weekly readings and assignments. Since I have emailed my former professor twice without receiving a reply, could you please help me contact the partner university's administration to request the official syllabus? I would really appreciate your assistance with this matter. Best regards, Alex"
+    },
+    {
+      "id": 21,
+      "scenario": "You are a transfer student trying to register for an upper-level course, \"European History: 1900-1950,\" taught by Professor Miller. When you attempted to register online, the system blocked you because you have not taken the prerequisite introductory course at this university. However, you took a nearly identical course at your previous college. You need to email Professor Miller to resolve this.",
+      "recipient": "Professor Miller",
+      "subject": "Prerequisite waiver request for European History course",
+      "instructions": [
+        "Explain the specific registration error you encountered and the course you want to join.",
+        "Describe the course work you completed at your previous school that satisfies the requirement.",
+        "Ask the professor to approve a waiver or provide a registration override code."
+      ],
+      "sampleAnswer": "Dear Professor Miller,\n\nI am writing to request permission to enroll in your European History: 1900-1950 course for the upcoming term. When I tried to register this morning, the system blocked my enrollment because I have not taken the History 101 prerequisite at this university. However, I am a transfer student, and I completed an equivalent introductory history survey at my previous college last year with an A grade. I believe this coursework covers the necessary background for your class. Would it be possible for you to review my transcript and provide a registration override code so I can join the course?\n\nThank you for your time,\n\nAlex Chen"
+    },
+    {
+      "id": 22,
+      "scenario": "You are a senior majoring in Environmental Science. You are planning to graduate this spring, but you just noticed a major problem with the newly released spring course schedule. Two mandatory courses for your degree program, Ecology 401 and Environmental Policy 405, are scheduled for the exact same time on Tuesday and Thursday mornings. You cannot graduate without completing both courses.",
+      "recipient": "Academic Advisor, Dr. Aris",
+      "subject": "Urgent: Spring schedule conflict for graduation requirements",
+      "instructions": [
+        "Explain the scheduling conflict between the two mandatory courses.",
+        "Propose a possible alternative or solution to the problem.",
+        "Request an in-person meeting to discuss your options."
+      ],
+      "sampleAnswer": "Dear Dr. Aris, I am writing to you because I recently reviewed the preliminary spring course schedule and discovered a serious conflict that will affect my graduation plans. Both Ecology 401 and Environmental Policy 405, which are required for my Environmental Science degree, are scheduled for Tuesday and Thursday mornings at 10:00 AM. Since I am a senior and plan to graduate this spring, I need to complete both of these classes next semester. Would it be possible for me to substitute one of these classes with an independent research project, or perhaps take an equivalent course online through the state university network? I would appreciate the opportunity to talk about this with you to figure out a viable path forward. Are you available for a brief meeting in your office sometime next week? Thank you for your time and assistance. Best regards, Alex"
+    },
+    {
+      "id": 23,
+      "scenario": "You recently attended a free trial session for a new indoor rock climbing wall at the university recreation center. You found it to be an excellent workout and a fun way to relieve stress. Your friend Alex recently mentioned feeling overwhelmed with midterms and wanting to find a fun, active way to take a break from studying.",
+      "recipient": "Alex",
+      "subject": "Great new way to take a study break!",
+      "instructions": [
+        "Describe the new indoor rock climbing facility at the recreation center.",
+        "Explain why you think this activity would be a good fit for Alex right now.",
+        "Suggest a specific day or time to go together and offer to help Alex get started."
+      ],
+      "sampleAnswer": "Hi Alex,\n\nI know you have been super stressed with your midterms lately, so I wanted to tell you about something fun I tried yesterday. The university recreation center just opened a new indoor rock climbing wall. It is really huge and has different paths for all skill levels, even for people who have never climbed before.\n\nI think this would be perfect for you because you mentioned wanting an active way to take a break from studying. Climbing takes total focus, so it really makes you forget about your exams for a little while, and it is a great workout too!\n\nWe should go check it out together. Are you free this Thursday evening around 6 PM? I can show you the basic steps and we can just rent the safety equipment there. Let me know what you think!\n\nBest,\n\nSam"
+    },
+    {
+      "id": 24,
+      "scenario": "You recently discovered a newly opened study lounge on the third floor of the campus library. The lounge features soundproof rooms, comfortable seating, and plenty of power outlets. Your classmate, Alex, mentioned earlier this week that they were struggling to find a quiet and comfortable place to study for upcoming midterms.",
+      "recipient": "Alex",
+      "subject": "Great new study spot for midterms",
+      "instructions": [
+        "Describe the location and features of the new study lounge.",
+        "Explain why this specific study space would be helpful for Alex's midterm preparation.",
+        "Suggest a day and time to meet up and study there together."
+      ],
+      "sampleAnswer": "Hi Alex,\n\nI know you were looking for a good place to study for our midterm exams, so I wanted to tell you about a new spot I found. It is a newly opened study lounge on the third floor of the main library. It is really great because it have soundproof rooms, very comfortable chairs, and alot of power outlets for our laptops.\n\nI think this place would be perfect for you because it is super quiet. I know you need a silent place to focus, and you won't get distracted by people talking like you do at the student center. Also, there are big whiteboards on the walls, which will be very helpful for you to draw out your biology diagrams.\n\nWould you like to go check it out together? I am free this Thursday afternoon around 3:00 PM. Let me know if that time works for you!\n\nBest,\n\nJordan"
+    },
+    {
+      "id": 25,
+      "scenario": "You are a student in Professor Martinez's history class. You are having trouble understanding the primary source texts assigned for this week's seminar and would like to ask him some questions. However, his scheduled office hours take place at the exact same time as your mandatory chemistry lab, so you cannot attend them.",
+      "recipient": "Professor Martinez",
+      "subject": "Meeting regarding this week's reading assignment",
+      "instructions": [
+        "Explain why you are writing and what specific material you need help with.",
+        "State why you are unable to attend the regularly scheduled office hours.",
+        "Propose two alternative times when you are available to meet."
+      ],
+      "sampleAnswer": "Dear Professor Martinez,\n\nI am writing to see if we could schedule a brief meeting sometime this week. I am having a difficult time understanding the historical context of the primary source texts we were assigned for the upcoming seminar, and I would appreciate the chance to ask you a few questions about them. I originally planned to come to your regular office hours on Tuesday afternoon, but unfortunately, I have a mandatory chemistry lab scheduled at that exact time this semester. Would it be possible to meet either on Wednesday morning before 11:00 AM or anytime on Thursday afternoon? I am happy to come to your office or meet online, whichever is more convenient for you.\n\nThank you for your time,\n\nAlex Vance"
+    },
+    {
+      "id": 26,
+      "scenario": "You recently attended a beginner's session at the newly opened indoor rock-climbing wall inside the campus recreation center. You found the instructors helpful and the activity very engaging. Your friend Alex recently mentioned feeling bored with regular gym workouts and wanting a fun way to stay active indoors during the cold winter months.",
+      "recipient": "Alex",
+      "subject": "Fun indoor workout idea at the rec center",
+      "instructions": [
+        "Describe the new climbing wall facility and the beginner's session you attended.",
+        "Explain why this activity would be a good solution for Alex's winter fitness goals.",
+        "Propose a specific day to go together and offer to help them book a spot."
+      ],
+      "sampleAnswer": "Hi Alex,\n\nI know you were saying lately that you are bored with running on the treadmill and want a new way to stay active this winter. I just tried the new indoor rock-climbing wall at the campus recreation center, and I think you would love it! The wall is huge, with different sections for all skill levels. I took the beginner's session, and the instructors were super helpful. They taught us how to use the safety harnesses and basic climbing techniques. It is a full-body workout but feels more like a fun puzzle than actual exercise, which is perfect for beating your winter workout boredom. Plus, it is completely indoors and warm. Do you want to go together next Thursday afternoon? Let me know, and I can send you the link and help you register for a spot.\n\nBest,\n\nJamie"
+    },
+    {
+      "id": 27,
+      "scenario": "You are a student in Professor Thorne's Introduction to Environmental Science course. During the last lecture, Professor Thorne mentioned that he is looking for two student assistants to help with a summer field research project on local river water quality. You are an Environmental Science major and are very interested in gaining research experience.",
+      "recipient": "Professor Thorne",
+      "subject": "Inquiry regarding summer field research assistant position",
+      "instructions": [
+        "State clearly why you are writing and refer to the specific project mentioned in class.",
+        "Briefly explain why you are a good candidate for the role (mention your major or relevant skills).",
+        "Ask for details about how to apply and the deadline for applications."
+      ],
+      "sampleAnswer": "Dear Professor Thorne,\n\nI am currently a student in your Introduction to Environmental Science class (ENV 101). I am writing to express my strong interest in the summer field research assistant position regarding local river water quality that you mentioned during yesterday's lecture.\n\nAs an Environmental Science major, I am eager to gain practical experience in fieldwork. I have previously completed a lab course focused on water sampling techniques, and I believe my background would allow me to contribute effectively to your project. Could you please let me know what the application process involves and when the deadline to apply is? I would be happy to provide my resume or meet during office hours if you require more information.\n\nThank you for your time and consideration,\n\nJordan Lee"
+    },
+    {
+      "id": 28,
+      "scenario": "You live in a university dormitory. Two weeks ago, you submitted an online maintenance request because the heater in your room is broken. It makes a loud banging noise and does not produce enough heat. Nobody has come to fix it yet, and the weather has recently become freezing. You need to email the Housing Maintenance Office to escalate the issue.",
+      "recipient": "Housing Maintenance Office",
+      "subject": "Urgent: Unresolved heating issue in Room 412",
+      "instructions": [
+        "Explain the problem with the heater and mention your previous maintenance request.",
+        "Describe how the broken heater is affecting your daily living and studying conditions.",
+        "Request immediate action and ask for a specific time when a technician will be sent."
+      ],
+      "sampleAnswer": "To the Housing Maintenance Office,\n\nI am writing to follow up on a maintenance request I submitted two weeks ago regarding the heater in my room, Room 412 in West Hall. The heater is currently broken; it makes a loud banging noise when turned on and fails to produce any warm air. Since no one has responded to my initial ticket, I am reaching out again because the weather has dropped below freezing this week. The freezing temperature in my room is making it impossible for me to sleep comfortably or focus on my studies, and I am starting to worry about getting sick. Could you please send a technician to fix the heater as soon as possible? I would greatly appreciate it if you could reply and let me know exactly when someone will arrive.\n\nThank you,\n\nAlex Johnson"
+    },
+    {
+      "id": 29,
+      "scenario": "You recently discovered a newly opened study lounge in the basement of the Science Building. It features comfortable seating, large tables, and plenty of whiteboards. Since your classmate Alex recently mentioned how frustrated he is with the crowded and noisy main library during midterm season, you decide to send him an email to share this new spot.",
+      "recipient": "Alex",
+      "subject": "Great new study spot on campus",
+      "instructions": [
+        "Describe the location and the specific features of the new study lounge.",
+        "Explain why this space would be a good alternative for Alex compared to the main library.",
+        "Suggest a specific day and time for both of you to meet there to study together."
+      ],
+      "sampleAnswer": "Hi Alex,\n\nI wanted to let you know about a great new study space I found yesterday. It is located right in the basement of the Science Building. The lounge has really comfortable chairs, big tables, and walls that are covered in whiteboards for practicing equations. It is also very quiet down there. I know you were frustrated last week because the main library was too loud and crowded to focus. This new spot is kind of hidden, so there are hardly any students using it yet, making it the perfect place for you to concentrate without any distractions. Since we have our big chemistry exam coming up next Friday, would you like to meet there on Tuesday afternoon around 3 PM to review our notes together? Let me know if that time works for you.\n\nBest,\n\nSam"
+    },
+    {
+      "id": 30,
+      "scenario": "You are the vice president of the campus Environmental Action Club. Recently, you were offered a highly demanding research assistant position in the biology department that will require 15 hours of work per week. Because of this new academic commitment, you realize you will no longer have the time to fulfill your leadership duties for the club, though you still wish to participate as a general member when your schedule allows. Write an email to the club's faculty advisor, Dr. Lin.",
+      "recipient": "Dr. Lin",
+      "subject": "Stepping down from Vice President position",
+      "instructions": [
+        "Explain your new research commitment and why it prevents you from continuing as vice president.",
+        "Express your desire to remain involved with the club as a general member.",
+        "Offer to help train your replacement during the transition period."
+      ],
+      "sampleAnswer": "Dear Dr. Lin,\n\nI am writing to let you know that I need to step down from my role as vice president of the Environmental Action Club. I was recently offered a research assistant position in the biology department. It is a fantastic opportunity for my major, but it requires 15 hours of work in the lab each week. Since this will take up a lot of my free time, I will not be able to dedicate the hours needed to properly lead our club's activities.\n\nHowever, I am still very passionate about our current projects, and I would love to stay involved as a general member whenever my lab schedule permits.\n\nI want to make sure the club continues to run smoothly, so I am completely willing to help train whoever takes over my position. I can show them how to organize our volunteer spreadsheets and contact local parks. Please let me know how we should proceed with finding a replacement.\n\nBest regards,\n\nAlex Jordan"
+    },
+    {
+      "id": 31,
+      "scenario": "You are the president of the campus Debate Club. During your most recent meeting in your assigned classroom, you discovered that the heating system was broken and the room's projector was missing. You need to email the Student Union Event Coordinator to report these problems and ask for a different room for your upcoming meetings.",
+      "recipient": "Mr. Davis, Student Union Event Coordinator",
+      "subject": "Room issue and relocation request for Debate Club",
+      "instructions": [
+        "Describe the specific problems you encountered in the currently assigned room.",
+        "Explain how these issues are negatively affecting the club's practice sessions.",
+        "Request a temporary room assignment and specify the equipment and space you will need."
+      ],
+      "sampleAnswer": "Dear Mr. Davis,\n\nI am writing to report some issues with Room 304, which is the assigned room for the Debate Club. When we arrived for our weekly meeting yesterday evening, the heating system was broken and it was freezing cold inside. In addition, the digital projector was missing from the ceiling mount.\n\nThese problems are making it very hard for our club to operate. The freezing temperature makes it difficult for our members to concentrate on their speeches. Furthermore, without a projector, we are unable to display the timer and the presentation slides that we use to review our debate topics.\n\nSince it might take a while to fix the heater, could you please assign us a temporary room for the next few weeks? We meet every Thursday from 5:00 PM to 7:00 PM. We just need a standard classroom with a working projector and enough desks for about twenty students.\n\nThank you for your assistance with this matter.\n\nSincerely,\n\nAlex Chen"
+    },
+    {
+      "id": 32,
+      "scenario": "You recently visited the newly opened indoor rock climbing wall at the university recreation center. You had a great time and found the staff to be very welcoming to beginners. Your friend Alex has been complaining about being bored with regular gym workouts and wants to try a more engaging physical activity.",
+      "recipient": "Alex",
+      "subject": "Fun new activity at the rec center!",
+      "instructions": [
+        "Describe your visit to the new indoor rock climbing wall and how the staff helped you.",
+        "Explain why you think this activity would be a great fit for Alex.",
+        "Suggest a specific day to go together and offer to help with the registration process."
+      ],
+      "sampleAnswer": "Hi Alex,\n\nI know you mentioned recently that you are getting tired of doing the same old treadmill workouts every week. I wanted to let you know that I tried the new indoor rock climbing wall at the campus recreation center yesterday, and it was incredible! The facility is huge, and the staff members were super friendly. They showed me how to put on the harness and taught me the basic techniques since I was a total beginner.\n\nI really think this would be a perfect fit for you. It gives you a great full-body workout, but it feels more like a fun physical puzzle than a boring gym routine. Since you are looking for something more engaging, I am sure you will love it.\n\nWould you want to go together this coming Thursday afternoon? Let me know if that works for your schedule, and I can send you the link to reserve our climbing harnesses online.\n\nBest,\n\nJordan"
+    },
+    {
+      "id": 33,
+      "scenario": "You recently joined the university's Outdoor Adventure Club and participated in a day hike to a nearby waterfall. The experience was very relaxing, and the club provided all the necessary equipment, such as boots and backpacks, for free. Your friend, Casey, has been studying for exams non-stop and recently mentioned feeling stressed and needing a break from the library.",
+      "recipient": "Casey",
+      "subject": "You should come to the Outdoor Adventure Club!",
+      "instructions": [
+        "Describe the recent hiking trip and the equipment support the club offers.",
+        "Explain why you think joining a trip would be beneficial for Casey right now.",
+        "Propose attending the club's upcoming planning meeting together."
+      ],
+      "sampleAnswer": "Hi Casey,\n\nI know you have been studying really hard lately, so I wanted to tell you about the Outdoor Adventure Club. I went on a hike with them last Saturday to the Silver Falls. It was beautiful and very peaceful in the woods. You don't need to worry about gear because the club lets members borrow boots and backpacks for free, so it is very easy to join.\n\nI think this would be perfect for you because you said you are feeling stressed and burnt out from the library. Getting some fresh air and exercise is the best way to clear your head before finals. It really helped me feel more energetic.\n\nThey are having a planning meeting for the next trip this Thursday evening at the Student Center. Do you want to go with me to check it out? We can grab a smoothie afterwards.\n\nLet me know,\n\nAlex"
+    },
+    {
+      "id": 34,
+      "scenario": "You recently visited the newly opened Student Creativity Lab on campus, which provides free access to 3D printers, design software, and crafting materials. Your classmate Alex is currently struggling to find resources to build a physical prototype for a final project and had mentioned feeling stressed about the cost.",
+      "recipient": "Alex",
+      "subject": "Great campus resource for your final project",
+      "instructions": [
+        "Describe the facilities and equipment available at the new Student Creativity Lab.",
+        "Explain why this space would be specifically useful for Alex's final project.",
+        "Suggest a time to visit the lab together to complete the required safety orientation."
+      ],
+      "sampleAnswer": "Hi Alex,\n\nI know you have been stressing out about your final project prototype, so I wanted to tell you about the new Student Creativity Lab that just opened in the basement of the library. It is a really cool space with a lot of great equipment! They have 3D printers, laser cutters, and computers with advanced design software that anyone can use.\n\nI think this place would be perfect for you because you mentioned you needed a way to print the plastic parts for your prototype and did not want to spend too much money ordering them online. Since the lab is totally free for students, you can just design and make your parts right there on campus.\n\nWe have to do a short 15-minute safety orientation before we are allowed to use the machines. Do you want to go together this Thursday afternoon after our biology lecture to sign up and look around?\n\nLet me know!\n\nBest,\n\nSam"
+    },
+    {
+      "id": 35,
+      "scenario": "You are a student in Professor Hernandez's biology class. Yesterday evening, you were taking the timed online chapter quiz when your internet connection suddenly dropped. Because of the disconnection, the quiz system locked you out after you had only answered 5 out of the 20 questions. The deadline to complete the quiz is tonight.",
+      "recipient": "Professor Hernandez",
+      "subject": "Technical issue with Chapter 7 online quiz",
+      "instructions": [
+        "Explain the technical problem you experienced while taking the quiz.",
+        "Request that the professor reset your quiz attempt so you can finish it before the deadline.",
+        "Ask what you should do if the system cannot be reset in time."
+      ],
+      "sampleAnswer": "Dear Professor Hernandez,\n\nI am writing to let you know about a technical issue I had with our Chapter 7 biology quiz. Yesterday evening, I was taking the quiz online when my apartment's internet connection suddenly failed. Because I was disconnected, the system locked my attempt, and I was only able to finish 5 of the 20 questions.\n\nWould it be possible for you to reset my quiz attempt so that I can take it again before tonight's deadline? I am very worried about getting a low score because of this glitch. Also, please let me know what I should do if the system cannot be reset today. I could come to your office hours to take it on paper if that is easier.\n\nThank you for your time,\n\nAlex Morgan"
+    },
+    {
+      "id": 36,
+      "scenario": "You recently discovered a newly opened quiet study lounge on the third floor of the campus Science Building. It has comfortable seating, plenty of power outlets, and great natural light. Your classmate, Alex, was complaining recently about how crowded and noisy the main university library has been getting during midterm season.",
+      "recipient": "Alex",
+      "subject": "Found a great new study spot!",
+      "instructions": [
+        "Describe the new study lounge and its location on campus.",
+        "Explain why this spot would be better for Alex than the main library.",
+        "Suggest a time to meet there to study together for your upcoming shared exam."
+      ],
+      "sampleAnswer": "Hi Alex,\n\nI know you were stressed about how crowded and loud the main library has been lately, so I wanted to share a new study spot I found. It is a new quiet lounge located on the third floor of the Science Building. It is really comfortable with large couches, big windows for natural light, and plenty of outlets to charge our laptops.\n\nI think this place would be perfectly for you because it is a strictly enforced quiet zone, so you will not be distracted by people talking like you were at the library. Also, since it just opened last week, hardly anyone knows about it yet, so it is not crowded at all.\n\nWe should definitely go there to prepare for our biology midterm. Do you want to meet up there on Thursday afternoon around 3 PM? Let me know if that schedule works for you.\n\nBest,\n\nSam"
+    },
+    {
+      "id": 37,
+      "scenario": "You are a student in Professor Thompson's History class. You are preparing to write the final research paper. The assignment instructions state that students must use at least three primary sources from the university's digital archive. However, you discovered today that the digital archive is currently down for maintenance and the library website states it will not be available until two days before the paper is due.",
+      "recipient": "Professor Thompson",
+      "subject": "Question regarding the research paper and digital archive",
+      "instructions": [
+        "Explain the issue you discovered with the university's digital archive.",
+        "Propose a solution, such as using different databases or extending the deadline.",
+        "Ask when the professor is available during office hours to discuss your paper topic."
+      ],
+      "sampleAnswer": "Dear Professor Thompson,\n\nI am writing to you about the upcoming research paper for our History class. I started looking for my sources this morning, but I noticed that the university's digital archive is currently down for maintenance. The library website says it will not be back online until two days before our paper is due. Since the assignment requires us to use at least three primary sources from this specific archive, I am worried about completing the research on time.\n\nWould it be acceptable to use a different historical database to find our primary sources, or might the deadline be extended to give us time to use the main archive once it is fixed?\n\nI would also like to talk about my specific paper topic with you. Could you let me know when you will be in your office later this week so I can stop by?\n\nThank you,\n\nAlex"
+    },
+    {
+      "id": 38,
+      "scenario": "You recently attended a free workshop at the campus Career Center focused on improving interview skills. You found the session incredibly helpful, especially the mock interview activities. Your friend Alex recently mentioned feeling nervous about upcoming summer internship interviews.",
+      "recipient": "Alex",
+      "subject": "Recommendation for the interview skills workshop",
+      "instructions": [
+        "Describe what the interview skills workshop covered.",
+        "Explain why you think this workshop would specifically help Alex.",
+        "Suggest a time for you both to practice interviewing together before Alex's first real interview."
+      ],
+      "sampleAnswer": "Hi Alex,\n\nI wanted to tell you about a really great workshop I went to yesterday at the campus Career Center. It was all about how to do well in job interviews. They talked about how to dress professionally, how to answer difficult questions, and we even did mock interviews with other students to practice.\n\nI know you were feeling very nervous about your summer internship interviews next month, so I really think you should go to the next session. It helped me feel a lot more confident because we got to practice our answers out loud and get feedbacks from the counselors.\n\nSince your first interview is coming up soon, maybe we could meet at the library this weekend to practice interviewing together? I kept the handouts from the workshop and we can use them. Let me know if Saturday works for you!\n\nBest,\n\nSam"
+    },
+    {
+      "id": 39,
+      "scenario": "You are a student in Professor Miller's History 201 class. You are trying to complete the assigned reading for this week's discussion, which is an article by Dr. H. Jenkins. However, when you click the link provided on the course website, it leads to an error page. You have tried using different web browsers and restarting your computer, but nothing works. You need to read this article before Thursday's class.",
+      "recipient": "Professor Miller",
+      "subject": "Broken link for this week's reading assignment",
+      "instructions": [
+        "Explain the problem you are experiencing with the reading link on the course website.",
+        "Describe the steps you have already taken to try to solve the issue.",
+        "Ask for an alternative way to access the article before Thursday's class."
+      ],
+      "sampleAnswer": "Dear Professor Miller,\n\nI am writing to let you know about a problem I am having with the course website. I am trying to do the assigned reading for this week, which is the article by Dr. H. Jenkins, but the link you provided is not working. Whenever I click on it, I just get a blank error page. I have already tried using three different web browsers and even restarted my laptop, but the link still does not work for me. Would it be possible for you to send me a PDF copy of the article, or perhaps provide an updated link? I want to make sure I finish the reading before our discussion on Thursday.\n\nThank you,\n\nMarcus Smith"
+    },
+    {
+      "id": 40,
+      "scenario": "You are a student living in the campus dormitories. You recently moved into a new room for the semester and discovered that the desk provided in the room has a severely cracked leg and is completely unstable. You submitted an online maintenance request a week ago but have not received a response. Midterm exams are approaching, and you urgently need a functional desk so you can study in your room.",
+      "recipient": "Campus Housing Maintenance",
+      "subject": "Urgent follow-up regarding broken desk in Room 412",
+      "instructions": [
+        "Describe the problem with the desk and explain how it is impacting your ability to prepare for exams.",
+        "Remind the staff about the initial maintenance request you submitted last week.",
+        "Ask for a specific date or timeline for when the desk will be repaired or replaced."
+      ],
+      "sampleAnswer": "Dear Campus Housing Maintenance,\n\nI am writing to follow up on an urgent issue in my dormitory, Room 412. When I moved in for the semester, I found that the desk provided in the room has a severely cracked leg and cannot support any weight. Because of this, the desk is completely unusable, making it very difficult for me to study in my room. With midterm exams coming up next week, I desperately need a proper and safe workspace to prepare.\n\nI submitted an online maintenance request exactly one week ago, but I have not received any response or updates since then. Could you please let me know when someone will be able to come and either repair the leg or replace the desk entirely? I would greatly appreciate it if this could be resolved within the next two days so I can begin studying properly.\n\nThank you for your time and assistance.\n\nSincerely,\n\nDavid Chen"
+    },
+    {
+      "id": 41,
+      "scenario": "You are a student majoring in Environmental Science. You are applying for a summer internship at the State Botanical Gardens, which requires a letter of recommendation from a faculty member. You want to ask Professor Henderson, whose \"Plant Biology 101\" course you took last semester and received an 'A' in. The application deadline is approaching soon, so you need to ask him if he is willing to write the letter for you.",
+      "recipient": "Professor Henderson",
+      "subject": "Request for Letter of Recommendation - Summer Internship",
+      "instructions": [
+        "Remind the professor of who you are and mention the specific class you took with him.",
+        "Briefly describe the internship opportunity and explain why it is important to your academic goals.",
+        "State the deadline for the recommendation letter and offer to provide your resume or personal statement to help him write it."
+      ],
+      "sampleAnswer": "Dear Professor Henderson,\n\nI hope you are having a good semester. My name is Alex Chen, and I was a student in your Plant Biology 101 course last fall. I really enjoyed the class, especially the unit on local ecosystems, and I was proud to finish the semester with an A.\n\nI am writing to ask if you would be willing to write a letter of recommendation for me. I am applying for a summer internship at the State Botanical Gardens. This position involves field research on native plant species, which creates a perfect opportunity for me to apply what I learned in your course and gain practical experience for my Environmental Science degree.\n\nThe deadline for the application is May 15th. If you are willing to write the letter, I would be happy to send you my resume and my personal statement so you have more details about my background. Please let me know if this is possible.\n\nThank you for your time and guidance.\n\nSincerely,\n\nAlex Chen"
+    },
+    {
+      "id": 42,
+      "scenario": "You recently discovered a newly renovated greenhouse study lounge on campus. You found it to be incredibly quiet, relaxing, and well-equipped with comfortable seating and power outlets. Your classmate Alex recently mentioned feeling distracted and stressed while trying to study in the crowded main library.",
+      "recipient": "Alex",
+      "subject": "Found a great new study spot!",
+      "instructions": [
+        "Describe the new greenhouse study lounge and its amenities.",
+        "Explain why this spot would be a better alternative for Alex than the main library.",
+        "Suggest a specific day and time to meet up and study there together."
+      ],
+      "sampleAnswer": "Hi Alex,\n\nI hope you are having a good week. I wanted to tell you about a new study spot I found yesterday. It is the newly renovated greenhouse lounge near the biology building. It is really cool because it is surrounded by tropical plants and has large windows, but it also has very comfortable chairs, fast Wi-Fi, and plenty of power outlets for our laptops.\n\nI know you were complaining about how loud and crowded the main library has been lately. I think this greenhouse lounge would be much better for you because it is incredibly quiet. Hardly anyone knows about it yet, and the plants make it feel very relaxing, so you will not be distracted while reading.\n\nWe should definitely go check it out together. Are you free to meet there on Thursday afternoon around 3:00 PM to study for our history exam? Let me know!\n\nBest,\n\nJamie"
+    },
+    {
+      "id": 43,
+      "scenario": "You are a student in Professor Martinez's History 201 class. The university registrar just published the final exam schedule for the semester. You checked the schedule and realized that the final exam for History 201 is scheduled for the exact same date and time as your Biology 300 final exam. According to university policy, students with conflicting exam times must contact their professors immediately to arrange an alternate testing time.",
+      "recipient": "Professor Martinez",
+      "subject": "Final Exam Scheduling Conflict",
+      "instructions": [
+        "Explain the scheduling conflict you discovered regarding the final exams.",
+        "Ask what the standard procedure is for arranging an alternate exam time.",
+        "Propose a specific time to meet during office hours to finalize the arrangement."
+      ],
+      "sampleAnswer": "Dear Professor Martinez,\n\nI am writing to inform you about a scheduling conflict regarding the upcoming final exam for History 201. The university just released the final exam schedule, and I noticed that our history exam is scheduled for Tuesday, May 10th at 9:00 AM. Unfortunately, my Biology 300 final exam is scheduled for the exact same date and time.\n\nCould you please let me know what the standard procedure is for arranging an alternate testing time? I am hoping I might be able to take the History exam later that same afternoon or the following morning, depending on your availability and the department's policy.\n\nI would appreciate it if we could discuss this briefly in person. Would it be possible for me to stop by during your office hours this Thursday at 2:00 PM to figure out a solution?\n\nThank you for your time and understanding.\n\nSincerely,\n\nAlex Johnson"
+    },
+    {
+      "id": 44,
+      "scenario": "You live in a university dormitory. For the past week, the heating unit in your room has been making a loud, continuous banging noise every night. This has made it very difficult to sleep and study. You submitted a standard repair ticket three days ago, but the issue has not been resolved. You are writing to the Residence Hall Director because the problem is severely affecting your academic performance.",
+      "recipient": "Mr. Davis, Residence Hall Director",
+      "subject": "Urgent: Unresolved heating noise in Room 412",
+      "instructions": [
+        "Describe the issue with the heating unit and how it is affecting your daily life.",
+        "Point out that you already submitted a repair ticket that has gone unanswered.",
+        "Ask for an immediate fix or to be moved to a temporary room until the problem is solved."
+      ],
+      "sampleAnswer": "Dear Mr. Davis,\n\nI am writing to report a serious issue in my dorm, Room 412. For the last week, the heater has been making a very loud banging noise all night long. Because of this noise, I cannot sleep well at all, and my exhaustion is starting to affect my focus in my morning classes.\n\nI already submitted a standard repair ticket online three days ago, but no one from maintenance has come to look at it yet. Since the weather is getting colder, I cannot simply turn the heater off to stop the noise.\n\nCould you please send someone to fix the heater as soon as possible? If the maintenance team is too busy to fix it today, I would like to request to be moved to a temporary room so I can get some rest before my exams next week.\n\nThank you for your help,\n\nAlex Chen"
+    },
+    {
+      "id": 45,
+      "scenario": "You visited the new weekly Farmers Market that recently opened in the university's main quad. You bought some fresh, local ingredients and baked goods, and were impressed by the variety and the student discounts. Your friend Jamie, who loves cooking and often complains about the lack of fresh ingredients at the local supermarket, had asked you to let them know if you found any good places to shop for food.",
+      "recipient": "Jamie",
+      "subject": "Great new Farmers Market on campus!",
+      "instructions": [
+        "Describe the Farmers Market and the types of items being sold there.",
+        "Explain why this market would be especially useful for Jamie.",
+        "Suggest a time to visit the market together next week and mention one specific thing you want to buy."
+      ],
+      "sampleAnswer": "Hi Jamie,\n\nI went to the new Farmers Market in the main quad yesterday and I immediately thought of you. They have so much stalls selling fresh local vegetables, fruits, and even homemade breads and cheeses. I know you love cooking and was annoyed that the supermarket near our dorm doesn't have good produce, so this place is perfect for you. You can get really fresh ingredients for your recipes, and they even give a 10% student discount if you show your ID card!\n\nI really want to go back next week to buy some of the local strawberry jam I sampled. Do you want to go together next Wednesday afternoon around 3 PM after our biology class? Let me know if that works for you.\n\nBest,\n\nAlex"
+    },
+    {
+      "id": 46,
+      "scenario": "You are a student living in a campus dormitory with a mandatory full meal plan. Last week, you were medically diagnosed with a severe allergy to gluten. While the main dining hall provides allergy-friendly food labels, you have noticed serious cross-contamination issues, such as shared utensils being used at both the grill and the salad stations. You need to contact the Director of Campus Dining to address this health concern.",
+      "recipient": "Ms. Vance, Director of Campus Dining",
+      "subject": "Dietary Accommodations and Meal Plan Inquiry",
+      "instructions": [
+        "Explain your recent medical diagnosis and the specific safety issue you observed in the dining hall.",
+        "Request a meeting to discuss how the dining staff can provide safe meal options for you.",
+        "Ask about the possibility of canceling or reducing your mandatory meal plan if suitable accommodations are not available.",
+        "Write as much as you can and in complete sentences. Aim for 75 to 100 words."
+      ],
+      "sampleAnswer": "Dear Ms. Vance,\n\nI am a student living on campus, and I am writing to you regarding my meal plan. Last week, my doctor diagnosed me with a severe gluten allergy. Although I appreciate the allergy labels in the dining hall, I have noticed some cross-contamination concerns, such as people using the same tongs at the grill and salad stations.\n\nCould we arrange a brief meeting this week to discuss how I might safely eat at the dining hall? If it is not possible to guarantee allergy-safe preparation, I would like to know if I can get an exemption to cancel or reduce my mandatory meal plan so I can safely prepare my own food.\n\nThank you for your time.\n\nSincerely,\n\nAlex Taylor"
+    },
+    {
+      "id": 47,
+      "scenario": "You are a student in Professor Henderson's Business Management course. Next Tuesday, you have a final interview for a summer internship that overlaps with the class time. Attendance is mandatory, and you know there is a graded group activity scheduled for that day. You need to ask for permission to be absent so you can attend the interview.",
+      "recipient": "Professor Henderson",
+      "subject": "Absence request for Tuesday's class",
+      "instructions": [
+        "Explain exactly why you need to miss the class next Tuesday.",
+        "Ask if there is an alternative way to earn the points for the group activity.",
+        "Ask when you might be able to meet briefly to collect any handouts distributed during the lecture."
+      ],
+      "sampleAnswer": "Dear Professor Henderson,\n\nI am writing to ask for permission to miss our Business Management class next Tuesday. I have been selected for a final interview for a summer internship, and the only available time slot conflicts with our lecture. Since I know we have a graded group activity that day, is there an alternative assignment I can do individually so I do not lose those points? I would also like to stop by your office later in the week to pick up any handouts I might miss. Please let me know if this arrangement is acceptable.\n\nSincerely,\n\nAlex Chen"
+    },
+    {
+      "id": 48,
+      "scenario": "You recently attended a free bicycle maintenance clinic hosted by the university cycling club. At the clinic, volunteers taught students how to fix basic issues like flat tires and squeaky brakes. Your classmate Jordan commutes to campus by bike every day and recently complained about spending too much money at local repair shops.",
+      "recipient": "Jordan",
+      "subject": "Helpful campus bike repair clinic",
+      "instructions": [
+        "Describe what the bicycle maintenance clinic offers and what you learned there.",
+        "Explain why you think attending this clinic would be beneficial for Jordan.",
+        "Suggest a specific day to attend the next session together and ask if they are available."
+      ],
+      "sampleAnswer": "Hi Jordan, I am writing to tell you about a great bike repair clinic I went to yesterday. It is hosted by the university cycling club in the main courtyard. The volunteers there show you how to fix common bike problems entirely for free. I learned how to patch a flat tire and adjust my brake cables, which was surprisingly easy to do! I thought of you because I know you ride your bike to class every day and you mentioned that local repair shops are getting really expensive. This clinic could save you a lot of money and keep your commuter bike running smoothly. They are having another session next Thursday afternoon. Would you like to go together around 3:00 PM? Let me know if that time works for your schedule. Best, Taylor"
+    },
+    {
+      "id": 49,
+      "scenario": "You are a student in Professor Henderson's American History class. The final term paper requires you to choose a specific historical event to analyze. You have identified two potential topics, but you are unsure which one fits the assignment criteria better. You want to discuss your options with the professor before you begin your research. However, you checked the syllabus and realized that the professor's scheduled office hours conflict with another class you are taking.",
+      "recipient": "Professor Henderson",
+      "subject": "Meeting request regarding final term paper",
+      "instructions": [
+        "Explain why you are writing and mention that you need advice on selecting a topic.",
+        "State clearly why you are unable to attend the regularly scheduled office hours.",
+        "Propose two specific time slots later in the week when you are available to meet."
+      ],
+      "sampleAnswer": "Dear Professor Henderson,\n\nI am a student in your American History class. I am writing to request a brief meeting with you to discuss the final term paper. I have narrowed my choices down to two potential historical events, but I am having trouble deciding which one would be more appropriate for the scope of this assignment. I would appreciate your advice before I seek out sources.\n\nUnfortunately, I cannot attend your regular office hours on Tuesdays because I have a chemistry lab scheduled at that same time. Would it be possible to meet later this week instead? I am free on Wednesday afternoon after 2:00 PM or on Thursday morning between 9:00 AM and 11:00 AM. Please let me know if either of these times works for you.\n\nThank you for your time,\n\nAlex Miller"
+    },
+    {
+      "id": 50,
+      "scenario": "You are a student in Professor Sullivan's environmental science course. You are scheduled to give your final oral presentation on November 15th. However, you recently found out you were selected to present a poster at a regional science conference on that exact same day. You need to ask the professor if you can change your presentation date.",
+      "recipient": "Professor Sullivan",
+      "subject": "Rescheduling oral presentation",
+      "instructions": [
+        "Explain why you cannot give your presentation on the currently scheduled date.",
+        "Propose at least two alternative dates or times when you would be available to present.",
+        "Offer to provide official documentation confirming your attendance at the conference."
+      ],
+      "sampleAnswer": "Dear Professor Sullivan,\n\nI am writing to you regarding the final oral presentation for your environmental science class. I am currently scheduled to present on November 15th, but I recently received an invitation to present a research poster at the Regional Science Symposium on that exact same day. Because of this conflict, I was hoping it might be possible to reschedule my class presentation.\n\nI am fully available to present earlier that week on either November 12th or November 14th during your office hours, or I could present during the following week's class session. I would be happy to forward you the official acceptance email from the symposium organizers if you need documentation to approve this change.\n\nThank you for considering my request, and I look forward to hearing from you.\n\nBest regards,\n\nAlex Chen"
+    }
+  ]
+}

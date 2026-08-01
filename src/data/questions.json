@@ -2974,6 +2974,487 @@
         "than",
         "I had expected"
       ]
+    },
+    {
+      "id": 151,
+      "prompt": "How was the meeting this morning?",
+      "sentenceStart": "It",
+      "sentenceEnd": ".",
+      "options": [
+        "schedule",
+        "well",
+        "was canceled",
+        "we finished",
+        "and",
+        "ahead of",
+        "went"
+      ],
+      "correctAnswer": [
+        "went",
+        "well",
+        "and",
+        "we finished",
+        "ahead of",
+        "schedule"
+      ]
+    },
+    {
+      "id": 152,
+      "prompt": "Did you meet the deadline for the report?",
+      "sentenceStart": "I",
+      "sentenceEnd": ".",
+      "options": [
+        "submitted",
+        "missed it",
+        "just before",
+        "it",
+        "the deadline",
+        "last",
+        "night"
+      ],
+      "correctAnswer": [
+        "submitted",
+        "it",
+        "just before",
+        "the deadline",
+        "last",
+        "night"
+      ]
+    },
+    {
+      "id": 153,
+      "prompt": "How do you get along with your coworkers?",
+      "sentenceStart": "We",
+      "sentenceEnd": ".",
+      "options": [
+        "each other",
+        "don't talk",
+        "well together",
+        "out",
+        "and",
+        "work",
+        "help"
+      ],
+      "correctAnswer": [
+        "work",
+        "well together",
+        "and",
+        "help",
+        "each other",
+        "out"
+      ]
+    },
+    {
+      "id": 154,
+      "prompt": "What did your manager say about the presentation?",
+      "sentenceStart": "She",
+      "sentenceEnd": ".",
+      "options": [
+        "well organized",
+        "the data",
+        "the slides",
+        "were clear",
+        "was",
+        "hated it",
+        "said",
+        "and"
+      ],
+      "correctAnswer": [
+        "said",
+        "the slides",
+        "were clear",
+        "and",
+        "the data",
+        "was",
+        "well organized"
+      ]
+    },
+    {
+      "id": 155,
+      "prompt": "How long is your commute to work?",
+      "sentenceStart": "It",
+      "sentenceEnd": ".",
+      "options": [
+        "by train",
+        "is short",
+        "to the",
+        "takes",
+        "me",
+        "about forty-five minutes",
+        "office",
+        "to get"
+      ],
+      "correctAnswer": [
+        "takes",
+        "me",
+        "about forty-five minutes",
+        "by train",
+        "to get",
+        "to the",
+        "office"
+      ]
+    },
+    {
+      "id": 156,
+      "prompt": "Are you working on any big projects right now?",
+      "sentenceStart": "We're",
+      "sentenceEnd": ".",
+      "options": [
+        "next quarter",
+        "doing nothing",
+        "finished",
+        "a new system",
+        "developing",
+        "by",
+        "should be",
+        "that"
+      ],
+      "correctAnswer": [
+        "developing",
+        "a new system",
+        "that",
+        "should be",
+        "finished",
+        "by",
+        "next quarter"
+      ]
+    },
+    {
+      "id": 157,
+      "prompt": "Did anyone get promoted recently?",
+      "sentenceStart": "My",
+      "sentenceEnd": ".",
+      "options": [
+        "working here",
+        "was promoted",
+        "for",
+        "was fired",
+        "colleague",
+        "to manager",
+        "after",
+        "three years"
+      ],
+      "correctAnswer": [
+        "colleague",
+        "was promoted",
+        "to manager",
+        "after",
+        "working here",
+        "for",
+        "three years"
+      ]
+    },
+    {
+      "id": 158,
+      "prompt": "What do you usually do during your lunch break?",
+      "sentenceStart": "I",
+      "sentenceEnd": ".",
+      "options": [
+        "eat at",
+        "and then",
+        "my desk",
+        "walk",
+        "take",
+        "skip lunch",
+        "usually",
+        "a short"
+      ],
+      "correctAnswer": [
+        "usually",
+        "eat at",
+        "my desk",
+        "and then",
+        "take",
+        "a short",
+        "walk"
+      ]
+    },
+    {
+      "id": 159,
+      "prompt": "How did the interview go yesterday?",
+      "sentenceStart": "The",
+      "sentenceEnd": ".",
+      "options": [
+        "interesting questions",
+        "asked",
+        "was terrible",
+        "it went",
+        "and",
+        "I think",
+        "well",
+        "interviewer"
+      ],
+      "correctAnswer": [
+        "interviewer",
+        "asked",
+        "interesting questions",
+        "and",
+        "I think",
+        "it went",
+        "well"
+      ]
+    },
+    {
+      "id": 160,
+      "prompt": "What's the best thing about your job?",
+      "sentenceStart": "I",
+      "sentenceEnd": ".",
+      "options": [
+        "and",
+        "being able",
+        "hate everything",
+        "enjoy",
+        "to work",
+        "from home",
+        "sometimes",
+        "the flexibility"
+      ],
+      "correctAnswer": [
+        "enjoy",
+        "the flexibility",
+        "and",
+        "being able",
+        "to work",
+        "from home",
+        "sometimes"
+      ]
+    },
+    {
+      "id": 161,
+      "prompt": "Was your flight on time?",
+      "sentenceStart": "It",
+      "sentenceEnd": ".",
+      "options": [
+        "about",
+        "was",
+        "delayed",
+        "unfortunately",
+        "two hours",
+        "by",
+        "on time"
+      ],
+      "correctAnswer": [
+        "was",
+        "delayed",
+        "by",
+        "about",
+        "two hours",
+        "unfortunately"
+      ]
+    },
+    {
+      "id": 162,
+      "prompt": "How was your hotel room?",
+      "sentenceStart": "The",
+      "sentenceEnd": ".",
+      "options": [
+        "was dirty",
+        "had",
+        "and",
+        "room",
+        "a nice view",
+        "clean",
+        "was"
+      ],
+      "correctAnswer": ["room", "was", "clean", "and", "had", "a nice view"]
+    },
+    {
+      "id": 163,
+      "prompt": "What did you see on the city tour?",
+      "sentenceStart": "We",
+      "sentenceEnd": ".",
+      "options": [
+        "landmarks",
+        "the main square",
+        "visited",
+        "got lost",
+        "and",
+        "historic",
+        "several"
+      ],
+      "correctAnswer": [
+        "visited",
+        "the main square",
+        "and",
+        "several",
+        "historic",
+        "landmarks"
+      ]
+    },
+    {
+      "id": 164,
+      "prompt": "How did you get from the airport to the hotel?",
+      "sentenceStart": "We",
+      "sentenceEnd": ".",
+      "options": [
+        "right at",
+        "the hotel",
+        "entrance",
+        "that",
+        "walked there",
+        "a shuttle bus",
+        "took",
+        "dropped us off"
+      ],
+      "correctAnswer": [
+        "took",
+        "a shuttle bus",
+        "that",
+        "dropped us off",
+        "right at",
+        "the hotel",
+        "entrance"
+      ]
+    },
+    {
+      "id": 165,
+      "prompt": "What should I pack for the trip?",
+      "sentenceStart": "You",
+      "sentenceEnd": ".",
+      "options": [
+        "a warm jacket",
+        "and",
+        "evenings",
+        "should",
+        "nothing",
+        "bring",
+        "for the",
+        "comfortable shoes"
+      ],
+      "correctAnswer": [
+        "should",
+        "bring",
+        "comfortable shoes",
+        "and",
+        "a warm jacket",
+        "for the",
+        "evenings"
+      ]
+    },
+    {
+      "id": 166,
+      "prompt": "Did you book the train tickets in advance?",
+      "sentenceStart": "Yes, I",
+      "sentenceEnd": ".",
+      "options": [
+        "online",
+        "two weeks",
+        "them",
+        "reserved",
+        "started",
+        "before",
+        "the trip",
+        "forgot to"
+      ],
+      "correctAnswer": [
+        "reserved",
+        "them",
+        "online",
+        "two weeks",
+        "before",
+        "the trip",
+        "started"
+      ]
+    },
+    {
+      "id": 167,
+      "prompt": "What was the best part of your vacation?",
+      "sentenceStart": "The",
+      "sentenceEnd": ".",
+      "options": [
+        "thing",
+        "breathtaking",
+        "over",
+        "worst part",
+        "the ocean",
+        "sunset",
+        "the most",
+        "was"
+      ],
+      "correctAnswer": [
+        "sunset",
+        "over",
+        "the ocean",
+        "was",
+        "the most",
+        "breathtaking",
+        "thing"
+      ]
+    },
+    {
+      "id": 168,
+      "prompt": "How do you usually plan your trips?",
+      "sentenceStart": "I",
+      "sentenceEnd": ".",
+      "options": [
+        "the destination",
+        "itinerary",
+        "and then",
+        "online",
+        "don't plan",
+        "research",
+        "make",
+        "a detailed"
+      ],
+      "correctAnswer": [
+        "research",
+        "the destination",
+        "online",
+        "and then",
+        "make",
+        "a detailed",
+        "itinerary"
+      ]
+    },
+    {
+      "id": 169,
+      "prompt": "Was it difficult to get around the city?",
+      "sentenceStart": "Not really,",
+      "sentenceEnd": ".",
+      "options": [
+        "and",
+        "was",
+        "the public",
+        "transportation",
+        "affordable",
+        "very expensive",
+        "efficient",
+        "system"
+      ],
+      "correctAnswer": [
+        "the public",
+        "transportation",
+        "system",
+        "was",
+        "efficient",
+        "and",
+        "affordable"
+      ]
+    },
+    {
+      "id": 170,
+      "prompt": "Would you recommend that destination?",
+      "sentenceStart": "I'd",
+      "sentenceEnd": ".",
+      "options": [
+        "because",
+        "definitely",
+        "the people",
+        "were",
+        "so",
+        "never go back",
+        "recommend it",
+        "welcoming"
+      ],
+      "correctAnswer": [
+        "definitely",
+        "recommend it",
+        "because",
+        "the people",
+        "were",
+        "so",
+        "welcoming"
+      ]
     }
   ]
 }

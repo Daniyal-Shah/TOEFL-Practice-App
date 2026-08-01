@@ -7,10 +7,19 @@ export default async function handler(req, res) {
   }
 
   try {
-    const statistics = await getStatistics();
+    const taskId =
+      typeof req.query?.taskId === "string"
+        ? req.query.taskId
+        : "build-sentence";
+    const statistics = await getStatistics(taskId);
     return sendJson(res, 200, statistics);
   } catch (error) {
     console.error("GET /api/statistics failed:", error);
+
+    if (error.message === "Invalid task ID") {
+      return sendJson(res, 400, { error: error.message });
+    }
+
     return sendJson(res, 500, { error: getErrorMessage(error) });
   }
 }

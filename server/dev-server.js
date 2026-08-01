@@ -20,10 +20,23 @@ app.get("/api/health", async (_req, res) => {
       return res.status(500).json({ error: "MONGODB_URI is not configured" });
     }
 
+    return res.json({ ok: true, api: "up", uriScheme: process.env.MONGODB_URI.split(":")[0] });
+  } catch (error) {
+    console.error("GET /api/health failed:", error);
+    return res.status(500).json({ ok: false, error: getErrorMessage(error) });
+  }
+});
+
+app.get("/api/health/db", async (_req, res) => {
+  try {
+    if (!process.env.MONGODB_URI) {
+      return res.status(500).json({ error: "MONGODB_URI is not configured" });
+    }
+
     await checkDatabaseConnection();
     return res.json({ ok: true, database: "connected" });
   } catch (error) {
-    console.error("GET /api/health failed:", error);
+    console.error("GET /api/health/db failed:", error);
     return res.status(500).json({ ok: false, error: getErrorMessage(error) });
   }
 });
@@ -62,6 +75,7 @@ app.put("/api/users/:slug/results/:testIndex", async (req, res) => {
   try {
     const result = await saveUserTestResult(
       req.params.slug,
+      "build-sentence",
       req.params.testIndex,
       req.body?.answers,
     );
@@ -86,6 +100,7 @@ app.delete("/api/users/:slug/results/:testIndex", async (req, res) => {
   try {
     const result = await deleteUserTestResult(
       req.params.slug,
+      "build-sentence",
       req.params.testIndex,
     );
 
@@ -100,12 +115,82 @@ app.delete("/api/users/:slug/results/:testIndex", async (req, res) => {
   }
 });
 
-app.get("/api/statistics", async (_req, res) => {
+app.put(
+  "/api/users/:slug/tasks/:taskId/results/:testIndex",
+  async (req, res) => {
+    try {
+      const result = await saveUserTestResult(
+        req.params.slug,
+        req.params.taskId,
+        req.params.testIndex,
+        req.body?.answers,
+      );
+
+      if (!result) {
+        return res.status(404).json({ error: "User not found" });
+      }
+
+      return res.json(result);
+    } catch (error) {
+      console.error(
+        "PUT /api/users/:slug/tasks/:taskId/results/:testIndex failed:",
+        error,
+      );
+
+      if (
+        error.message === "Answers are required" ||
+        error.message === "Task ID is required"
+      ) {
+        return res.status(400).json({ error: error.message });
+      }
+
+      return res.status(500).json({ error: getErrorMessage(error) });
+    }
+  },
+);
+
+app.delete(
+  "/api/users/:slug/tasks/:taskId/results/:testIndex",
+  async (req, res) => {
+    try {
+      const result = await deleteUserTestResult(
+        req.params.slug,
+        req.params.taskId,
+        req.params.testIndex,
+      );
+
+      if (!result) {
+        return res.status(404).json({ error: "User not found" });
+      }
+
+      return res.json(result);
+    } catch (error) {
+      console.error(
+        "DELETE /api/users/:slug/tasks/:taskId/results/:testIndex failed:",
+        error,
+      );
+
+      if (error.message === "Task ID is required") {
+        return res.status(400).json({ error: error.message });
+      }
+
+      return res.status(500).json({ error: getErrorMessage(error) });
+    }
+  },
+);
+
+app.get("/api/statistics", async (req, res) => {
   try {
-    const statistics = await getStatistics();
+    const taskId = req.query.taskId || "build-sentence";
+    const statistics = await getStatistics(taskId);
     return res.json(statistics);
   } catch (error) {
     console.error("GET /api/statistics failed:", error);
+
+    if (error.message === "Invalid task ID") {
+      return res.status(400).json({ error: error.message });
+    }
+
     return res.status(500).json({ error: getErrorMessage(error) });
   }
 });

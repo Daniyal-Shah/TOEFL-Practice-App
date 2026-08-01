@@ -21,7 +21,7 @@ export function computeScoreResults(questions, answers) {
   });
 }
 
-export function getTestScore(testQuestions, testResult) {
+export function getSentenceTestScore(testQuestions, testResult) {
   if (!testResult?.answers) return null;
 
   const results = computeScoreResults(testQuestions, testResult.answers);
@@ -31,6 +31,31 @@ export function getTestScore(testQuestions, testResult) {
     score,
     total: testQuestions.length,
   };
+}
+
+export function getEmailTestCompletion(testQuestions, testResult) {
+  if (!testResult?.answers || !Array.isArray(testResult.answers)) {
+    return null;
+  }
+
+  const answered = testResult.answers.filter(
+    (response) => typeof response === "string" && response.trim().length > 0,
+  ).length;
+
+  if (answered === 0) return null;
+
+  return {
+    answered,
+    total: testQuestions.length,
+  };
+}
+
+export function getTestScore(taskType, testQuestions, testResult) {
+  if (taskType === "email") {
+    return getEmailTestCompletion(testQuestions, testResult);
+  }
+
+  return getSentenceTestScore(testQuestions, testResult);
 }
 
 export function getScoreLevel(averagePercent, testsCompleted) {

@@ -1,5 +1,5 @@
-import { getErrorMessage, sendJson } from "./lib/http.js";
-import { checkDatabaseConnection } from "./lib/users-service.js";
+import { getErrorMessage, sendJson } from "../lib/http.js";
+import { checkDatabaseConnection } from "../lib/users-service.js";
 
 export default async function handler(req, res) {
   if (req.method !== "GET") {
@@ -11,13 +11,10 @@ export default async function handler(req, res) {
       return sendJson(res, 500, { error: "MONGODB_URI is not configured" });
     }
 
-    return sendJson(res, 200, {
-      ok: true,
-      api: "up",
-      uriScheme: process.env.MONGODB_URI.split(":")[0],
-    });
+    await checkDatabaseConnection();
+    return sendJson(res, 200, { ok: true, database: "connected" });
   } catch (error) {
-    console.error("GET /api/health failed:", error);
+    console.error("GET /api/health/db failed:", error);
     return sendJson(res, 500, { ok: false, error: getErrorMessage(error) });
   }
 }

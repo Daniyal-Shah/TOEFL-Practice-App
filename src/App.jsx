@@ -7,10 +7,22 @@ import {
   loginUser,
   saveTestResult as saveTestResultApi,
 } from "./api.js";
-import questionData from "./data/questions.json";
+import { TASKS, chunkTaskItems, getTaskById } from "./data/tasks.js";
 
-const QUESTIONS_PER_TEST = 10;
-const PRACTICE_TIME_SECONDS = 6 * 60;
+function getTaskTestResults(allResults, taskId) {
+  if (!allResults || typeof allResults !== "object") return {};
+
+  if (allResults[taskId]) {
+    return allResults[taskId];
+  }
+
+  const hasLegacy = Object.keys(allResults).some((key) => /^\d+$/.test(key));
+  if (hasLegacy && taskId === "build-sentence") {
+    return allResults;
+  }
+
+  return {};
+}
 const CURRENT_USER_KEY = "building-sentence-current-user";
 
 function slugifyName(name) {
@@ -60,13 +72,6 @@ function ErrorScreen({ message, onRetry }) {
   );
 }
 
-function chunkQuestions(items, size) {
-  const chunks = [];
-  for (let i = 0; i < items.length; i += size) {
-    chunks.push(items.slice(i, i + size));
-  }
-  return chunks;
-}
 
 function createEmptyAnswers(questions) {
   return questions.map((q) =>
@@ -95,7 +100,7 @@ function computeScoreResults(questions, answers) {
   });
 }
 
-function getTestScore(testQuestions, testResult) {
+function getSentenceTestScore(testQuestions, testResult) {
   if (!testResult?.answers) return null;
 
   const results = computeScoreResults(testQuestions, testResult.answers);
@@ -104,7 +109,38 @@ function getTestScore(testQuestions, testResult) {
   return {
     score,
     total: testQuestions.length,
+    type: "sentence",
   };
+}
+
+function getEmailTestCompletion(testQuestions, testResult) {
+  if (!testResult?.answers || !Array.isArray(testResult.answers)) {
+    return null;
+  }
+
+  const answered = testResult.answers.filter(
+    (response) => typeof response === "string" && response.trim().length > 0,
+  ).length;
+
+  if (answered === 0) return null;
+
+  return {
+    answered,
+    total: testQuestions.length,
+    type: "email",
+  };
+}
+
+function getTestScore(taskType, testQuestions, testResult) {
+  if (taskType === "email") {
+    return getEmailTestCompletion(testQuestions, testResult);
+  }
+
+  return getSentenceTestScore(testQuestions, testResult);
+}
+
+function createEmptyEmailAnswers(prompts) {
+  return prompts.map(() => "");
 }
 
 function UserIcon() {
@@ -160,9 +196,10 @@ function ProfileScreen({ onContinue, isSubmitting, error }) {
   return (
     <div className="app">
       <main className="card profile-screen">
-        <h1 className="card__title">Build a Sentence</h1>
+        <h1 className="card__title">TOEFL Practice</h1>
         <p className="profile-screen__subtitle">
-          Enter your name to save your practice progress in the cloud.
+          Enter your name to save your progress across writing tasks in the
+          cloud.
         </p>
         <form className="profile-screen__form" onSubmit={handleSubmit}>
           <label className="profile-screen__label" htmlFor="profile-name">
@@ -210,7 +247,14 @@ function levelClass(level) {
   return `stats-level stats-level--${level.toLowerCase()}`;
 }
 
-function StatisticsPanel({ statistics, currentUserSlug, isLoading, error, onRetry }) {
+function StatisticsPanel({
+  statistics,
+  currentUserSlug,
+  isLoading,
+  error,
+  onRetry,
+  taskType = "sentence",
+}) {
   if (isLoading) {
     return (
       <div className="stats-panel stats-panel--loading">
@@ -256,7 +300,9 @@ function StatisticsPanel({ statistics, currentUserSlug, isLoading, error, onRetr
               </span>
             </div>
             <div className="stats-summary__card">
-              <span className="stats-summary__label">Average score</span>
+              <span className="stats-summary__label">
+                {taskType === "email" ? "Completion" : "Average score"}
+              </span>
               <strong>{currentUser.averagePercent}%</strong>
             </div>
             <div className="stats-summary__card">
@@ -265,12 +311,14 @@ function StatisticsPanel({ statistics, currentUserSlug, isLoading, error, onRetr
                 {currentUser.testsCompleted}/{statistics.totalTests}
               </strong>
             </div>
-            <div className="stats-summary__card">
-              <span className="stats-summary__label">Total correct</span>
-              <strong>
-                {currentUser.totalCorrect}/{currentUser.totalQuestions}
-              </strong>
-            </div>
+            {taskType === "sentence" && (
+              <div className="stats-summary__card">
+                <span className="stats-summary__label">Total correct</span>
+                <strong>
+                  {currentUser.totalCorrect}/{currentUser.totalQuestions}
+                </strong>
+              </div>
+            )}
           </div>
         </section>
       )}
@@ -284,7 +332,7 @@ function StatisticsPanel({ statistics, currentUserSlug, isLoading, error, onRetr
             <span>Level</span>
             <span>Tests</span>
             <span>Avg</span>
-            <span>Score</span>
+            <span>{taskType === "email" ? "Done" : "Score"}</span>
           </div>
           {statistics.users.map((user, index) => {
             const isCurrentUser = user.slug === currentUserSlug;
@@ -312,7 +360,9 @@ function StatisticsPanel({ statistics, currentUserSlug, isLoading, error, onRetr
                 </span>
                 <span>{user.averagePercent}%</span>
                 <span>
-                  {user.totalCorrect}/{user.totalQuestions}
+                  {taskType === "email"
+                    ? `${user.testsCompleted} tests`
+                    : `${user.totalCorrect}/${user.totalQuestions}`}
                 </span>
               </div>
             );
@@ -323,12 +373,59 @@ function StatisticsPanel({ statistics, currentUserSlug, isLoading, error, onRetr
   );
 }
 
+function TaskHubScreen({ userName, onSelectTask, onSwitchUser }) {
+  return (
+    <div className="app">
+      <main className="card task-hub">
+        <div className="test-selection__user-bar">
+          <span className="test-selection__user-label">
+            Practicing as <strong>{userName}</strong>
+          </span>
+          <button
+            type="button"
+            className="test-selection__switch-user"
+            onClick={onSwitchUser}
+          >
+            Switch user
+          </button>
+        </div>
+
+        <h1 className="card__title">TOEFL Practice</h1>
+        <p className="task-hub__subtitle">Choose a writing task to practice</p>
+
+        <ul className="task-hub__list">
+          {TASKS.filter((task) => task.available).map((task) => (
+            <li key={task.id}>
+              <button
+                type="button"
+                className="task-hub__item"
+                onClick={() => onSelectTask(task.id)}
+              >
+                <span className="task-hub__item-label">{task.label}</span>
+                <span className="task-hub__item-description">
+                  {task.description}
+                </span>
+              </button>
+            </li>
+          ))}
+        </ul>
+
+        <p className="task-hub__note">
+          More tasks like Reading and Speaking are coming soon.
+        </p>
+      </main>
+    </div>
+  );
+}
+
 function HomeScreen({
+  task,
   tests,
   testResults,
   userName,
   userSlug,
   onSelect,
+  onBackToTasks,
   onSwitchUser,
 }) {
   const [activeTab, setActiveTab] = useState("practice");
@@ -341,14 +438,14 @@ function HomeScreen({
     setStatsError(null);
 
     try {
-      const data = await fetchStatistics();
+      const data = await fetchStatistics(task.id);
       setStatistics(data);
     } catch (error) {
       setStatsError(error.message);
     } finally {
       setStatsLoading(false);
     }
-  }, []);
+  }, [task.id]);
 
   useEffect(() => {
     if (activeTab === "statistics") {
@@ -372,7 +469,15 @@ function HomeScreen({
           </button>
         </div>
 
-        <h1 className="card__title">Build a Sentence</h1>
+        <button
+          type="button"
+          className="test-selection__back"
+          onClick={onBackToTasks}
+        >
+          ← All Tasks
+        </button>
+
+        <h1 className="card__title">{task.label}</h1>
 
         <div className="home-tabs">
           <button
@@ -403,7 +508,11 @@ function HomeScreen({
             <ul className="test-selection__list">
               {tests.map((testQuestions, i) => {
                 const savedResult = testResults[i] ?? testResults[String(i)];
-                const testScore = getTestScore(testQuestions, savedResult);
+                const testScore = getTestScore(
+                  task.type,
+                  testQuestions,
+                  savedResult,
+                );
                 const isDone = Boolean(testScore);
 
                 return (
@@ -423,14 +532,21 @@ function HomeScreen({
                       </span>
                       <span className="test-selection__info">
                         <span className="test-selection__meta">
-                          {testQuestions.length} question
+                          {testQuestions.length}{" "}
+                          {task.type === "email" ? "email" : "question"}
                           {testQuestions.length === 1 ? "" : "s"}
                         </span>
                         {isDone && (
                           <>
-                            <span className="test-selection__score">
-                              {testScore.score}/{testScore.total}
-                            </span>
+                            {task.type === "sentence" ? (
+                              <span className="test-selection__score">
+                                {testScore.score}/{testScore.total}
+                              </span>
+                            ) : (
+                              <span className="test-selection__score">
+                                {testScore.answered}/{testScore.total} written
+                              </span>
+                            )}
                             <span className="test-selection__badge">Done</span>
                           </>
                         )}
@@ -448,6 +564,7 @@ function HomeScreen({
             isLoading={statsLoading}
             error={statsError}
             onRetry={loadStatistics}
+            taskType={task.type}
           />
         )}
       </main>
@@ -849,7 +966,7 @@ function PracticeTest({
 
       <main className="card">
         <div className="card__header">
-          <h1 className="card__title">Build a Sentence</h1>
+          <h1 className="card__title">{taskLabel}</h1>
           <span className="card__progress-label">
             Question {currentIndex + 1} of {totalQuestions}
           </span>
@@ -991,18 +1108,348 @@ function PracticeTest({
   );
 }
 
+function EmailPromptReview({ prompt, userResponse, promptNumber }) {
+  const hasResponse = userResponse.trim().length > 0;
+
+  return (
+    <article className="review-card email-review">
+      <div className="review-card__header">
+        <span className="review-card__num">Email {promptNumber}</span>
+        <span
+          className={[
+            "review-card__status",
+            hasResponse
+              ? "review-card__status--correct"
+              : "review-card__status--skipped",
+          ].join(" ")}
+        >
+          {hasResponse ? "Submitted" : "Skipped"}
+        </span>
+      </div>
+
+      <p className="review-card__prompt">{prompt.scenario}</p>
+
+      <div className="email-prompt-meta">
+        <p>
+          <strong>To:</strong> {prompt.recipient}
+        </p>
+        <p>
+          <strong>Subject:</strong> {prompt.subject}
+        </p>
+      </div>
+
+      <ul className="email-instructions">
+        {prompt.instructions.map((instruction) => (
+          <li key={instruction}>{instruction}</li>
+        ))}
+      </ul>
+
+      <div className="review-card__block">
+        <span className="review-card__label">Your email</span>
+        <div className="email-response-box">
+          {hasResponse ? userResponse : "No response submitted."}
+        </div>
+      </div>
+
+      <div className="review-card__block">
+        <span className="review-card__label">Sample answer</span>
+        <div className="email-response-box email-response-box--sample">
+          {prompt.sampleAnswer}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function EmailResultsScreen({
+  prompts,
+  responses,
+  onRestart,
+  onReset,
+  onBackToTests,
+  isPreviousAttempt = false,
+}) {
+  const answeredCount = responses.filter((r) => r.trim().length > 0).length;
+
+  return (
+    <div className="results">
+      <h2 className="card__title">
+        {isPreviousAttempt ? "Previous Results" : "Practice Complete"}
+      </h2>
+      <div className="results__score">{answeredCount}</div>
+      <p className="results__label">
+        of {prompts.length} emails written
+      </p>
+
+      <div className="results__summary">
+        {responses.map((response, i) => (
+          <div key={i} className="results__item">
+            <span className="results__item-num">E{i + 1}</span>
+            <span
+              className={[
+                "results__item-status",
+                response.trim()
+                  ? "results__item-status--correct"
+                  : "results__item-status--skipped",
+              ].join(" ")}
+            >
+              {response.trim() ? "Written" : "Skipped"}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      <div className="results__review">
+        <h3 className="results__review-title">Answer Review</h3>
+        {prompts.map((prompt, i) => (
+          <EmailPromptReview
+            key={prompt.id ?? i}
+            prompt={prompt}
+            userResponse={responses[i] ?? ""}
+            promptNumber={i + 1}
+          />
+        ))}
+      </div>
+
+      <div className="results__actions">
+        <button
+          type="button"
+          className="btn btn--secondary"
+          onClick={onBackToTests}
+        >
+          All Practice Tests
+        </button>
+        {isPreviousAttempt ? (
+          <button type="button" className="btn btn--primary" onClick={onReset}>
+            Reset & Try Again
+          </button>
+        ) : (
+          <button
+            type="button"
+            className="btn btn--primary"
+            onClick={onRestart}
+          >
+            Practice Again
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function SavedEmailResultsView({ prompts, responses, onBackToTests, onReset }) {
+  return (
+    <div className="app">
+      <EmailResultsScreen
+        prompts={prompts}
+        responses={responses}
+        onBackToTests={onBackToTests}
+        onReset={onReset}
+        isPreviousAttempt
+      />
+    </div>
+  );
+}
+
+function EmailPracticeTest({
+  prompts,
+  taskLabel,
+  timeLimitSeconds,
+  onExit,
+  onComplete,
+}) {
+  const totalPrompts = prompts.length;
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [responses, setResponses] = useState(() => createEmptyEmailAnswers(prompts));
+  const [timeLeft, setTimeLeft] = useState(timeLimitSeconds);
+  const [showResults, setShowResults] = useState(false);
+  const hasSavedResultsRef = useRef(false);
+
+  const currentPrompt = prompts[currentIndex];
+  const currentResponse = responses[currentIndex] ?? "";
+
+  useEffect(() => {
+    if (showResults || timeLeft <= 0) return;
+
+    const interval = setInterval(() => {
+      setTimeLeft((t) => {
+        if (t <= 1) {
+          clearInterval(interval);
+          setShowResults(true);
+          return 0;
+        }
+        return t - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [showResults, timeLeft]);
+
+  useEffect(() => {
+    if (showResults && !hasSavedResultsRef.current) {
+      hasSavedResultsRef.current = true;
+      onComplete(responses);
+    }
+  }, [showResults, onComplete, responses]);
+
+  const handleResponseChange = (value) => {
+    setResponses((prev) => {
+      const next = [...prev];
+      next[currentIndex] = value;
+      return next;
+    });
+  };
+
+  const goNext = () => {
+    if (currentIndex < totalPrompts - 1) {
+      setCurrentIndex((i) => i + 1);
+    } else {
+      setShowResults(true);
+    }
+  };
+
+  const goBack = () => {
+    if (currentIndex > 0) setCurrentIndex((i) => i - 1);
+  };
+
+  const handleRestart = () => {
+    hasSavedResultsRef.current = false;
+    setCurrentIndex(0);
+    setResponses(createEmptyEmailAnswers(prompts));
+    setTimeLeft(timeLimitSeconds);
+    setShowResults(false);
+  };
+
+  const timerClass =
+    timeLeft <= 0
+      ? "timer timer--expired"
+      : timeLeft <= 60
+        ? "timer timer--warning"
+        : "timer";
+
+  if (showResults) {
+    return (
+      <div className="app">
+        <EmailResultsScreen
+          prompts={prompts}
+          responses={responses}
+          onRestart={handleRestart}
+          onBackToTests={onExit}
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className="app">
+      <header className="app-header">
+        <span className="app-header__task">{taskLabel}</span>
+        <div className="app-header__actions">
+          <div className={timerClass}>
+            <ClockIcon />
+            {formatTime(timeLeft)}
+          </div>
+          <button
+            type="button"
+            className="close-btn"
+            onClick={onExit}
+            aria-label="Back to practice tests"
+            title="Back to tests"
+          >
+            ×
+          </button>
+        </div>
+      </header>
+
+      <main className="card">
+        <div className="card__header">
+          <h1 className="card__title">{taskLabel}</h1>
+          <span className="card__progress-label">
+            Email {currentIndex + 1} of {totalPrompts}
+          </span>
+        </div>
+
+        <ProgressBar
+          total={totalPrompts}
+          current={currentIndex}
+          completed={currentIndex}
+        />
+
+        <div className="email-practice">
+          <p className="email-practice__scenario">{currentPrompt.scenario}</p>
+
+          <div className="email-prompt-meta">
+            <p>
+              <strong>To:</strong> {currentPrompt.recipient}
+            </p>
+            <p>
+              <strong>Subject:</strong> {currentPrompt.subject}
+            </p>
+          </div>
+
+          <p className="email-practice__direction">
+            Write as much as you can and in complete sentences.
+          </p>
+
+          <ul className="email-instructions">
+            {currentPrompt.instructions.map((instruction) => (
+              <li key={instruction}>{instruction}</li>
+            ))}
+          </ul>
+
+          <label className="email-practice__label" htmlFor="email-response">
+            Your email
+          </label>
+          <textarea
+            id="email-response"
+            className="email-practice__textarea"
+            value={currentResponse}
+            onChange={(event) => handleResponseChange(event.target.value)}
+            placeholder="Write your email here..."
+            rows={12}
+          />
+        </div>
+
+        <div className="card__footer">
+          <div className="card__footer-nav">
+            <button
+              type="button"
+              className="btn btn--secondary"
+              onClick={goBack}
+              disabled={currentIndex === 0}
+            >
+              ← Back
+            </button>
+
+            <button type="button" className="btn btn--primary" onClick={goNext}>
+              {currentIndex < totalPrompts - 1
+                ? "Next Email →"
+                : "Finish →"}
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}
+
 export default function App() {
-  const { taskLabel, questions: allQuestions } = questionData;
+  const [selectedTaskId, setSelectedTaskId] = useState(null);
+  const selectedTask = selectedTaskId ? getTaskById(selectedTaskId) : null;
   const practiceTests = useMemo(
-    () => chunkQuestions(allQuestions, QUESTIONS_PER_TEST),
-    [allQuestions],
+    () => (selectedTask ? chunkTaskItems(selectedTask) : []),
+    [selectedTask],
   );
   const [userName, setUserName] = useState(() => loadCurrentUser());
   const userSlug = userName ? slugifyName(userName) : null;
   const [selectedTestIndex, setSelectedTestIndex] = useState(null);
   const [testMode, setTestMode] = useState("practice");
   const [practiceSessionKey, setPracticeSessionKey] = useState(0);
-  const [testResults, setTestResults] = useState({});
+  const [allTestResults, setAllTestResults] = useState({});
+  const taskTestResults = selectedTaskId
+    ? getTaskTestResults(allTestResults, selectedTaskId)
+    : {};
   const [isLoadingUser, setIsLoadingUser] = useState(Boolean(userSlug));
   const [isSubmittingProfile, setIsSubmittingProfile] = useState(false);
   const [loadError, setLoadError] = useState(null);
@@ -1016,7 +1463,7 @@ export default function App() {
     try {
       const data = await fetchUser(slug);
       setUserName(data.name);
-      setTestResults(data.testResults || {});
+      setAllTestResults(data.testResults || {});
       saveCurrentUser(data.name);
     } catch (error) {
       setLoadError(error.message);
@@ -1048,7 +1495,8 @@ export default function App() {
       skipSessionFetchRef.current = true;
       saveCurrentUser(data.name);
       setUserName(data.name);
-      setTestResults(data.testResults || {});
+      setAllTestResults(data.testResults || {});
+      setSelectedTaskId(null);
       setSelectedTestIndex(null);
       setTestMode("practice");
       setLoadError(null);
@@ -1062,7 +1510,8 @@ export default function App() {
   const handleSwitchUser = useCallback(() => {
     clearCurrentUser();
     setUserName(null);
-    setTestResults({});
+    setAllTestResults({});
+    setSelectedTaskId(null);
     setSelectedTestIndex(null);
     setTestMode("practice");
     setLoadError(null);
@@ -1070,17 +1519,25 @@ export default function App() {
   }, []);
 
   const saveTestResult = useCallback(
-    async (testIndex, answers) => {
+    async (taskId, testIndex, answers) => {
       if (!userSlug) return;
 
-      setTestResults((prev) => ({
+      setAllTestResults((prev) => ({
         ...prev,
-        [testIndex]: { answers },
+        [taskId]: {
+          ...(prev[taskId] || {}),
+          [testIndex]: { answers },
+        },
       }));
 
       try {
-        const data = await saveTestResultApi(userSlug, testIndex, answers);
-        setTestResults(data.testResults || {});
+        const data = await saveTestResultApi(
+          userSlug,
+          taskId,
+          testIndex,
+          answers,
+        );
+        setAllTestResults(data.testResults || {});
       } catch (error) {
         console.error("Failed to save test result:", error);
       }
@@ -1089,20 +1546,24 @@ export default function App() {
   );
 
   const clearTestResult = useCallback(
-    async (testIndex) => {
+    async (taskId, testIndex) => {
       if (!userSlug) return;
 
-      setTestResults((prev) => {
+      setAllTestResults((prev) => {
         const next = { ...prev };
-        delete next[testIndex];
+        if (next[taskId]) {
+          const taskResults = { ...next[taskId] };
+          delete taskResults[testIndex];
+          next[taskId] = taskResults;
+        }
         return next;
       });
       setTestMode("practice");
       setPracticeSessionKey((key) => key + 1);
 
       try {
-        const data = await clearTestResultApi(userSlug, testIndex);
-        setTestResults(data.testResults || {});
+        const data = await clearTestResultApi(userSlug, taskId, testIndex);
+        setAllTestResults(data.testResults || {});
       } catch (error) {
         console.error("Failed to clear test result:", error);
         await loadUserProgress(userSlug);
@@ -1111,29 +1572,41 @@ export default function App() {
     [loadUserProgress, userSlug],
   );
 
+  const handleSelectTask = useCallback((taskId) => {
+    setSelectedTaskId(taskId);
+    setSelectedTestIndex(null);
+    setTestMode("practice");
+  }, []);
+
+  const handleBackToTasks = useCallback(() => {
+    setSelectedTaskId(null);
+    setSelectedTestIndex(null);
+    setTestMode("practice");
+  }, []);
+
   const handleSelectTest = useCallback(
     (index) => {
       setSelectedTestIndex(index);
-      setTestMode(testResults[index]?.answers ? "review" : "practice");
+      setTestMode(taskTestResults[index]?.answers ? "review" : "practice");
       setPracticeSessionKey((key) => key + 1);
     },
-    [testResults],
+    [taskTestResults],
   );
 
   const handleTestComplete = useCallback(
     (answers) => {
-      if (selectedTestIndex !== null) {
-        saveTestResult(selectedTestIndex, answers);
+      if (selectedTaskId !== null && selectedTestIndex !== null) {
+        saveTestResult(selectedTaskId, selectedTestIndex, answers);
       }
     },
-    [saveTestResult, selectedTestIndex],
+    [saveTestResult, selectedTaskId, selectedTestIndex],
   );
 
   const handleResetTest = useCallback(() => {
-    if (selectedTestIndex !== null) {
-      clearTestResult(selectedTestIndex);
+    if (selectedTaskId !== null && selectedTestIndex !== null) {
+      clearTestResult(selectedTaskId, selectedTestIndex);
     }
-  }, [clearTestResult, selectedTestIndex]);
+  }, [clearTestResult, selectedTaskId, selectedTestIndex]);
 
   if (!userName) {
     return (
@@ -1158,26 +1631,62 @@ export default function App() {
     );
   }
 
-  if (selectedTestIndex === null) {
+  if (selectedTaskId === null) {
     return (
-      <HomeScreen
-        tests={practiceTests}
-        testResults={testResults}
+      <TaskHubScreen
         userName={userName}
-        userSlug={userSlug}
-        onSelect={handleSelectTest}
+        onSelectTask={handleSelectTask}
         onSwitchUser={handleSwitchUser}
       />
     );
   }
 
-  const testQuestions = practiceTests[selectedTestIndex];
-  const savedAnswers = testResults[selectedTestIndex]?.answers;
+  if (selectedTestIndex === null) {
+    return (
+      <HomeScreen
+        task={selectedTask}
+        tests={practiceTests}
+        testResults={taskTestResults}
+        userName={userName}
+        userSlug={userSlug}
+        onSelect={handleSelectTest}
+        onBackToTasks={handleBackToTasks}
+        onSwitchUser={handleSwitchUser}
+      />
+    );
+  }
+
+  const testItems = practiceTests[selectedTestIndex];
+  const savedAnswers = taskTestResults[selectedTestIndex]?.answers;
+
+  if (selectedTask.type === "email") {
+    if (testMode === "review" && savedAnswers) {
+      return (
+        <SavedEmailResultsView
+          prompts={testItems}
+          responses={savedAnswers}
+          onBackToTests={() => setSelectedTestIndex(null)}
+          onReset={handleResetTest}
+        />
+      );
+    }
+
+    return (
+      <EmailPracticeTest
+        key={`${selectedTaskId}-${selectedTestIndex}-${practiceSessionKey}`}
+        prompts={testItems}
+        taskLabel={`${selectedTask.label} — Practice Test ${selectedTestIndex + 1}`}
+        timeLimitSeconds={selectedTask.timeLimitSeconds}
+        onExit={() => setSelectedTestIndex(null)}
+        onComplete={handleTestComplete}
+      />
+    );
+  }
 
   if (testMode === "review" && savedAnswers) {
     return (
       <SavedResultsView
-        questions={testQuestions}
+        questions={testItems}
         answers={savedAnswers}
         onBackToTests={() => setSelectedTestIndex(null)}
         onReset={handleResetTest}
@@ -1187,10 +1696,10 @@ export default function App() {
 
   return (
     <PracticeTest
-      key={`${selectedTestIndex}-${practiceSessionKey}`}
-      questions={testQuestions}
-      taskLabel={`${taskLabel} — Practice Test ${selectedTestIndex + 1}`}
-      timeLimitSeconds={PRACTICE_TIME_SECONDS}
+      key={`${selectedTaskId}-${selectedTestIndex}-${practiceSessionKey}`}
+      questions={testItems}
+      taskLabel={`${selectedTask.label} — Practice Test ${selectedTestIndex + 1}`}
+      timeLimitSeconds={selectedTask.timeLimitSeconds}
       onExit={() => setSelectedTestIndex(null)}
       onComplete={handleTestComplete}
     />

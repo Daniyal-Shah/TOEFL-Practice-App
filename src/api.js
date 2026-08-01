@@ -29,19 +29,19 @@ export function fetchUser(slug) {
   return request(`/users/${slug}`);
 }
 
-export function saveTestResult(slug, testIndex, answers) {
-  return request(`/users/${slug}/results/${testIndex}`, {
+export function saveTestResult(slug, taskId, testIndex, answers) {
+  return request(`/users/${slug}/tasks/${taskId}/results/${testIndex}`, {
     method: "PUT",
     body: JSON.stringify({ answers }),
   });
 }
 
-export function clearTestResult(slug, testIndex) {
-  return request(`/users/${slug}/results/${testIndex}`, {
+export function clearTestResult(slug, taskId, testIndex) {
+  return request(`/users/${slug}/tasks/${taskId}/results/${testIndex}`, {
     method: "DELETE",
   });
 }
 
-export function fetchStatistics() {
-  return request("/statistics");
+export function fetchStatistics(taskId = "build-sentence") {
+  return request(`/statistics?taskId=${encodeURIComponent(taskId)}`);
 }
